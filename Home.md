@@ -19,7 +19,7 @@ This document explains how DEXON is different compared to other blockchain infra
 - [Algorand](#Algorand)
 - [Bitcoin](#Bitcoin)
 - [Cardano](#Cardano)
-- [Dfinity](#Dfinity)(TODO)
+- [Dfinity](#Dfinity)
 - [EOS](#EOS)
 - [Ethereum](#Ethereum)
 - [Hashgraph](#Hashgraph)
