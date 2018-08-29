@@ -13,7 +13,10 @@ This document explains how DEXON is different compared to other blockchain infra
 - <img src="https://latex.codecogs.com/svg.latex?n" />: number of nodes
 - <img src="https://latex.codecogs.com/svg.latex?b" />: number of blocks to be confirmed
 - <img src="https://latex.codecogs.com/svg.latex?f" />: ack frequency
-
+- For smart contract column:
+    - O: Supprted
+    - X: Not supported
+    - △: Not supported for now, but is able to support
 ### Contents
 - [DEXON](#dexon)
 - [Algorand](#algorand)
@@ -43,7 +46,7 @@ DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp
 ## Algorand
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|875|< 60|chain|Byzantine agreement|X|
+|875|< 60|chain|Byzantine agreement|△|
 
 Algorand is designed for large population (> 10K). They use a verifiable random function to protect the user from DDos attack and it is the lottery that deciding who have the right to propose a block or have the right to vote for each round. 
 
@@ -70,7 +73,7 @@ Another problem in Cardano consensus is that it highly depends on time synchroni
 ## Dfinity
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|X|
+|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 
 Dfinity is a permissioned blockchain and design for large population (around 10k). Dfinity contains a randomness beacon which generates new randomness by VRF with input from new confirmed block. They use the randomness to select a leader and electors for a round. By hypergeometric distribution, Dfinity only samples hundred of users to notary a block instead of all users, and this is correct with high probability. But this reduces the tolerance ability of Byzantine. For example, to achieve the majority of users is non-Byzantine with probability less than <img src="https://latex.codecogs.com/svg.latex?2^{-40}">, it needs to sample at least 423 users from 10K users with maximum 1/3 Byzantine users.
 However, Dfinity is chain-based, so its throughput is limited.
@@ -127,7 +130,7 @@ DEXON's consensus algorithm is also completely different from NANO's. We use tot
 ## Omniledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|6K|10|chain|ByzCoinX|X|
+|6K|10|chain|ByzCoinX|△|
 
 Omniledger aims to solve scalability problem without sacrificing security and decentralization. Its main approach is sharding, which allows the throughput to scale linearly with number of nodes. Omliledger also provides nice features such as ledger pruning, cross-shard transaction and trust-but-verify validation.
 
@@ -138,7 +141,7 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 ## Phantom
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|NA|DAG-blocklattice|greedy selection algorithm|X|
+|NA|NA|DAG-blocklattice|greedy selection algorithm|△|
 
 Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by Li et al. and Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
@@ -146,7 +149,7 @@ On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover
 ## Snowflake
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1300|4|DAG-blocklattice|Avalanche|X|
+|1300|4|DAG-blocklattice|Avalanche|△|
 
 Snowflake consensus starts from a simple coloring method, adds additional counters and rules, and finally ends up a provably probabilistically secure consensus algorithm, Avalanche. All nodes converge to the same color, which means that they will agree on the same transaction set when conflict happens.
 
@@ -171,7 +174,7 @@ The only concern about this kind of consensus is that whether your can remain in
 ## Tendermint
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|1 ~ 3|Chain|PBFT|\*|
+|NA|1 ~ 3|Chain|PBFT|△|
 
 Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. That means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce this communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
 
