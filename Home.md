@@ -21,7 +21,7 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Table of Contents
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-| [DEXON](#dexon) | 1M+ | 2 | <img width="500px" /> | total ordering | O |
+| [DEXON](#dexon) | 1M+ | 2 | &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | total ordering | O |
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
