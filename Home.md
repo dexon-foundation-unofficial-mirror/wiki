@@ -1,4 +1,4 @@
-DEXON Comparison to Other Blockchain --
+DEXON Comparison to Other Blockchain 
 ==
 ### Introduction
 This document explains how DEXON is different compared to other blockchain infrastructures. We do our best to explain the main differences, but still, we have the following principles:
@@ -10,6 +10,7 @@ This document explains how DEXON is different compared to other blockchain infra
 - DAG-tangle-lattice: a DAG that every vertex has exactly two edges and will not diverge
 - DAG-tangle: a DAG that every vertex has exactly two edges
 - $T_{network}$: network delay between nodes
+- <img src="https://latex.codecogs.com/gif.latex?T_{network}" /> 
 - $n$: number of nodes
 - $b$: number of blocks to be confirmed
 - $f$: ack frequency
