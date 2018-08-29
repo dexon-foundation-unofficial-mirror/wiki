@@ -155,7 +155,7 @@ To resolve conflict transactions, nodes need to execute Avalanche algorithm on e
 ## Spectre
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|?|1 ~ 10|DAG-blocklattice|block voting algorithm|X|
+|NA|1 ~ 10|DAG-blocklattice|block voting algorithm|X|
 
 Spectre is a DAG-based digital ledger system that uses recursive block voting to decide which conflict block should be finalized. This consensus algorithm allows participants to propose block arbitrarily fast, which means its scalability and latency is bounded by the network. However, its lack of total ordering of blocks makes it impossible to execute smart contract. That is the reason why they propose "Phantom", a consensus that is also DAG-based but with total ordering properties. We also [compare](#Phantom) DEXON to Phantom.
 
@@ -171,7 +171,7 @@ The only concern about this kind of consensus is that whether your can remain in
 ## Tendermint
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|?|1 ~ 3|Chain|PBFT|\*|
+|NA|1 ~ 3|Chain|PBFT|\*|
 
 Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. That means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce this communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
 
