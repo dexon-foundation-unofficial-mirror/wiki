@@ -173,6 +173,6 @@ The only concern about this kind of consensus is that whether your can remain in
 |-|-|-|-|-|
 |?|1 ~ 3|Chain|PBFT|\*|
 
-Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. That means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce this communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*nlogn)" />.
+Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. That means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce this communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
 
 
