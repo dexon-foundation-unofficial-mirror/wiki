@@ -48,18 +48,20 @@ DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp
 |-|-|-|-|-|
 |875|< 60|chain|Byzantine agreement|△|
 
-Algorand is designed for large population (> 10K). They use a verifiable random function to protect the user from DDos attack and it is the lottery that deciding who have the right to propose a block or have the right to vote for each round. 
+Algorand is designed for large population ( > 10K nodes). They use a verifiable random function to protect nodes from DDos attack, and it is the lottery that decides who have the right to propose a block or vote for each round. 
 
-The consensus of Algorand is based on Byzantine agreement over samples from the whole users. This causes Algorand can only tolerate less than one third of total population. For example, if it sets 1/5 as maximum ratio of Byzantine node among all participants, the ratio of Byzantine node in samples can be bounded by 1/3 with high probability.
+The consensus of Algorand is based on Byzantine agreement among samples from the whole set of nodes. This is the reason why Algorand can only tolerate less than one third of total number of nodes. For example, if it sets 1/5 as maximum ratio of Byzantine nodes among all nodes, the ratio of Byzantine nodes in samples can be bounded by 1/3 with high probability.
 
-They use gossip mechanism which costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each message, which means its confirmation time becomes longer when the number of node increases and nodes scattered around the world. With this limitation, the confirmation time will be around one minute if the number of user is expected as 500K. At the same <img src="https://latex.codecogs.com/svg.latex?n" /> and <img src="https://latex.codecogs.com/svg.latex?T_{network}" />, the confirmation time is affected by malicious. While, DEXON's confirmation time doesn't change as the ratio of malicious increases. If it wants to increase throughput, it must increase maximum blocksize. But increasing maximum blocksize causes a longer confirmation time. This means Algorand is lack of scalability. However, DEXON increases throughput by means of increasing the number of nodes without affecting the confirmation time. 
+They use gossip mechanism that costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each message, which means its confirmation time becomes longer when the number of nodes increases and scatters around the world. With this limitation, the confirmation time will be around one minute if the number of nodes is expected to be 500K. Another factor that will affect the confirmation time is Byzantine behavior. If a Byzantine node wins the lottery and becomes a leader, the process of Byzantine agreement will need more round to converge. On the other hand, DEXON's confirmation time is not affcted by Byzantine behavior as long as the number of Byzantine nodes is less than one third of total nodes. 
+
+If Algorand wants to increase its throughput, it must increase block size. However, increasing block size causes a longer network delay, increasing the confirmation time. This means Algorand is lack of scalability. On the other hand, DEXON increases throughput by means of increasing the number of nodes without affecting the confirmation time. 
 
 ## Bitcoin
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |7|3600|chain|longest chain rule|X|
 
-Bitcoin is the first cryptocurrency that starts the era of blockchain. It is well-known and widely used. However, it is infamous for its long confirmation time, low TPS and high transaction fee. DEXON solves all of them and at the same time provides DApp functionality, which Bitcoin does not have.
+Bitcoin is the first cryptocurrency that starts the era of blockchain. It is the most well-known and widely used cryptocurrency. However, it is infamous for its long confirmation time, low TPS and high transaction fee. DEXON solves all of them and at the same time provides DApp functionality, which Bitcoin does not have.
 
 ## Cardano
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -68,14 +70,14 @@ Bitcoin is the first cryptocurrency that starts the era of blockchain. It is wel
 
 Cardano is the first project that provides a concrete mathematical proof on security of PoS blockchain. Besides PoS, they also proposes other promising ideas such as unbiased randomness with commit-reveal scheme and using Nash Equilibrium to prevent selfish mining attack. However, its chain-based structure naturally limits its throughput, since chain-based structure can only process block linearly, and can be proved that it can not scale.
 
-Another problem in Cardano consensus is that it highly depends on time synchronization. If some honest nodes are desynchronized (for example, NTP service hijack by an attacker), they don't know when is the starting time of a slot and will be treated as failed. They claimed desynchronized nodes can be corrected by some method introduced in the future, but it is not implemented yet.
+Another problem in Cardano consensus is that it highly depends on time synchronization. If some honest nodes are desynchronized (for example, NTP service hijack by an attacker), they don't know when is the starting time of a slot and will be treated as fail-stop node. They claimed desynchronized nodes can be corrected by some method introduced in the future, but it is not implemented yet.
 
 ## Dfinity
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 
-Dfinity is a permissioned blockchain and design for large population (around 10k). Dfinity contains a randomness beacon which generates new randomness by VRF with input from new confirmed block. They use the randomness to select a leader and electors for a round. By hypergeometric distribution, Dfinity only samples hundred of users to notary a block instead of all users, and this is correct with high probability. But this reduces the tolerance ability of Byzantine. For example, to achieve the majority of users is non-Byzantine with probability less than <img src="https://latex.codecogs.com/svg.latex?2^{-40}">, it needs to sample at least 423 users from 10K users with maximum 1/3 Byzantine users.
+Dfinity is a permissioned blockchain and design for large population (around 10K of nodes). Dfinity contains a randomness beacon which generates new randomness by VRF (verifiable random function) with information from new confirmed block. They use the randomness to select a leader and electors for a round. By hypergeometric distribution, Dfinity only samples hundred of nodes to notary a block instead of using all nodes, and this is correct with high probability. But this reduces the tolerance ability to Byzantine nodes. For example, to achieve the majority of nodes is non-Byzantine with probability less than <img src="https://latex.codecogs.com/svg.latex?2^{-40}">, it needs to sample at least 423 nodes from 10K nodes with maximum 1/3 Byzantine nodes.
 However, Dfinity is chain-based, so its throughput is limited.
 
 ## EOS
@@ -83,7 +85,7 @@ However, Dfinity is chain-based, so its throughput is limited.
 |-|-|-|-|-|
 |100K|165|chain|longest chain & Byzantine fault tolerance|O|
 
-EOS reaches high throughput and low latency. They have 21 so-called "supernodes", which are considered not decentralized. Also, at the time of writing, its Byzantine fault tolerance consensus is not implemented, so the confirmation time is about 165 seconds, not 1 or 2 seconds as they claimed.
+EOS reaches high throughput and low latency. They have 21 so-called "supernodes", which are considered not decentralized. Also, at the time of writing, its Byzantine fault tolerance consensus is not implemented yet, so the confirmation time is about 165 seconds, not 1 or 2 seconds as they claimed.
 
 ## Ethereum
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
