@@ -19,8 +19,12 @@ This document explains how DEXON is different compared to other blockchain infra
     - X: Not supported
     - △: Not supported for now, but is able to support
 ### Table of Contents
-
-|Project|Throughput (TPS)|Latency (seconds)|Data Structure <img width="1000" />|Consensus|Smart Contract|
+<style>
+table {
+    width: 100%
+}
+</style>
+|Project|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|-|
 |[DEXON](#dexon)|1M+|2|DAG-blocklattice|total ordering|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
@@ -39,7 +43,6 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Spectre](#spectre)|NA|1 ~ 10|DAG-blocklattice|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|Chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|Chain|PBFT|△|
-
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
