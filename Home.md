@@ -72,7 +72,7 @@ Another problem in Cardano consensus is that it highly depends on time synchroni
 |-|-|-|-|-|
 |500 ~ 1000|5 ~ 10|dual-chain|Dfinity|X|
 
-Dfinity is a permissioned blockchain and design for large population (around 10k). Dfinity contains a randomness beacon which generates new randomness by VRF with input from new confirmed block. They use the randomness to select a leader and electors for a round. By hypergeometric distribution, Dfinity only samples hundred of users to notary a block instead of all users, and this is correct with high probability. But this reduces the tolerance ability of Byzantine. For example, to achieve the majority of users is non-Byzantine with probability less than 2^{-40}, it needs to sample at least 423 users from 10K users with maximum 1/3 Byzantine users.
+Dfinity is a permissioned blockchain and design for large population (around 10k). Dfinity contains a randomness beacon which generates new randomness by VRF with input from new confirmed block. They use the randomness to select a leader and electors for a round. By hypergeometric distribution, Dfinity only samples hundred of users to notary a block instead of all users, and this is correct with high probability. But this reduces the tolerance ability of Byzantine. For example, to achieve the majority of users is non-Byzantine with probability less than <img src="https://latex.codecogs.com/svg.latex?2^{-40}", it needs to sample at least 423 users from 10K users with maximum 1/3 Byzantine users.
 However, Dfinity is chain-based, so its throughput is limited.
 
 ## EOS
