@@ -6,11 +6,13 @@ This document explains how DEXON is different compared to other blockchain infra
 2. The comparison is based on our up-to-date understanding, and projects can be updated frequently. We will update this document if necessary.
 
 ### Definition
+<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
 - DAG-blocklattice: a DAG that every vertex has at least one edge and will not diverge (DAG width remains proportional to number of nodes)
 - DAG-tangle-lattice: a DAG that every vertex has exactly two edges and will not diverge
 - DAG-tangle: a DAG that every vertex has exactly two edges
 - $T_{network}$: network delay between nodes
 - <img src="https://latex.codecogs.com/svg.latex?T_{network}" />: network delay
+- <span lang="latex">T_{network}</span>
 - $n$: number of nodes
 - $b$: number of blocks to be confirmed
 - $f$: ack frequency
