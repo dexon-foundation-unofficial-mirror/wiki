@@ -100,7 +100,7 @@ Ethereum is the first blockchain system that has a complete DApp ecosystem. It h
 |-|-|-|-|-|
 |200K|20|DAG-tangle-lattice|Hedera|O|
 
-The consensus of Hashgraph is adapted Byzantine agreement on graph. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed and proved in Hashgraph. Only security proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
+The consensus of Hashgraph is adapted Byzantine agreement on graph. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed in Hashgraph. Only correctness proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
 
 ## Hyperledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -149,12 +149,13 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by the work from Li et al. and the work from Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
 On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover, the correctness and liveness of DEXON consensus are both proved.
+
 ## Snowflake
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |1300|4|DAG-blocklattice|Avalanche|△|
 
-Snowflake consensus starts from a simple coloring method, adds additional counters and rules, and finally ends up a provably probabilistically secure consensus algorithm, Avalanche. All nodes converge to the same color, which means that they will agree on the same transaction set when conflict happens.
+Snowflake consensus starts from a simple coloring method, adds additional counters and rules, and finally ends up a provably probabilistic secure consensus algorithm, Avalanche. All nodes converge to the same color, which means that they will agree on the same transaction set when conflict happens.
 
 To resolve conflict transactions, nodes need to execute Avalanche algorithm on every transaction in a conflict set. So an attacker can spam the system with large amount of conflict transactions, resulting the system to execute Avalanche algorithm hundreds of thousands of times, and the latency will grow significantly. DEXON will not suffer from such an attack. After total order being decided, the first transaction in the conflict set will be executed, while other conflict transactions are ignored.
 
@@ -170,15 +171,15 @@ Spectre is a DAG-based digital ledger system that uses recursive block voting to
 |-|-|-|-|-|
 |1K ~ 10K|2 ~ 5|Chain|Stellar Consensus|O|
 
-Stellar uses a generalized version of traditional Byzantine agreement protocol, which they called "federated Byzantine agreement". This consensus algorithm requires participant to choose their own quorum slices. If quorum intersection is satisfied, it is proved that all intact participants will reach consensus.
+Stellar uses a generalized version of traditional Byzantine agreement protocol, which they called "federated Byzantine agreement". This consensus algorithm requires participants to choose their own quorum slices. If quorum intersection is satisfied, it is proved that all intact participants will reach consensus.
 
-The only concern about this kind of consensus is that whether your can remain intact depends on the choice of your quorum slices. To have a secure configuration and faster response, it is better for a node to choose nodes of reliable companies or banks as quorum slices, which may lead to semi-centralization.
+The only concern about this kind of consensus is that whether you can remain intact depends on the choice of your quorum slices. To have a secure configuration and faster response, it is better for a node to choose nodes that set up by reliable companies or banks as quorum slices, which may lead to semi-centralization.
 
 ## Tendermint
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |NA|1 ~ 3|Chain|PBFT|△|
 
-Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. That means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce this communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
+Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. This means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce the communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
 
 
