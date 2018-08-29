@@ -36,7 +36,7 @@ This document explains how DEXON is different compared to other blockchain infra
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1M+|2|DAG-blocklattice|Total ordering|O|
+|1M+|2|DAG-blocklattice|total ordering|O|
 
 DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp ecosystem. DEXON uses total ordering as its main consensus algorithm, of which throughput can scale linearly with the number of nodes while latency remains nearly constant. Instead of processing blocks sequentially like traditional blockchain, DEXON blocklattice data structure processes blocks in parallel. With such high throughput and low latency, practical DApp can finally be developed and widely-used. 
 
