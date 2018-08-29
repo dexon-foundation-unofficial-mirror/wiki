@@ -139,12 +139,11 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 ## Phantom
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|?|?|DAG-blocklattice|greedy selection algorithm|X|
+|NA|NA|DAG-blocklattice|greedy selection algorithm|X|
 
-Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, the ghostDAG protocol described in their paper is not an online algorithm and the input must be the same DAG for each validator so the total ordering property could be guaranteed. But the DAG in each validators' local view may be different causes the central consensus problem in DAG-based system. Furthermore, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
+Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by Li et al. and Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
-On the other hand, DEXON consensus is an online algorithm, and the total ordering is guaranteed if the input is eventual the same. Moreover, the correctness and livenes of DEXON consensus are both proved.
-
+On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover, the correctness and liveness of DEXON consensus are both proved.
 ## Snowflake
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
