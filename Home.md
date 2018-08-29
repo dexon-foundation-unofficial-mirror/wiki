@@ -6,7 +6,7 @@ This document explains how DEXON is different compared to other blockchain infra
 2. The comparison is based on our up-to-date understanding, and projects can be updated frequently. We will update this document if necessary.
 
 ### Definition
-- Node in this document is a validator or a full node in the network
+- Node in this document is a validator or a full node in the network.
 - DAG-blocklattice: a DAG that every vertex has at least one edge and will not diverge (DAG width remains proportional to number of nodes)
 - DAG-tangle-lattice: a DAG that every vertex has exactly two edges and will not diverge
 - DAG-tangle: a DAG that every vertex has exactly two edges
@@ -100,14 +100,14 @@ Ethereum is the first blockchain system that has a complete DApp ecosystem. It h
 |-|-|-|-|-|
 |200K|20|DAG-tangle-lattice|Hedera|O|
 
-The consensus of Hashgraph is adapted Byzantine agreement on graph. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed and proved in Hashgraph. Only security proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when number of nodes increases.
+The consensus of Hashgraph is adapted Byzantine agreement on graph. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed and proved in Hashgraph. Only security proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
 
 ## Hyperledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |4K|< 1|chain|Pluggable|O|
 
-Hyperledger (especially Hyperledger Fabric) is a distributed ledger designed for enterprise use. It should be permissioned, low-latency, high-throughput and provides private transaction functionalities. Its consensus is modularized and pluggable. It can choose among consensus engines/algorithms such as Tendermint, PBFT, Kafka ordering or RAFT.
+Hyperledger (specifically, Hyperledger Fabric) is a distributed ledger designed for enterprise use. It should be permissioned, low-latency, high-throughput and provides private transaction functionalities. Its consensus is modularized and pluggable. It can choose among consensus engines/algorithms such as Tendermint, PBFT, Kafka ordering or RAFT.
 
 It is much easier to address consensus problem in a permissioned settings with high throughput and low latency. There is no strong Byzantine participants, and network environment is stable and fast. It does fit for enterprises to use such settings, while DEXON aims to be more open and decentralized, providing high throughput and low latency at the same time.
 
@@ -116,26 +116,26 @@ It is much easier to address consensus problem in a permissioned settings with h
 |-|-|-|-|-|
 |500 ~ 800|> 180|DAG-tangle|longest chain rule|X|
 
-IOTA follows the longest chain rule on a graph: a block randomly chooses and verifies to two previous blocks. A block is confirmed if enough number of blocks follow it and the length of the connected chain is the longest.
-However, the rule is inefficient because the confirmation time is not guaranteed by a specific bound. Moreover, a transaction might be invalid if it connected to a conflict transaction. That transaction has to re-attached to another block. This causes a very long confirmation time. Furthermore, IOTA does not support smart contract due to the lack of total ordering of all blocks. 
+IOTA follows the longest chain rule on a graph: a node randomly chooses and verifies two previous blocks and attaches its block to them. A block is confirmed if enough number of blocks follow it and the length of the connected chain is the longest.
+However, the rule is inefficient because the confirmation time is not guaranteed by a specific bound. Moreover, a block might be invalid if it is attached to a block that contains conflict transaction. That block has to be re-attached to other blocks. This causes a very long confirmation time. Furthermore, IOTA does not support smart contract due to the lack of total ordering among all blocks. 
 
 ## NANO
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |7000|1|DAG-tangle-lattice|DPoS|X|
 
-NANO is the first project that introduces blocklattice as their data structure. Each account has its own blockchain and a transaction it propose will be recorded on the blockchain. When a blockchain fork happens, NANO starts a DPoS voting to resolve it.
+NANO is the first project that introduces blocklattice as their data structure. Each account has its own blockchain, and a transaction it proposed is recorded on its blockchain. When a blockchain fork happens, NANO starts a DPoS voting to resolve it.
 
-DEXON's blocklattice is completely different from NANO's. In DEXON, instead of every account having its own blockchain, each validator has a blockchain. In our blocklattice, each vertex is a block, while in NANO, each vertex is half of a transaction (send tx or recv tx). From our view point, their blocklattice is more like "tx-lattice", not blocklattice, and we consider blocklattice a general term, just like blockchain, since it is just a type of DAG. 
+DEXON's blocklattice is completely different from NANO's. In DEXON, instead of every account having its own blockchain, each validator has a blockchain. This could save a lot of memory space. In our blocklattice, each vertex is a block, while in NANO, each vertex is half of a transaction (send tx or recv tx). From our view point, their blocklattice is more like "tx-lattice", not blocklattice, and we consider blocklattice a general term that can be used by other projects, just like blockchain, since it is just a type of DAG. 
 
-DEXON's consensus algorithm is also completely different from NANO's. We use total ordering algorithm to decide order of transactions, while NANO does not have consensus on order of transactions. Without ordering transactions, it can not support smart contract. Another problem is its DPoS to resolve fork. The voting process NANO used to resolve fork is mysterious. In its whitepaper, there is no detail about the voting process. The only thing we know is a majority voting with 4 rounds. Without further detail and security proof, we find it hard to believe that NANO is secure. Also, NANO needs PoW to prevent spam (penny) attack, increasing the cost of attack but also limiting its throughput and increasing its latency.  
+DEXON's consensus algorithm is also completely different from NANO's. We use total ordering algorithm to decide order of blocks and transactions, while NANO does not have consensus on order of transactions. Without ordering transactions, it can not support smart contract. Another problem is its DPoS to resolve fork. The voting process NANO used to resolve fork is mysterious. In its whitepaper, there is no detail about the voting process. The only thing we know is a majority voting with 4 rounds. Without further detail and security proof, we find it hard to believe that NANO is secure. Also, NANO needs PoW to prevent spam (penny) attack, increasing the cost of attack but also limiting its throughput and increasing its latency.  
 
 ## Omniledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |6K|10|chain|ByzCoinX|△|
 
-Omniledger aims to solve scalability problem without sacrificing security and decentralization. Its main approach is sharding, which allows the throughput to scale linearly with number of nodes. Omliledger also provides nice features such as ledger pruning, cross-shard transaction and trust-but-verify validation.
+Omniledger aims to solve scalability problem without sacrificing security and decentralization. Its main approach is sharding, which allows the throughput to scale linearly with the number of nodes. Omliledger also provides nice features such as ledger pruning, cross-shard transaction and trust-but-verify validation.
 
 The problem of Omniledger is that its latency could be large in a fully decentralized setting. The reason is that it uses ByzCoinX (which is an optimization of PBFT-like consensus algorithm) for intra-shard consensus and Atomix (DB-like atomic broadcast) for inter-shard transaction. This means the group size in a shard for communication can not be too large, or the communication cost and latency will be large. To increase the number of nodes with limited shard size, number of shards will increase, and the needs for cross-shard transaction will also increase. With atomic broadcast, a cross-shard transaction has to wait for every involved shard to be confirmed, and even a single shard failed will cause the transaction to fail. In DEXON, transaction only needs to enter one shard and will be output immediately. 
 
