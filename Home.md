@@ -6,16 +6,13 @@ This document explains how DEXON is different compared to other blockchain infra
 2. The comparison is based on our up-to-date understanding, and projects can be updated frequently. We will update this document if necessary.
 
 ### Definition
-<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
 - DAG-blocklattice: a DAG that every vertex has at least one edge and will not diverge (DAG width remains proportional to number of nodes)
 - DAG-tangle-lattice: a DAG that every vertex has exactly two edges and will not diverge
 - DAG-tangle: a DAG that every vertex has exactly two edges
-- $T_{network}$: network delay between nodes
-- <img src="https://latex.codecogs.com/svg.latex?T_{network}" />: network delay
-- <span lang="latex">T_{network}</span>
-- $n$: number of nodes
-- $b$: number of blocks to be confirmed
-- $f$: ack frequency
+- <img src="https://latex.codecogs.com/svg.latex?T_{network}" />: network delay between nodes
+- <img src="https://latex.codecogs.com/svg.latex?n" />: number of nodes
+- <img src="https://latex.codecogs.com/svg.latex?b" />: number of blocks to be confirmed
+- <img src="https://latex.codecogs.com/svg.latex?f" />: ack frequency
 
 ### Contents
 - [DEXON](#DEXON)
@@ -52,7 +49,7 @@ Algorand is designed for large population (> 10K). They use a verifiable random 
 
 The consensus of Algorand is based on Byzantine agreement over samples from the whole users. This causes Algorand can only tolerate less than one third of total population. For example, if it sets 1/5 as maximum ratio of Byzantine node among all participants, the ratio of Byzantine node in samples can be bounded by 1/3 with high probability.
 
-They use gossip mechanism which costs a latency of $O(log(n)) * T_{network}$ for each message in order to reduce the bandwidth complexity, which means its confirmation time becomes longer when the number of node increases and nodes scattered around the world. With this limitation, the confirmation time will be around one minute if the number of user is expected as 50K. At the same $n$ and $T_{network}$, the confirmation time is affected by malicious. While, DEXON's confirmation time doesn't change as the ratio of malicious increases. If it wants to increase throughput, it must increase maximum blocksize. But increasing maximum blocksize causes a longer confirmation time. This means Algorand is lack of scalability. However, DEXON increases throughput by means of increasing the number of nodes without affecting the confirmation time. 
+They use gossip mechanism which costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n)) * T_{network}" /> for each message in order to reduce the bandwidth complexity, which means its confirmation time becomes longer when the number of node increases and nodes scattered around the world. With this limitation, the confirmation time will be around one minute if the number of user is expected as 50K. At the same $n$ and $T_{network}$, the confirmation time is affected by malicious. While, DEXON's confirmation time doesn't change as the ratio of malicious increases. If it wants to increase throughput, it must increase maximum blocksize. But increasing maximum blocksize causes a longer confirmation time. This means Algorand is lack of scalability. However, DEXON increases throughput by means of increasing the number of nodes without affecting the confirmation time. 
 
 ## Bitcoin
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
