@@ -15,23 +15,23 @@ This document explains how DEXON is different compared to other blockchain infra
 - <img src="https://latex.codecogs.com/svg.latex?f" />: ack frequency
 
 ### Contents
-- [DEXON](#DEXON)
-- [Algorand](#Algorand)
-- [Bitcoin](#Bitcoin)
-- [Cardano](#Cardano)
-- [Dfinity](#Dfinity)
-- [EOS](#EOS)
-- [Ethereum](#Ethereum)
-- [Hashgraph](#Hashgraph)
-- [Hyperledger](#Hyperledger)
-- [IOTA](#IOTA)
-- [NANO](#NANO)
-- [Omniledger](#Omniledger)
-- [Phantom](#Phantom)
-- [Snowflake](#Snowflake)
-- [Spectre](#Spectre)
-- [Stellar](#Stellar)
-- [Tendermint](#Tendermint)
+- [DEXON](#dexon)
+- [Algorand](#algorand)
+- [Bitcoin](#bitcoin)
+- [Cardano](#cardano)
+- [Dfinity](#dfinity)
+- [EOS](#eos)
+- [Ethereum](#ethereum)
+- [Hashgraph](#hashgraph)
+- [Hyperledger](#hyperledger)
+- [IOTA](#iota)
+- [NANO](#nano)
+- [Omniledger](#omniledger)
+- [Phantom](#phantom)
+- [Snowflake](#snowflake)
+- [Spectre](#spectre)
+- [Stellar](#stellar)
+- [Tendermint](#tendermint)
 
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -157,7 +157,7 @@ To resolve conflict transactions, nodes need to execute Avalanche algorithm on e
 |-|-|-|-|-|
 |NA|1 ~ 10|DAG-blocklattice|block voting algorithm|X|
 
-Spectre is a DAG-based digital ledger system that uses recursive block voting to decide which conflict block should be finalized. This consensus algorithm allows participants to propose block arbitrarily fast, which means its scalability and latency is bounded by the network. However, its lack of total ordering of blocks makes it impossible to execute smart contract. That is the reason why they propose "Phantom", a consensus that is also DAG-based but with total ordering properties. We also [compare](#Phantom) DEXON to Phantom.
+Spectre is a DAG-based digital ledger system that uses recursive block voting to decide which conflict block should be finalized. This consensus algorithm allows participants to propose block arbitrarily fast, which means its scalability and latency is bounded by the network. However, its lack of total ordering of blocks makes it impossible to execute smart contract. That is the reason why they propose "Phantom", a consensus that is also DAG-based but with total ordering properties. We also [compare](#phantom) DEXON to Phantom.
 
 ## Stellar
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
