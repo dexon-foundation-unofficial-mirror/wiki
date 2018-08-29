@@ -49,7 +49,7 @@ DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp
 |-|-|-|-|-|
 |875|< 60|chain|Byzantine agreement|△|
 
-Algorand is designed for large population ( > 10K nodes). They use a verifiable random function to protect nodes from DDos attack, and it is the lottery that decides who have the right to propose a block or vote for each round. 
+Algorand is designed for large population ( ~ 500K nodes). They use a verifiable random function to protect nodes from DDos attack, and it is the lottery that decides who have the right to propose a block or to vote for each round. 
 
 The consensus of Algorand is based on Byzantine agreement among samples from the whole set of nodes. This is the reason why Algorand can only tolerate less than one third of total number of nodes. For example, if it sets 1/5 as maximum ratio of Byzantine nodes among all nodes, the ratio of Byzantine nodes in samples can be bounded by 1/3 with high probability.
 
