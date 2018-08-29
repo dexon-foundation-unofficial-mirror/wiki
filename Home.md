@@ -118,7 +118,7 @@ It is much easier to address consensus problem in a permissioned consortium sett
 |-|-|-|-|-|
 |500 ~ 800|> 180|DAG-tangle|longest chain rule|X|
 
-IOTA follows the longest chain rule on a graph: a node randomly chooses and verifies two previous blocks and attaches its block to them. A block is confirmed if enough number of blocks follow it and the length of the connected chain is the longest.
+IOTA follows the longest chain rule on a graph: a node randomly chooses and verifies two previous blocks and attaches its block to them. A block is confirmed if enough number of blocks followed it and the length of the connected chain is the longest.
 However, the rule is inefficient because the confirmation time is not guaranteed by a specific bound. Moreover, a block might be invalid if it is attached to a block that contains conflict transaction. That block has to be re-attached to other blocks. This causes a very long confirmation time. Furthermore, IOTA does not support smart contract due to the lack of total ordering among all blocks. 
 
 ## NANO
