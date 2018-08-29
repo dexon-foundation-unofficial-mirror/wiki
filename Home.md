@@ -6,6 +6,7 @@ This document explains how DEXON is different compared to other blockchain infra
 2. The comparison is based on our up-to-date understanding, and projects can be updated frequently. We will update this document if necessary.
 
 ### Definition
+- Node in this document is a validator or a full node in the network
 - DAG-blocklattice: a DAG that every vertex has at least one edge and will not diverge (DAG width remains proportional to number of nodes)
 - DAG-tangle-lattice: a DAG that every vertex has exactly two edges and will not diverge
 - DAG-tangle: a DAG that every vertex has exactly two edges
@@ -145,7 +146,7 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 |-|-|-|-|-|
 |NA|NA|DAG-blocklattice|greedy selection algorithm|△|
 
-Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by Li et al. and Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
+Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by the work from Li et al. and the work from Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
 On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover, the correctness and liveness of DEXON consensus are both proved.
 ## Snowflake
