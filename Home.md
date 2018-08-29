@@ -100,7 +100,7 @@ Ethereum is the first blockchain system that has a complete DApp ecosystem. It h
 |-|-|-|-|-|
 |200K|20|DAG-tangle-lattice|Hedera|O|
 
-The consensus of Hashgraph is adapted Byzantine agreement on graph. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed in Hashgraph. Only correctness proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
+The consensus of Hashgraph is adapted Byzantine agreement on graph, on the other hand, the core of DEXON consensus is based on total ordering algorithm. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed in Hashgraph. Only correctness proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
 
 ## Hyperledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -109,7 +109,7 @@ The consensus of Hashgraph is adapted Byzantine agreement on graph. Their round-
 
 Hyperledger (specifically, Hyperledger Fabric) is a distributed ledger designed for enterprise use. It should be permissioned, low-latency, high-throughput and provides private transaction functionalities. Its consensus is modularized and pluggable. It can choose among consensus engines/algorithms such as Tendermint, PBFT, Kafka ordering or RAFT.
 
-It is much easier to address consensus problem in a permissioned settings with high throughput and low latency. There is no strong Byzantine participants, and network environment is stable and fast. It does fit for enterprises to use such settings, while DEXON aims to be more open and decentralized, providing high throughput and low latency at the same time.
+It is much easier to address consensus problem in a permissioned consortium settings with high throughput and low latency because the assumption of the environment is: the number of nodes is fixed, each identity is known, the goal of all nodes is the same, and the network environment is stable and fast but the node does not fully trust to each other. It does fit for enterprises to use such settings, while DEXON aims to be more open and decentralized, providing high throughput and low latency at the same time.
 
 ## IOTA
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
