@@ -1,4 +1,4 @@
-DEXON Comparison to Other Blockchain
+DEXON Comparison to Other Blockchain --
 ==
 ### Introduction
 This document explains how DEXON is different compared to other blockchain infrastructures. We do our best to explain the main differences, but still, we have the following principles:
