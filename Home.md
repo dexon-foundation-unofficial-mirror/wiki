@@ -20,7 +20,7 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Table of Contents
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-|[DEXON](#dexon)|1M+|2|DAG<br />-blocklattice(1, <img src="https://latex.codecogs.com/svg.latex?n" /> + 1)|total ordering|O|
+|[DEXON](#dexon)|1M+|2|<img src="https://latex.codecogs.com/svg.latex?blocklattice(1,n+1)" />|total ordering|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
@@ -35,8 +35,8 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Phantom](#phantom)|NA|NA|DAG-blocklattice()|greedy selection algorithm|△|
 |[Snowflake](#snowflake)|1300|4|DAG-blocklattice()|Avalanche|△|
 |[Spectre](#spectre)|NA|1 ~ 10|DAG-blocklattice()|block voting algorithm|X|
-|[Stellar](#stellar)|1K ~ 10K|2 ~ 5|Chain|Stellar Consensus|O|
-|[Tendermint](#tendermint)|NA|1 ~ 3|Chain|PBFT|△|
+|[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
+|[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
@@ -169,7 +169,7 @@ Spectre is a DAG-based digital ledger system that uses recursive block voting to
 ## Stellar
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1K ~ 10K|2 ~ 5|Chain|Stellar Consensus|O|
+|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 
 Stellar uses a generalized version of traditional Byzantine agreement protocol, which they called "federated Byzantine agreement". This consensus algorithm requires participants to choose their own quorum slices. If quorum intersection is satisfied, it is proved that all intact participants will reach consensus.
 
@@ -178,7 +178,7 @@ The only concern about this kind of consensus is that whether you can remain int
 ## Tendermint
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|1 ~ 3|Chain|PBFT|△|
+|NA|1 ~ 3|chain|PBFT|△|
 
 Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. This means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce the communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
 
