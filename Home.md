@@ -27,7 +27,7 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 |[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
-|[Hashgraph](#hashgraph)|200K|20|DAG-blocklattice(2, 3)|Hedera|O|
+|[Hashgraph](#hashgraph)|200K|20|DAG-blocklattice(2,3)|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
 |[IOTA](#iota)|500 ~ 800|> 180|DAG-tangle(2, <img src="https://latex.codecogs.com/svg.latex?\infty" />)|longest chain rule|X|
 |[NANO](#nano)|7000|1|DAG-blocklattice(2, 3)|DPoS|X|
