@@ -174,7 +174,7 @@ Spectre is a DAG-based digital ledger system that uses recursive block voting to
 
 Stellar uses a generalized version of traditional Byzantine agreement protocol, which they called "federated Byzantine agreement". This consensus algorithm requires participants to choose their own quorum slices. If quorum intersection is satisfied, it is proved that all intact participants will reach consensus.
 
-The only concern about this kind of consensus is that whether you can remain intact depends on the choice of your quorum slices. To have a secure configuration and faster response, it is better for a node to choose nodes that set up by reliable companies or banks as quorum slices, which may lead to semi-centralization.
+The only concern about this kind of consensus is that whether you can remain intact (not affected by Byzantine nodes) depends on the choice of your quorum slices. To have a secure configuration with fast response and stable service, it is better for a node to choose nodes set up by reliable companies or banks as quorum slices, which may lead to semi-centralization.
 
 ## Tendermint
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
