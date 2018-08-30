@@ -7,8 +7,8 @@ This document explains how DEXON is different compared to other blockchain infra
 
 ### Definition
 - Node in this document is a validator or a full node in the network.
-- blocklattice(i,j): a DAG that degree of every vertex is from i to j, and will not diverge (DAG width remains proportional to number of nodes)
-- tangle(i,j): a DAG that degree of every vertex is from i to j, and will possibly diverge
+- blocklattice(i, j): a DAG that degree of every vertex is from i to j, and will not diverge (DAG width remains proportional to number of nodes)
+- tangle(i, j): a DAG that degree of every vertex is from i to j, and will possibly diverge
 - <img src="https://latex.codecogs.com/svg.latex?T_{network}" />: network delay between nodes
 - <img src="https://latex.codecogs.com/svg.latex?n" />: number of nodes
 - <img src="https://latex.codecogs.com/svg.latex?b" />: number of blocks to be confirmed
@@ -20,14 +20,14 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Table of Contents
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-|[DEXON](#dexon)|1M+|2|blocklattice(1,2n)|total ordering|O|
+|[DEXON](#dexon)|1M+|2|blocklattice(1, 2n)|total ordering|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
 |[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 |[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
-|[Hashgraph](#hashgraph)|200K|20|blocklattice(2,3)|Hedera|O|
+|[Hashgraph](#hashgraph)|200K|20|blocklattice(2, 3)|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
 |[IOTA](#iota)|500 ~ 800|> 180|tangle(2, <img src="https://latex.codecogs.com/svg.latex?\infty" />)|longest chain rule|X|
 |[NANO](#nano)|7000|1|blocklattice(2, 3)|DPoS|X|
