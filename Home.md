@@ -19,12 +19,9 @@ This document explains how DEXON is different compared to other blockchain infra
     - X: Not supported
     - △: Not supported for now, but is able to support
 ### Table of Contents
-<div>
-test
-</div>
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-|[DEXON](#dexon)|1M+|2|DAG-blocklattice|total ordering|O|
+|[DEXON](#dexon)|1M+|2|<sub>DAG-blocklattice</sub>|total ordering|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
