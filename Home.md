@@ -7,9 +7,8 @@ This document explains how DEXON is different compared to other blockchain infra
 
 ### Definition
 - Node in this document is a validator or a full node in the network.
-- DAG-blocklattice: a DAG that every vertex has at least one edge and will not diverge (DAG width remains proportional to number of nodes)
-- DAG-tangle-lattice: a DAG that every vertex has exactly two edges and will not diverge
-- DAG-tangle: a DAG that every vertex has exactly two edges
+- DAG-blocklattice(n, m): a DAG that degree of every vertex is from n to m, and will not diverge (DAG width remains proportional to number of nodes)
+- DAG-tangle(n, m): a DAG that degree of every vertex is from n to m, and will possibly diverge
 - <img src="https://latex.codecogs.com/svg.latex?T_{network}" />: network delay between nodes
 - <img src="https://latex.codecogs.com/svg.latex?n" />: number of nodes
 - <img src="https://latex.codecogs.com/svg.latex?b" />: number of blocks to be confirmed
