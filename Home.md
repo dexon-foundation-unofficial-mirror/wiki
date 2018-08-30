@@ -29,7 +29,7 @@ This document explains how DEXON is different compared to other blockchain infra
 |[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
 |[Hashgraph](#hashgraph)|200K|20|DAG-tangle-lattice|Hedera|O|
-|[Hyperledger](#hyperledger)|4K|< 1|chain|Pluggable|O|
+|[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
 |[IOTA](#iota)|500 ~ 800|> 180|DAG-tangle|longest chain rule|X|
 |[NANO](#nano)|7000|1|DAG-tangle-lattice|DPoS|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
@@ -106,7 +106,7 @@ The consensus of Hashgraph is adapted Byzantine agreement on graph, on the other
 ## Hyperledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|4K|< 1|chain|Pluggable|O|
+|4K|< 1|chain|pluggable|O|
 
 Hyperledger (specifically, Hyperledger Fabric) is a distributed ledger designed for enterprise use. It should be permissioned, low-latency, high-throughput and provides private transaction functionalities. Its consensus is modularized and pluggable. It can choose among consensus engines/algorithms such as Tendermint, PBFT, Kafka ordering or RAFT.
 
