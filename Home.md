@@ -27,14 +27,14 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 |[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
-|[Hashgraph](#hashgraph)|200K|20|DAG-blocklattice(2,3)|Hedera|O|
+|[Hashgraph](#hashgraph)|200K|20|blocklattice(2,3)|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
-|[IOTA](#iota)|500 ~ 800|> 180|DAG-tangle(2, <img src="https://latex.codecogs.com/svg.latex?\infty" />)|longest chain rule|X|
-|[NANO](#nano)|7000|1|DAG-blocklattice(2, 3)|DPoS|X|
+|[IOTA](#iota)|500 ~ 800|> 180|tangle(2, <img src="https://latex.codecogs.com/svg.latex?\infty" />)|longest chain rule|X|
+|[NANO](#nano)|7000|1|blocklattice(2, 3)|DPoS|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Phantom](#phantom)|NA|NA|DAG-blocklattice()|greedy selection algorithm|△|
-|[Snowflake](#snowflake)|1300|4|DAG-blocklattice()|Avalanche|△|
-|[Spectre](#spectre)|NA|1 ~ 10|DAG-blocklattice()|block voting algorithm|X|
+|[Phantom](#phantom)|NA|NA|blocklattice()|greedy selection algorithm|△|
+|[Snowflake](#snowflake)|1300|4|blocklattice()|Avalanche|△|
+|[Spectre](#spectre)|NA|1 ~ 10|blocklattice()|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
 ## DEXON
