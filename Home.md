@@ -32,15 +32,15 @@ This document explains how DEXON is different compared to other blockchain infra
 |[IOTA](#iota)|500 ~ 800|> 180|tangle(2,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|longest chain rule|X|
 |[NANO](#nano)|7000|1|blocklattice(2,3)|DPoS|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Phantom](#phantom)|NA|NA|blocklattice()|greedy selection algorithm|△|
-|[Snowflake](#snowflake)|1300|4|blocklattice()|Avalanche|△|
-|[Spectre](#spectre)|NA|1 ~ 10|blocklattice()|block voting algorithm|X|
+|[Phantom](#phantom)|NA|NA|blocklattice(1,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
+|[Snowflake](#snowflake)|1300|4|blocklattice(1,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
+|[Spectre](#spectre)|NA|1 ~ 10|blocklattice(1,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1M+|2|DAG-blocklattice|total ordering|O|
+|1M+|2|blocklattice(1,2n)|total ordering|O|
 
 DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp ecosystem. DEXON uses total ordering as its main consensus algorithm, of which throughput can scale linearly with the number of nodes while latency remains nearly constant. Instead of processing blocks sequentially like traditional blockchain, DEXON blocklattice data structure processes blocks in parallel. With such high throughput and low latency, practical DApp can finally be developed and widely-used. 
 
@@ -98,7 +98,7 @@ Ethereum is the first blockchain system that has a complete DApp ecosystem. It h
 ## Hashgraph
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|200K|20|DAG-tangle-lattice|Hedera|O|
+|200K|20|blocklattice(2,3)|Hedera|O|
 
 The consensus of Hashgraph is adapted Byzantine agreement on graph, on the other hand, the core of DEXON consensus is based on total ordering algorithm. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed in Hashgraph. Only correctness proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
 
@@ -114,7 +114,7 @@ It is much easier to address consensus problem in a permissioned consortium sett
 ## IOTA
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|500 ~ 800|> 180|DAG-tangle|longest chain rule|X|
+|500 ~ 800|> 180|tangle(2,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|longest chain rule|X|
 
 IOTA follows the longest chain rule on a graph: a node randomly chooses and verifies two previous blocks and attaches its block to them. A block is confirmed if enough number of blocks followed it and the length of the connected chain is the longest.
 However, the rule is inefficient because the confirmation time is not guaranteed by a specific bound. Moreover, a block might be invalid if it is attached to a block that contains conflict transaction. That block has to be re-attached to other blocks. This causes a very long confirmation time. Furthermore, IOTA does not support smart contract due to the lack of total ordering among all blocks. 
@@ -122,7 +122,7 @@ However, the rule is inefficient because the confirmation time is not guaranteed
 ## NANO
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|7000|1|DAG-tangle-lattice|DPoS|X|
+|7000|1|blocklattice(2,3)|DPoS|X|
 
 NANO is the first project that introduces blocklattice as their data structure. Each account has its own blockchain, and a transaction it proposed is recorded on its blockchain. When a blockchain fork happens, NANO starts a DPoS voting to resolve it.
 
@@ -144,7 +144,7 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 ## Phantom
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|NA|DAG-blocklattice|greedy selection algorithm|△|
+|NA|NA|blocklattice(1,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
 
 Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by the work from Li et al. and the work from Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
@@ -153,7 +153,7 @@ On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover
 ## Snowflake
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1300|4|DAG-blocklattice|Avalanche|△|
+|1300|4|blocklattice(1,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
 
 Snowflake consensus starts from a simple coloring method, adds additional counters and rules, and finally ends up a provably probabilistic secure consensus algorithm, Avalanche. All nodes converge to the same color, which means that they will agree on the same transaction set when conflict happens.
 
@@ -162,7 +162,7 @@ To resolve conflict transactions, nodes need to execute Avalanche algorithm on e
 ## Spectre
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|1 ~ 10|DAG-blocklattice|block voting algorithm|X|
+|NA|1 ~ 10|blocklattice(1,<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
 
 Spectre is a DAG-based digital ledger system that uses recursive block voting to decide which conflict block should be finalized. This consensus algorithm allows participants to propose block arbitrarily fast, which means its scalability and latency is bounded by the network. However, its lack of total ordering of blocks makes it impossible to execute smart contract. That is the reason why they propose "Phantom", a consensus that is also DAG-based but with total ordering properties. We also compare DEXON to [Phantom](#phantom).
 
