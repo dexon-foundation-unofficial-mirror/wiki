@@ -165,7 +165,7 @@ To resolve conflict transactions, nodes need to execute Avalanche algorithm on e
 |-|-|-|-|-|
 |NA|1 ~ 10|DAG-blocklattice|block voting algorithm|X|
 
-Spectre is a DAG-based digital ledger system that uses recursive block voting to decide which conflict block should be finalized. This consensus algorithm allows participants to propose block arbitrarily fast, which means its scalability and latency is bounded by the network. However, its lack of total ordering of blocks makes it impossible to execute smart contract. That is the reason why they propose "Phantom", a consensus that is also DAG-based but with total ordering properties. We also [compare](#phantom) DEXON to Phantom.
+Spectre is a DAG-based digital ledger system that uses recursive block voting to decide which conflict block should be finalized. This consensus algorithm allows participants to propose block arbitrarily fast, which means its scalability and latency is bounded by the network. However, its lack of total ordering of blocks makes it impossible to execute smart contract. That is the reason why they propose "Phantom", a consensus that is also DAG-based but with total ordering properties. We also compare DEXON to [Phantom](#phantom).
 
 ## Stellar
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
