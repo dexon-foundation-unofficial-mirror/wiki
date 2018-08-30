@@ -20,21 +20,21 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Table of Contents
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-|[DEXON](#dexon)|1M+|2|<img src="https://latex.codecogs.com/svg.latex?DAG-blocklattice(n,m)" />|total ordering|O|
+|[DEXON](#dexon)|1M+|2|DAG-blocklattice(1, <img src="https://latex.codecogs.com/svg.latex?n" /> + 1)|total ordering|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
 |[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 |[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
-|[Hashgraph](#hashgraph)|200K|20|DAG-tangle-lattice|Hedera|O|
+|[Hashgraph](#hashgraph)|200K|20|DAG-blocklattice(2, 3)|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
-|[IOTA](#iota)|500 ~ 800|> 180|DAG-tangle|longest chain rule|X|
-|[NANO](#nano)|7000|1|DAG-tangle-lattice|DPoS|X|
+|[IOTA](#iota)|500 ~ 800|> 180|DAG-tangle(2, <img src="https://latex.codecogs.com/svg.latex?\infty" />)|longest chain rule|X|
+|[NANO](#nano)|7000|1|DAG-blocklattice(2, 3)|DPoS|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Phantom](#phantom)|NA|NA|DAG-blocklattice|greedy selection algorithm|△|
-|[Snowflake](#snowflake)|1300|4|DAG-blocklattice|Avalanche|△|
-|[Spectre](#spectre)|NA|1 ~ 10|DAG-blocklattice|block voting algorithm|X|
+|[Phantom](#phantom)|NA|NA|DAG-blocklattice()|greedy selection algorithm|△|
+|[Snowflake](#snowflake)|1300|4|DAG-blocklattice()|Avalanche|△|
+|[Spectre](#spectre)|NA|1 ~ 10|DAG-blocklattice()|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|Chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|Chain|PBFT|△|
 ## DEXON
