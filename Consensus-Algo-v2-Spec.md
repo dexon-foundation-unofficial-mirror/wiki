@@ -1,0 +1,489 @@
+DEXON spec
+==
+### Outline
+- overview
+- mechanism for single chain
+-- register pk
+-- propose block
+-- vote on the block 
+-- BA
+- total ordering
+- consensus timestamping
+- sync from full node
+---------------------------
+
+### system parameter:
+- network latency: lambda
+- #shard : m = ?
+- #chain per shard: n = 101?
+- #validator: v = 101 for commercial (10k for real dex)
+
+#### Parameter for single chain:
+- gossip threshold: sigma ~ 20/v (prob(exist h_i<sigma) > 1-10^-8)
+- block per round: k=16?  (committee period)
+
+#### Parameter for total ordering:
+- output criteria: phi=1/2
+
+#### Paraneter for compaction chain
+- #blocks in each epoch: l = 1024?
+
+---
+
+#### Crypto Primitive:
+- hash: (default:SHA3)
+- sig: (default: ECDSA over curve25519)
+
+-------------------------
+
+## overview
+the system consists three components: mechanism for single chain, total ordering, and consensus timestamping.
+- mechanism for single chain guarantees the liveness of each single chain
+- total ordering algorithm compacts n chains to a compaction chain, which is globally-ordered chain and is executed on each node individually.
+- consensus timestamping computes the consensus time for each block in the compaction chain, which guaranteed the increase property and is unbias from Byzantine nodes 
+
+### Mechanism for single chain
+- system setup:
+-- CRS: Hash("In DEXON, we trust")
+-- a genesis block
+--- consists of the initial users' pk
+--- the salt can be the hash of this block
+
+#### register pk
+1. register pk on block b
+2. get salt from b
+-- salt can be computed by the merkle root of blocks after b
+-- or the consensus time of b
+- user secret info: sk
+- user public info: pk, compaction height of b, salt of b
+
+#### register pk (renew CRS version)
+1. C registers pk on block b at 1-l height of round r
+   C can join round r+1
+2. at height l+1 to k of round r
+   start to renew CRS for round r+1
+2.1. each permissioned party send his partial-Sig(CRS_r)
+2.2. Generate TSig(CRS_r) from t+1 partial-Sig(CRS_r)
+2.3. CRS_r+1 = H(TSig(CRS_r))
+2.4. choose permissioned party for next round and
+     each permission party party executes DKG to get own partial key for TSig of next round
+
+#### propose block
+- the user who has minimum VRF in the height can propose block
+- the user is arg min_i H(Sig_sk_i(shard_id, chain_id, height, CRS, salt))
+- (renew CRS version) the user is arg min_i H(Sig_sk_i($shard_{id}$, $chain_{id}$, $height$, $CRS_r$))
+
+
+each user i executes:
+1. h_i = H(Sig_sk_i(shard_id, chain_id, height, CRS, salt))
+2. if h_i < sigma
+   gossip block, h_i, user_id
+   
+#### vote on the block (BA)
+- decide/check committee  
+- round = floor(height/k)
+1. if H(shard_id, chain_id, round, CRS, salt) is t-min
+    user_id is in committee.
+2. Run POPO/algorand BA
+-- everyone can check the committee
+
+### total ordering
+- please read DEXON consensus paper v1
+
+### consensus timestamping
+- let u be the v-dimensional vector consists of the last block time in the compaction chain from each node before block b
+- consensus time of b is median(u)
+
+### POPO BA
+all honest users start period r=1, lambda apart in time
+1. i proposes (v_i, hash_i, sig_i)
+2. when clock_i = 2* lambda, user i does:
+-    identify leader and get his value v
+-    pre-commit_1 v 
+-    set r = 1
+> step 3-7 are event-driven 
+> pre-commit_r v means the signature Sig_sk_i(v,r,height,'pre-commit')
+>     commit_r v means the signature Sig_sk_i(v,r,height,'commit')
+> vote_pc[r][v] is the number of pre-commit v for round r
+> vote_c[r][v] is the number of commit v for round r
+3. when receiving pre-commit_r v
+    vote_pc[r][v]++
+    
+4. when receiving commit_r v
+    vote_c[r][v]++
+    
+5. if exists v, vote_pc[k][v]>=2t+1 at round r 
+    commit_k v
+    
+6. if vote_pc[r][.]>=2t+1 at round r (receiving 2t+1 vote at round r)
+    pre-commit_r+1 v, 
+    r++,
+    where v is 1) the v from min_j( i gossiped commit_j v)
+    2)the best value i has seen
+    3)
+7. if vote_c[r][v]>=2t+1
+    output v
+
+### sync from full node
+
+---
+---
+---
+
+DEXON TODO
+### SYSTEM CONTRACTS
+### ON-CHAIN UNBIASED RANDOMNESS WITHOUT DKG
+- Use RANDAO to replace our DKG+TSIG based CRS rotation
+- the SALT is generated using a RANDAO
+- https://github.com/randao/randao
+- GitHub
+ randao/randao
+- RANDAO: A DAO working as RNG of Ethereum. Contribute to randao/randao development by creating an account on GitHub.
+- any participant that wants to join the validator pool (salt is now not generated at the time a user joins the network, like account creation, but a salt which is rotated when a validator declares to enter the validator pool on validator membership governance contract), at the time it submit deposit to enter the pool, it requests a random salt from the RANDAO system defualt contracts (please define a list of system contracts, where RANDAO is one of them), and submit rewards for calculating RANDAO randomness, and only after RANDAO randomness is generated by a threshold of participants "t+1" (now this randomness is unbiased), then the node actually starts participating in the next config change of validator node set.
+
+### Smart Contract Execution Optimizations
+- Contract Data Max Size for Dict / Array and All Data:
+- Max length for array / dict
+- Per account / per contract, 1MB data.
+- Contract Data and KV-store states should be separated
+- Memory Cached execution for smart contracts
+- Software Transactional Memory Method for conflict detection (with journal + MVCC)
+- With in memory multi-value concurrency control
+- computation dependency graph also in memory cachced
+- Journal log of kv-changes to fast detect conflicts, memory cached
+- Smart Contract Optimistic Parallel Execution
+
+### Smart Contract Platform Features
+- Contract code validation service on-chain handled.
+- Dexon extensible instruction set
+
+### Features
+- Non-Fungible Token native support
+- Recoverable Account
+  like EOS
+- Deferred TX Execution (cancelable) => contract
+- a deployed TX is invokable by a block miner after a time-lock
+- Recurrent TX Execution (cancelable) => contract
+- params: period, TX payload, max times, timeout
+- Default Safe math
+- special unsafe math operator
+- TX and Gas Rate Limit on each contract / account
+- Expirable TX, client specify the TX expiration and TX timestamp
+
+### DEXON Tech WP
+1. Account System: Multi-Assets, Batch Token Transfer, Multi-Sig TX signing pool + RBAC
+5. Sharding Mechanism
+-- Assets Issuance Standard (something kind of enhanced ERC20 thing, but make balance native in account system)
+7. Assets Trading Mechanism
+8. Assets Bridging Mechanism
+9. RBAC
+10. Blocklattice Random Oracle
+11. [Governance Council Mechanism]
+12. OTA design: auto fetch new upgraded binary executable by governance provided binary hash and download link
+13. Contract Upgradability
+14. two kinds: only logic and data migration, so lock some time to complete migration, the predefined lock time
+Recurring TX (Periodic, realized with smart contract)
+Deferred TX (Time-Locked, realized with smart contract)
+DEXON Account Spec
+DEXON Block Gossip Algorithm Spec
+DEXON RPoP Mining Spec (TX Fee, Storage Fee, Mining Rewards, Slash Conditions, Fisherman Protocols and Rewards)
+DEXON Compaction Chain Signed State Spec (Compaction Chain Block Time)
+DEXON Sharding Spec
+DEXON Merkel Tree Spec
+DEXON Light Client Protocol Spec
+DEXON Governance Spec
+DEXON VM Spec
+DEXON Blocklattice Random Oracle Spec
+DEXON Name System Spec
+DEXON Assets Trading Protocol Spec
+DEXON Assets Issuance Spec (native protocol like ERC20)
+DEXON Randomized BA+Total order+consensus timestamp Spec
+KYC proxy of token transfer support
+To become resilient to nothing-at-stake or long-range attack, the validator set configuration changes must committed by prev. super majority set of of validators, like every day the set of validators will change and co-sign a validator view change milestone, and stake deposit lock-up will be at least period of length T (T = 1 day or 1 week)
+
+### DEXON Consensus Algorithm
+- Governance Parameters:
+Totally N nodes, M shards, each shard has k chains
+Initial launch: N=101, M=1, k=35
+Min Block Time T_block (Block producing period) = 0.5s
+Max Block Size 50kB
+Max Ack frequency = 5 ack / sec (in terms of a chain to a another chain)
+Each chain is identified by shard_id (uint32) and chain_id (uint32)
+Avg signed tx size: 100B
+Block size: 50kB (500 TXs per block, one node contribute to 1k TPS)
+1k TPS per chain => 35k TPS for 35 chains
+Block header overhead analysis:
+Block size: 50kB
+Block header size: 132 bytes (~0.2%)
+Ack header overhead analysis:
+Block size: 50kB
+Ack header size: 35 * 100 bytes (~7%, note that as block size is increased, the acking overhead becomes negligible)
+- Gossip Method:
+Push + Pull Model
+When a new TX or Block or Block Hash or Voting in BA (any kind of data) received, fanout to N_push random nodes with TTL set to ttl.
+Each node periodically pull new data from randomly sampled N_pull nodes, with period of pull T_pull.
+Initially, N_push = 13, N_pull = 13, T_pull = 0.5s, ttl=3.
+Expected latency of node-to-node (end-to-end) for any data transmission: RTT
+Expected Latency of Data Propagation to 95% nodes in gossip model: ~ 3 RTT
+Expected Latency of Data Propagation to 95% nodes in push all model: ~ 1 RTT
+In later text, we use notation lambda for the expected data propagation latency for data to reach 95% notes (we assume small variance), ~2RTT
+- Bandwidth analysis:
+Each node inbound / outbound: N * 50 (kB/block) * 2 (bps) = N * 100kBps = N * 0.8Mbps = 28 Mbps
+CRS = HASH("IN_DEXON_WE_TRUST" || shard_id || chain_id)
+Block payload:
+shard_id: 4 bytes (uint32)
+chain_id: 4 bytes (uint32)
+block_producer_id: 20 bytes (ETH address format)
+block_height: 8 bytes (uint64)
+block_time: 8 bytes (uint64)
+prev_block_hash: 32 bytes
+transactions
+acks
+block_hash = HASH(shard_id||chain_id||block_height||block_time||prev_block_hash||transactions||acks), 32 bytes
+signature = SIG(HASH(shard_id||chain_id||block_height||block_hash||acks)), 32 bytes
+rand = HASH(SIG(CRS || h))
+Acks payload:
+shard_id: 4 bytes (uint32)
+chain_id: 4 bytes (uint32)
+block_producer_id: 20 bytes (ETH address format)
+block_height: 8 bytes (uint64)
+block_hash: 32 bytes
+signature: 32 bytes
+ack_time: 8 bytes (uint64)
+Notarization payload (for compaction chain):
+block_height: 8 bytes (uint64)
+prev_block_hash: 8 bytes (uint64)
+block_hash: 32 bytes
+state_root_hash: 32 bytes
+timestamp: 8 bytes (uint64)
+signature: 32 bytes = SIG(HASH(block_height || prev_block_hash || block_hash || state_root_hash || timestamp))
+
+---
+#### Compaction Chain Notarization
+In each "validator_set_change_period", the validator set is fixed.
+Over 1/3 validator notarized on a compaction chain history block, means that this block is finalized with merkle root state change final.
+
+---
+#### Transaction Load Balancer
+Each TX is load balanced according its TX hash with its timestamp t.
+According to timestamp t, we have a view on the number of shards and number of chains in each shard.
+TX hash is the seed for deterministic shuffle on shards, then chains, so any TX can be assigned to a
+specific shard's specific chain.
+
+---
+#### Transaction Timeout Design
+Each signed TX has timestamp t and can only be included into the chain within t+T_tx_timeout.
+
+---
+### Rate Limits
+Gas Limit per TX
+Max TPS per Contract / Account: 500 TPS
+
+---
+#### Dual Token Governance
+Governance voting takes place
+Governance contract token.
+Token holder with veto rights.
+A parameter change or adding of new params or adding of new DEXON native instruction set can be proposed.
+The proposal takes "proposal_voting_period" of time to vote on the proposal.
+If over 50% of nodes to pass any governance params changes.
+
+---
+#### Governance Contract Params
+min_supported_version (string, "0.0.1")
+min_block_time (ms, uint32, 500ms)
+block_proposal_waiting_period (ms, uint 32, 250ms)
+transaction_timeout (ms, uint32, 5000ms)
+min_validator_stake_self_deposit (DEX, uint32, 5000)
+min_validator_stake_total_deposit (DEX, uint32, 25000)
+validator_stake_deposit_lock_up_period  (s, uint32, 86400s)
+validator_stake_withdrawal_lock_up_period (s, uint32, 86400s)
+validator_set_change_period (s, uint32, 3600s)
+snapshot_period (s, uint32, 3600s)
+reward_per_block (DEX token, uint64)
+tx_fee (DEX token, uint64)
+account_creation_fee (DEX token, uint64)
+governance_council_change_period (s, uint32, 30 days)
+max_call_stack (uint32, 1024)
+max_tx_gas_consumption (DEX, uint32, ?)
+tx_rate_limit (uint32, 1024, per contract / per account TX rate limit)
+gas consumption of each opcode
+
+---
+#### PoP Mining Staking
+Minimum staking per node: self-stake minimum registration as node candidate: 50k DEX (around 100k USD).
+To become a validator node: total stake>250k DEX (500k USD)
+Stake lock-up for deposit to take effect and withdrawal cool-down period: T_lock = 1 day.
+
+---
+#### PoP Mining Rewarding
+Initially 100M DEX
+1st year, 25M
+2nd year, 20M
+3rd year, 20M
+4th year, 20M
+5th year, 15M (100% inflation)
+6th year, 15M
+7th year, 15M
+8th year, 10M
+9th year, 10M
+9th year, 10M
+10th year, 5M
+...
+
+---
+#### Receiver Pays Model
+A white list of accounts that can use the contract execution for free
+(Gas paid by contract owner, not sender).
+A white listed accounts can have a specific rate limit set
+on each account for free usage.
+
+---
+#### Slash Conditions
+Any condition that violates the algorithm will cause all stake slashing.
+Violation of causality => slash all stakes.
+Fork => slash all stakes.
+Forming a ring => slash all stakes on block proposers in ring.
+Violate the period of min block time => slash all stakes.
+TXs wrong, not compatible with block hash and signature. => slash all stakes.
+
+---
+#### Fisherman Protocol
+Submit block hash proofs to prove violation of slash conditions to on-chain smart contract.
+Once a slash condition is validated and confirmed by a submitted proof of a fisherman, the stakes are vaporized and rewards are given to the fisherman account that submit the proof first.
+
+---
+#### Fast Bootstrap (Fast Sync) for New nodes
+Sync node set from snapshot.
+Concurrent sync merkle tree kv-stores from a specific snapshot.
+Also syncing the journal change on merkle tree kv-store.
+Finalize syncing using merkle proof + notarization signatures.
+Start validating new TXs.
+
+---
+#### Light Client Protocol
+Sync node set from snapshot.
+Validate TX inclusion and states using merkle proof + notarization signatures.
+
+---
+Storage Fees, Account creation fees
+To avoid spamming
+
+---
+### Token Economy
+Programmable Rewarding Model for staking users.
+1. What is the mining schedule for tokens - what will be the total supply and inflation rate?
+Initial supply: 100M DEX
+Inflation: Governance controlled (may be subject to changes)
+current plan as follows (confidential, please don't reveal)
+1st year, 25M
+2nd year, 20M
+3rd year, 20M
+4th year, 20M
+5th year, 15M
+6th year, 15M
+7th year, 15M
+8th year, 10M
+9th year, 10M
+9th year, 10M
+10th year, 5M
+2. Is it correct that the longer the validator node will be engaged the bigger it’s mining reward will be?
+The PoP mining reward is distributed in coinbase in each block.
+Since in PoP random sampling of nodes as each chain's block's block proposer,
+the probability that each node become a highest ranked block proposer is uniformly random among all nodes.
+On the DEXON compaction chain, the actual coinbase is generated and block mining reward is distributed.
+That's why we call it DEXON proof-of-participation, since if a node with highest rank is sleeping (not active at its block proposing period),
+then its reward will be received by other nodes that mined the block in that time period.
+3. The whitepaper says the network will have a predefined number of nodes - has that number been determined yet?
+Initially, starts with 101 nodes, and governance control number of shards, per shard number of chains, and total number of nodes.
+4. Who will be on the Dexon Governance Council?
+Initially, DEXON foundation and IDG and Banyan capital (top VCs that have invested in DEXON).
+DEXON aims to fully control the direction of network evolution in the first 2-3 years.
+After DEXON has built up community and gains lots of industrial company uses,
+it will fully decentralize the DEXON governance council to world-famous businesses in different sectors and in different countries.
+5. Can you give an example of how randomized PoP will work?
+Governance will control max number of nodes and minimum staking required.
+Among all staking nodes, highest ranked nodes will be given right to become a block proposer
+via VRF-based crypto sortition mechanism.
+When a block proposer successfully proposes a block and the block later gets BA (Byzantine agreement) verified.
+On the compaction chain the block proposer will receive mining rewards in coinbase.
+6. The whitepaper describes a process for supporting validator candidates with tokens, what will be the incentive for the supporters?
+DEXON designed the rewarding model to supporters of validator nodes to be completely "PROGRAMMABLE".
+All mining rewards are received by the block proposer in block's coinbase.
+And the mining reward distribution can be configured to be sent to a miner configured smart contract to programmably distributed rewards to its supporters.
+For example, a node can distribute 99% of its mining rewards to its supporters if it wants to attract more staking from its supporters.
+This not only makes DEXON token mining process completely not a security (since only the node that performs the validation earns reward).
+How the node received reward is distributed is completely determined by the node itself, making the system more decentralized.
+DEXON charges account creation fee, smart contract execution gas fee, and a flat TX processing fee, all fees will be distributed in the coinbase of a block to the block proposer.
+
+---
+### DEXON Consensus Algorithm
+In each shard on each chain, we select a leader to propose a block in each period of a block time, nodes cannot propose blocks in shorter time frames than the 'min block time' to avoid DDoS attack.
+Leader Election: Crypto Sortition
+Genesis, each chain has seed Q_0 (or Q_genesis) as HASH("IN_DEXON_WE_TRUST"||shard_id||chain_id)
+Each node's proposed block at height h is ranked by a shuffle among all nodes using the seed H􏰂(Q_h-1). (initial ranks are sorted are by node_id bits).
+The node list can be looked up in governance staking contract that controls membership of validator nodes (effectively a membership protocol).
+Actual block height starts with 1. The ranks of block height h block is determined by the node's rank by crypto sortition algorithm, if a node proposes multiple conflicting blocks at a same height, then the one with bigger block_hash value is considered as having higher rank.
+After Byzantine agreement is reached on the block at height h, Q_h+1 is calculates as HASH(SIG(Q_h)||h) as a new random seed, which is stored inside the proposed block.
+Blockchain Byzantine Agreement (Chain Growth):
+Now we want to reach BA on the blocks proposed by nodes at height h.
+For each block at height h, each BA voting round r committee is determined by crypto sortition, using H􏰂(Q_h-1 || r) as shuffle seeds on all nodes, and we only sample s nodes from n nodes in each round to be the committee. For initial launch, s=n, since the number of nodes initially are small, and does not need to run crypto sortition to reduce the overhead of BA. When n becomes large, say 10000, we must assume now the whole population has less than 1/3 Byzantine nodes, say 1/4. And we uniformly sample s nodes from n nodes to make the prob. that no. of Byzantine nodes<1/3. This is a hypergeometric sample, whose CDF can be easily calculated. The s nodes now runs the BA algorithm as stated below.
+
+[Acking Criteria]
+To ensure causality is preserved on the blocklattice data structure, a node can only ack to another node's block until it has received all informations related to the blocks all acking histories (all ancestor/parent block acking patterns) to avoid cyclic acking and reversed acking to a lower block height (same as a cyclic).
+Time vector of a block B:
+Each block's time vector has k entries (k is the number of chains in each shard), initialized every entry to 0.
+Assume that block B is located on chain_id j in its shard.
+Assume that block B's height is H on its shard's compaction chain, delivered by Total Ordering.
+The time vector of block B's i-th entry is B's block_time.
+Traverse on the compaction chain from height H-1 to 0 (genesis).
+If at height h, we see a block b from chain_id i, we fill the time vector's i-th entry to be block b's block_time.
+The time vector filling progress continues until we completed filling all k entries, or we have reached genesis.
+
+[The acking of other blockchain's blocks] => Optimistic Acking
+Within each shard, each chain acks to other chain's blocks periodically.
+For an honest node to include ack to another blockchain's block, it only needs to include the highest ranked block which may not yet be confirmed on its chain.
+The only rule is that, the confirmed ackings on each chain, must follow causality rules, no acking on same height of another chain, no acking on previously acked lower or equal height blocks (we consider here only the confirmed blocks that have acked).
+Consensus Timestamp of a block B:
+The medium of the time vector, excluding all 0 entries.
+Smart Contract Random Seed of block B:
+The hash of the concatenated random seeds Q from the N blocks that contribute to time vector of block B, excluding all 0 entries.
+Keep Alive system: a validator node must periodically send keep alive as validator node msg.
+Slash condition: if a validator node sends keep alive message, but is not actively participating in the protocol (like, if in 10 mins timespan, it is not actively participate in acking, voting, block proposing, then it is automatically removed, banned for a period of time, like a day, and punished on its deposit stake vaporization)
+Fast Recovery After Partition:
+DEXON consensus algorithm favors consistency over availability.
+If network is temporarily partitioned, then nodes won't take progress in consensus (system halts).
+Once network is recovered, in around 1 lambda, system is back to normal operation.
+
+---
+BA Algorithm
+#of nodes: 3t+1
+#of Byzantine nodes: t
+After each block's BA has been done, we enter an "initial proposal" period, we wait for 2 lambda to receive blocks from peers.
+In each round, every node does "precommit" according to the follow rules:
+Round: r=1, 2, ...
+In each round, if a node has received over 2t+1 messages in a round, it proceeds to the next round.
+All nodes keeps observing all messages of "precommit" and "commit" in an event-driven like fasion.
+In round r,
+IF (node has received any 2t+1 previous PRECOMMIT message on a block B,
+  it sends (PRECOMMIT, NODE_ID, SIG, B, r)
+ELSE IF (node has received any candidate blocks)
+  a node send message (PRECOMMIT, NODE_ID, SIG, HIEGHT, HIGHEST_RANKED_BLOCK, r)
+ELSE
+  a node send message (PRECOMMIT, NODE_ID, SIG, HIEGHT, EMPTY, r)
+[Event Driven]
+Once a node receives 2t+1 precommit on a block B of round r messages.
+it sends (COMMIT, NODE_ID, SIG, B, r)
+[Finalization]
+Once a node receives 2t+1 commit on a block B of round r messages.
+it finalized BA to output B.
+Every nodes continuously receives messages in all rounds and all steps.
+Once a node receives any 2t+1 COMMIT message in a specific round on a block, it decides the block B and finalize it as BA result and proceeds to next block height. (the BA block may be an empty block)
+
+---
+
+Optimistic block proposing
+When a node has received a height h commit message on block B, it can start proposing next block at height h+1 if it is high ranked block proposer in that round.
+
+---
+DEXON Infinite Sharding
