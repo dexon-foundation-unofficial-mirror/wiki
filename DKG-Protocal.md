@@ -13,7 +13,8 @@ Each validator i verify if the secret key share SK_i,j is associated with the ma
 Phase 3 Disqualify Byzantine Node
 -------
 If there are more then t complaint to validator j (SUM_i CMP_i,j > t), the j is marked as 'Disqualified'.
-Each validator i determines the common secret key share CSK{SK_k,i} (k : validator k is not marked as 'Disqualified')
+Each validator i determines the combined secret key CSK_i{SK_k,i} (k : validator k is not marked as 'Disqualified')
+Each validator i determines the combined public key for all validator j CPK_j{PK_k,j} (k : validator k is not marked as 'Disqualified')
 
 Phase 4 Sign with CSK
 -------
@@ -21,4 +22,5 @@ Each validator i sign the message with CSK and broadcast the signature, Sign_i.
 
 Phase 5 TSIG
 -------
-Collect more than t Sign_i and recover TSIG.
+Verify Sign_i with CPK_i.
+Collect more than t valid Sign_i and recover TSIG.
