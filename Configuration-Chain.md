@@ -7,9 +7,12 @@ NotarySet map[Round][]Node
 ## ProposeConfigBlock()
 ### t = 0(Genesis Config Block)
 ```
-block.SnapshotHash = 0
+block.SnapshotHash = Gov.GenesisBlock.Hash
+block.PrevHash = 0
 block.NodeSet = Gov.GenesisNodeSet
 block.NotarySet = Gov.GenesisNotarySet
+block.Hash = Hash(block)
+block.Signature = TSIG(block.Hash, block.NotarySet)
 
 ConfigBlock[0] = block
 ```
@@ -24,8 +27,15 @@ Gov[N-1].NotarySet = CalculateNotarySet(NodeSet, CRS[N-1])
 Get the first block `b` output from total ordering.
 ```
 block.SnapshotHash = b.Hash
+block.PrevHash = ConfigBlock[N-1].Hash
 block.NodeSet = Gov.NodeSet[N-1]
 block.NotarySet = Gov.NotarySet[N-1]
+block.Hash = Hash(block)
+block.Signature = TSIG(block.Hash, block.NotarySet)
 
 ConfigBlock[N] = block
+```
+## GetCommittee()
+```
+Committee[N] = ConfigBlock[N-1].NotarySet
 ```
