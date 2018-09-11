@@ -14,11 +14,11 @@ Each validator i verify if the secret key share `SK_i,j` is associated with the 
 
 Phase 3 Disqualify Byzantine Node
 -------
-If there are more then `t` complaint to validator j (SUM_i `CMP_i,j` > `t`), the j is marked as 'Disqualified'.
+If there are more then `t` complaints to validator j (SUM_i `CMP_i,j` > `t` : for all validator i), then j is marked as 'Disqualified'.
 
-Each validator i determines the combined secret key `CSK_i{SK_k,i}` (k : validator k is not marked as 'Disqualified')
+Each validator i determines the combined secret key `CSK_i = SUM_k SK_k,i : validator k is not marked as 'Disqualified'`
 
-Each validator i determines the combined public key for all validator j `CPK_j{PK_k,j}` (k : validator k is not marked as 'Disqualified')
+Each validator i determines the combined public key for all validator j `CPK_j = SUM_k PK_k,j : validator k is not marked as 'Disqualified'`
 
 Phase 4 Sign with CSK
 -------
