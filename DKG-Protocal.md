@@ -10,15 +10,15 @@ Each validator `i` generates `n` (`n` = # of ID registered in phase 1) secret ke
 
 Each validator `i` broadcast the master public key (`PK_i`) associated with the secret key shares.
 
-Each validator `i` verify if the secret key share `SK_i,j` is associated with the master public key of validator `j` `PK_j`. If the verification fails, `i` broadcast complaint of `j` `CMP_i,j`.
+Each validator `i` verify if the secret key share `SK_i,j` is associated with the master public key of validator `j` `PK_j`. If the verification fails, `i` broadcast complaint of `j`, `CMP_i,j`.
 
 Phase 3 Disqualify Byzantine Node
 -------
 If there are more then `t` complaints to validator j (`SUM_i CMP_i,j > t` (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
-Each validator `i` determines the combined secret key `CSK_i = SUM_k SK_k,i` (`k`: validator `k` is not marked as **Disqualified**)
+Each validator `i` determines the combined secret key, `CSK_i = SUM_k SK_k,i` (`k`: validator `k` is not marked as **Disqualified**)
 
-Each validator `i` determines the combined public key for all validator `j` `CPK_j = SUM_k PK_k,j` (`k`: validator `k` is not marked as **Disqualified**)
+Each validator `i` determines the combined public key for all validator `j`, `CPK_j = SUM_k PK_k,j` (`k`: validator `k` is not marked as **Disqualified**)
 
 Phase 4 Sign with CSK
 -------
