@@ -14,7 +14,7 @@ block.NotarySet = Gov.GenesisNotarySet
 ConfigBlock[0] = block
 ```
 
-### t = (N-1):00 ~ (N-1):30
+### t = (N-1):30
 ```
 Gov[N-1].NodeSet = GetRegisteredNodeSet()
 Gov[N-1].NotarySet = CalculateNotarySet(NodeSet, CRS[N-1])
