@@ -1,4 +1,4 @@
-DEXON DKG Protocol (draft)
+DEXON DKG Protocol
 ===========================
 Phase 1 ID Registration
 -------
