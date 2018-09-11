@@ -25,7 +25,7 @@ Gov[N-1].NotarySet = CalculateNotarySet(NodeSet, CRS[N-1])
 ```
 
 ### H = N * Round
-Get block `b` at compaction position `H`
+Get block `b` at position `H` of compaction chain.
 ```
 block.SnapshotHash = b.Hash
 block.PrevHash = ConfigBlock[N-1].Hash
