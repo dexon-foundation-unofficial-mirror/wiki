@@ -22,7 +22,7 @@ Each validator i determines the combined public key for all validator j `CPK_j =
 
 Phase 4 Sign with CSK
 -------
-Each validator i sign the message with CSK and broadcast the signature, `Sign_i`.
+Each validator i sign the message with `CSK_i` and broadcast the signature, `Sign_i`.
 
 Phase 5 TSIG
 -------
