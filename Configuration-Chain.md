@@ -6,7 +6,7 @@ NotarySet map[Round][]Node
 
 ## ProposeConfigBlock()
 `Round = Gov.ChainNumber() * (3600 / Gov.ProposalInterval())`
-### H = 0(Genesis Config Block)
+### @ H = 0 (Genesis Config Block)
 ```
 block.SnapshotHash = Gov.GenesisBlock.Hash
 block.PrevHash = 0
@@ -18,13 +18,13 @@ block.Signature = TSIG(block.Hash, block.NotarySet)
 ConfigBlock[0] = block
 ```
 
-### H = (N-1)*Round + Round/2
+### @ H = (N-1) * Round + Round/2
 ```
 Gov[N-1].NodeSet = GetRegisteredNodeSet()
 Gov[N-1].NotarySet = CalculateNotarySet(NodeSet, CRS[N-1])
 ```
 
-### H = N * Round
+### @ H = N * Round
 Get block `b` at position `H` of compaction chain.
 ```
 block.SnapshotHash = b.Hash
