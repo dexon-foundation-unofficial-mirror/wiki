@@ -2,9 +2,10 @@
 ```
 NodeSet map[Round][]Node
 NotarySet map[Round][]Node
-``` 
+```
 
 ## ProposeConfigBlock()
+`Round = Gov.ChainNumber() * (3600 / Gov.ProposalInterval())`
 ### H = 0(Genesis Config Block)
 ```
 block.SnapshotHash = Gov.GenesisBlock.Hash
