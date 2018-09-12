@@ -1,4 +1,4 @@
-DEXON DKG Protocol
+DEXON DKG+TSIG Protocol
 ===========================
 ### Parameter
 * λ = One gossip time
@@ -52,4 +52,5 @@ Collect more than `t` valid `PSign_i` and recover TSIG, `TSIG`.
 Phase 7 Verify TSIG
 -------
 Determines the group public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20GPK%20=%20\sum_{k}%20MPK_{k,0}" /> (`k`: validator `k` is not marked as **Disqualified**)
+
 Verify `TSIG` with `GPK`.
