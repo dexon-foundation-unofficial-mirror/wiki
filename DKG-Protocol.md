@@ -4,6 +4,7 @@ DEXON DKG Protocol
 * λ = One gossip time
 * Signature = [BLS](https://en.wikipedia.org/wiki/Boneh%E2%80%93Lynn%E2%80%93Shacham)
 * Curve = CurveFp382_2
+* t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\frac{1}{3}n+1" />
 
 Phase 1 ID Registration 
 -------
