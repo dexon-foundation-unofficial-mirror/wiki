@@ -49,5 +49,5 @@ Collect more than `t` valid `Sign_i` and recover TSIG, `TSIG`.
 
 Phase 7 Verify TSIG
 -------
-Each validator `i` determines the combined public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK%20=%20\sum_{k}%20MPK_{k}" /> (`k`: validator `k` is not marked as **Disqualified**)
-Verify `TSIG` with `CPK`.
+Determines the group public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20GPK%20=%20\sum_{k}%20MPK_{k}" /> (`k`: validator `k` is not marked as **Disqualified**)
+Verify `TSIG` with `GPK`.
