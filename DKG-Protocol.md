@@ -26,14 +26,12 @@ Phase 3 Complaint
 ### @ T = 2λ
 Each validator `i` calculates public key shares (`PK_0,i, PK_1,i, ..., PK_n,i`) using corresponding master public key (`PK_j,i = F(MPK_j, i)`).
 
-Each validator `i` verifies if the secret key share `SK_i,j` is associated with the public key share of validator `j` `PK_i,j`. If the verification fails, `i` broadcast complaint of `j`, `CMP_i,j`.
+Each validator `i` verifies if the secret key share `SK_i,j` is associated with the public key share of validator `j`, `PK_i,j`. If the verification fails, `i` broadcast complaint of `j`, `CMP_i,j`.
 
 Phase 4 Sign with CSK
 -------
 ### @ T = 4λ
 If there are more than `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20CMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
-
-If `PK_i,j` and `MPK_i`
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
@@ -44,7 +42,7 @@ Each validator `i` sign the message with `CSK_i` and broadcast the signature, `S
 Phase 5 TSIG
 -------
 ### @ T = (4λ, +inf)
-Verify `Sign_i` with `CPK_i`.
+If validator `i` is not **Disqualified**, verify `Sign_i` with `CPK_i`.
 
 Collect more than `t` valid `Sign_i` and recover TSIG, `TSIG`.
 
