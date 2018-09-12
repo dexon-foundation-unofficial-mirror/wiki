@@ -31,11 +31,11 @@ Each validator `i` verifies if the secret key share `SK_i,j` is associated with 
 Phase 4 Rebroadcast Complaint
 -------
 ### @ T = (λ, 2λ)
-If CMP_i,j is received for first time, broadcast received CMP_i,j.
+If `CMP_i,j` is received for first time, broadcast received `CMP_i,j`.
 
-Phase 4 Sign with CSK
+Phase 5 Sign with CSK
 -------
-### @ T = 2λ
+### @ T = 3λ
 If there are more than `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20CMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
@@ -44,14 +44,14 @@ Each validator `i` sign the message with `CSK_i` and broadcast the partial signa
 
 Each validator `i` determines the combined public key of validator `j`, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK_{j}%20=%20\sum_{k}%20PK_{k,j}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
-Phase 5 TSIG
+Phase 6 TSIG
 -------
 ### @ T = (2λ, +inf)
 If validator `i` is not **Disqualified**, verify `PSign_i` with `CPK_i`.
 
 Collect more than `t` valid `PSign_i` and recover TSIG, `TSIG`.
 
-Phase 6 Verify TSIG
+Phase 7 Verify TSIG
 -------
 Determines the group public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20GPK%20=%20\sum_{k}%20MPK_{k,0}" /> (`k`: validator `k` is not marked as **Disqualified**)
 Verify `TSIG` with `GPK`.
