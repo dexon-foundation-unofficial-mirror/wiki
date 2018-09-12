@@ -26,7 +26,7 @@ Each validator `i` verify if the secret key share `SK_i,j` is associated with th
 Phase 4 Disqualify Byzantine Node
 -------
 ### @ T = (2λ, 4λ)
-If there are more then `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?%5Cinline%5Csum_{i}%20CMP_{i,j}%20%3E%20t"> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
+If there are more then `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Csum_%7Bi%7D%20CMP_%7Bi%2Cj%7D%20%3E%20t"> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
 Each validator `i` determines the combined secret key, `CSK_i = SUM_k SK_k,i` (`k`: validator `k` is not marked as **Disqualified**)
 
