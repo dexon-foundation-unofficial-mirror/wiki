@@ -46,7 +46,7 @@ Each validator `i` determines the combined public key of validator `j`, <img src
 
 Phase 6 TSIG
 -------
-### @ T = (2λ, +inf)
+### @ T = (3λ, +inf)
 If validator `i` is not **Disqualified**, verify `PSign_i` with `CPK_i`.
 
 Collect more than `t` valid `PSign_i` and recover TSIG, `TSIG`.
