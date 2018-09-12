@@ -10,44 +10,43 @@ Phase 1 ID Registration
 -------
 ### @ T < 0
 
-Each validator register its ID with stack.
+Each validator registers its ID with stack.
 
 Phase 2 Secret Key Share Exchange
 -------
 ### @ T = 0
 Each validator `i` generates `n` (`n` = # of ID registered in phase 1) secret key shares (`SK_i,0, SK_i,1, ..., SK_i,n`) of order `t` and the secret key share is sent to the corresponding validator (`SK_i,j` is sent to validator `j`) via a secure channel.
 
-Each validator `i` broadcast the master public key (`MPK_i,0, MPK_i,1, ..., MPK_i,t`) of order `t` associated with the secret key shares.
+Each validator `i` broadcasts the master public key (`MPK_i = {MPK_i,0, MPK_i,1, ..., MPK_i,t}`) of order `t` associated with the secret key shares.
 
-Each validator `i` broadcast public key shares (`PK_i,0, PK_i,1, ..., PK_i,n`) associated with secret key shares.
+Each validator `i` broadcasts public key shares (`PK_i,0, PK_i,1, ..., PK_i,n`) associated with secret key shares.
 
 Phase 3 Complaint
 -------
 ### @ T = 2λ
-Each validator `i` verify if the secret key share `SK_i,j` is associated with the public key share of validator `j` `PK_i,j`. If the verification fails, `i` broadcast complaint of `j`, `CMP_i,j`.
+Each validator `i` verifies if the secret key share `SK_i,j` is associated with the public key share of validator `j` `PK_i,j`. If the verification fails, `i` broadcast complaint of `j`, `CMP_i,j`.
 
-Phase 4 Disqualify Byzantine Node
+Phase 4 Sign with CSK
 -------
-### @ T = (2λ, 4λ)
+### @ T = 4λ
 If there are more than `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20CMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
+
+If `PK_i,j` and `MPK_i`
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
 Each validator `i` determines the combined public key of validator `j`, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK_{j}%20=%20\sum_{k}%20PK_{k,j}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
-Phase 5 Sign with CSK
--------
-### @ T = 4λ
 Each validator `i` sign the message with `CSK_i` and broadcast the signature, `Sign_i`.
 
-Phase 6 TSIG
+Phase 5 TSIG
 -------
 ### @ T = (4λ, +inf)
 Verify `Sign_i` with `CPK_i`.
 
 Collect more than `t` valid `Sign_i` and recover TSIG, `TSIG`.
 
-Phase 7 Verify TSIG
+Phase 6 Verify TSIG
 -------
 Determines the group public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20GPK%20=%20\sum_{k}%20MPK_{k,0}" /> (`k`: validator `k` is not marked as **Disqualified**)
 Verify `TSIG` with `GPK`.
