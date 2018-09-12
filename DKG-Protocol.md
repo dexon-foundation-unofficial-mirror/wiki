@@ -17,7 +17,7 @@ Phase 2 Secret Key Share Exchange
 ### @ T = 0
 Each validator `i` generates `n` (`n` = # of ID registered in phase 1) secret key shares (`SK_i,0, SK_i,1, ..., SK_i,n`) of order `t` and the secret key share is sent to the corresponding validator (`SK_i,j` is sent to validator `j`) via a secure channel.
 
-Each validator `i` broadcast the master public key (`MPK_i`) of order `t` associated with the secret key shares.
+Each validator `i` broadcast the master public key (`MPK_i,0, MPK_i,1, ..., MPK_i,t`) of order `t` associated with the secret key shares.
 
 Each validator `i` broadcast public key shares (`PK_i,0, PK_i,1, ..., PK_i,n`) associated with secret key shares.
 
@@ -49,5 +49,5 @@ Collect more than `t` valid `Sign_i` and recover TSIG, `TSIG`.
 
 Phase 7 Verify TSIG
 -------
-Determines the group public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20GPK%20=%20\sum_{k}%20MPK_{k}" /> (`k`: validator `k` is not marked as **Disqualified**)
+Determines the group public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20GPK%20=%20\sum_{k}%20MPK_{k,0}" /> (`k`: validator `k` is not marked as **Disqualified**)
 Verify `TSIG` with `GPK`.
