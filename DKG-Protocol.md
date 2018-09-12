@@ -33,7 +33,7 @@ If there are more than `t` complaints to validator `j` (<img src="https://latex.
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
-Each validator `i` determines the combined public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK_{j}%20=%20\sum_{k}%20MPK_{k}" /> (`k`: validator `k` is not marked as **Disqualified**)
+Each validator `i` determines the combined public key of validator `j`, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK_{j}%20=%20\sum_{k}%20PK_{k,j}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
 Phase 5 Sign with CSK
 -------
@@ -45,4 +45,9 @@ Phase 6 TSIG
 ### @ T = (4λ, +inf)
 Verify `Sign_i` with `CPK_i`.
 
-Collect more than `t` valid `Sign_i` and recover TSIG.
+Collect more than `t` valid `Sign_i` and recover TSIG, `TSIG`.
+
+Phase 7 Verify TSIG
+-------
+Each validator `i` determines the combined public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK%20=%20\sum_{k}%20MPK_{k}" /> (`k`: validator `k` is not marked as **Disqualified**)
+Verify `TSIG` with `CPK`.
