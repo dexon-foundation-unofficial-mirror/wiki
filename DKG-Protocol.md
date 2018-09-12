@@ -19,7 +19,7 @@ Each validator `i` generates `n` (`n` = # of ID registered in phase 1) secret ke
 
 Each validator `i` broadcasts the master public key (`MPK_i = {MPK_i,0, MPK_i,1, ..., MPK_i,t}`) of order `t` associated with the secret key shares.
 
-Each validator `i` broadcasts public key shares (`PK_i,0, PK_i,1, ..., PK_i,n`) associated with secret key shares.
+~~Each validator `i` broadcasts public key shares (`PK_i,0, PK_i,1, ..., PK_i,n`) associated with secret key shares.~~
 
 Phase 3 Complaint
 -------
