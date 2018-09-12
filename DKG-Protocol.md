@@ -24,7 +24,7 @@ Each validator `i` broadcasts the master public key (`MPK_i = {MPK_i,0, MPK_i,1,
 Phase 3 Complaint
 -------
 ### @ T = 2λ
-Each validator `i` calculates public key shares (`PK_0,i, PK_1,i, ..., PK_n,i`) using corresponding master public key (`PK_j,i = F(MPK_j)`).
+Each validator `i` calculates public key shares (`PK_0,i, PK_1,i, ..., PK_n,i`) using corresponding master public key (`PK_j,i = F(MPK_j, i)`).
 
 Each validator `i` verifies if the secret key share `SK_i,j` is associated with the public key share of validator `j` `PK_i,j`. If the verification fails, `i` broadcast complaint of `j`, `CMP_i,j`.
 
