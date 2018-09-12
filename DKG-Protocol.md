@@ -1,6 +1,10 @@
 DEXON DKG Protocol
 ===========================
-### λ = One gossip time
+### Parameter
+* λ = One gossip time
+* Signature = [BLS](https://en.wikipedia.org/wiki/Boneh%E2%80%93Lynn%E2%80%93Shacham)
+* Curve = CurveFp382_2
+
 Phase 1 ID Registration 
 -------
 ### @ T < 0
