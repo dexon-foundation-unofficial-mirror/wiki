@@ -26,11 +26,11 @@ Each validator `i` verify if the secret key share `SK_i,j` is associated with th
 Phase 4 Disqualify Byzantine Node
 -------
 ### @ T = (2λ, 4λ)
-If there are more then `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?%5Cinline%20%5Csum_%7Bi%7D%20CMP_%7Bi%2Cj%7D%20%3E%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
+If there are more then `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20CMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
-Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?%5Cinline%20CSK_%7Bi%7D%20%3D%20%5Csum_%7Bk%7D%20SK_%7Bk%2Ci%7D" /> (`k`: validator `k` is not marked as **Disqualified**)
+Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
-Each validator `i` determines the combined public key for all validator `j`, <img src="https://latex.codecogs.com/svg.latex?\inline CPK_{j} = \sum_{k} PK_{k,j}" /> (`k`: validator `k` is not marked as **Disqualified**)
+Each validator `i` determines the combined public key for all validator `j`, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK_{j}%20=%20\sum_{k}%20PK_{k,j}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
 Phase 5 Sign with CSK
 -------
