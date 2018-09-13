@@ -24,8 +24,6 @@ tx_rate_limit (uint32, 1024, per contract / per account TX rate limit)
 Governance Contract Methods
 ==============================
 ```
-AddBAConfirmVote(vote Vote, position Position)
-BAConfirmVotes(position Position) []Vote
 AddDKGComplaint(complaint Complaint, round uint64)
 DKGComplaints(round uint64) []Complaint
 NodeSet(round uint64) []Node
