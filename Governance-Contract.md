@@ -20,3 +20,12 @@ max_call_stack (uint32, 1024)
 max_tx_gas_consumption (DEX, uint32, ?)
 tx_rate_limit (uint32, 1024, per contract / per account TX rate limit)
 ```
+
+Governance Contract Methods
+==============================
+```
+AddBAConfirmVote(vote Vote, position Position)
+BAConfirmVotes(position Position) []Vote
+AddDKGComplaint(complaint Complaint, round uint64)
+DKGComplaints(round uint64) []Complaint
+```
