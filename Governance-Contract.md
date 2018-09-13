@@ -24,8 +24,18 @@ tx_rate_limit (uint32, 1024, per contract / per account TX rate limit)
 Governance Contract Methods
 ==============================
 ```
+// DKG Complaint is required for light nodes to
+// verify TSIG.
 AddDKGComplaint(complaint Complaint, round uint64)
 DKGComplaints(round uint64) []Complaint
+// NodeSet
 NodeSet(round uint64) []Node
+// NotarySet are committee sampled from NodeSet.
 NotarySet(round uint64) []Node
+// RoundRange (fixme if you have better name)
+// This function is used to query the block heights of each chain
+// allowed to proposed by the notary set of this round.
+// Consensus layer would also rely on this info to decide how many
+// chains required in this round.
+RoundRange(round uint64) []uint64
 ```
