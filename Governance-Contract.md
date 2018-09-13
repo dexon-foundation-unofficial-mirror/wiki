@@ -28,4 +28,6 @@ AddBAConfirmVote(vote Vote, position Position)
 BAConfirmVotes(position Position) []Vote
 AddDKGComplaint(complaint Complaint, round uint64)
 DKGComplaints(round uint64) []Complaint
+NodeSet(round uint64) []Node
+NotarySet(round uint64) []Node
 ```
