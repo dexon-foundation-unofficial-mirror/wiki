@@ -24,10 +24,12 @@ tx_rate_limit (uint32, 1024, per contract / per account TX rate limit)
 Governance Contract Methods
 ==============================
 ```
-// DKG Complaint is required for light nodes to
-// verify TSIG.
-AddDKGComplaint(complaint Complaint, round uint64)
-DKGComplaints(round uint64) []Complaint
+// DKG Complaint is required for light nodes to verify TSIG.
+AddDKGComplaint(complaint DKGComplaint, round uint64)
+DKGComplaints(round uint64) []DKGComplaint
+// DKGMasterPublicKey is required to verify the DKG complaint.
+AddDKGMasterPublicKey(masterPublicKey DKGMasterPublicKey, round uint64)
+DKGMasterPublicKeys(round uint64) []DKGMasterPublicKey
 // NodeSet
 NodeSet(round uint64) []Node
 // NotarySet are committee sampled from NodeSet.
