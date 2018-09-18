@@ -31,13 +31,16 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Hashgraph](#hashgraph)|200K|20|blocklattice(2)|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
 |[IOTA](#iota)|500 ~ 800|> 180|tangle(2)|longest chain rule|X|
-|[NANO](#nano)|7000|1|blocklattice(2)|DPoS|X|
+|[Kadena](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
+|[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
 |[Phantom](#phantom)|NA|NA|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
 |[Snowflake](#snowflake)|1300|4|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
 |[Spectre](#spectre)|NA|1 ~ 10|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
+|[Zilliqa](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
+
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
@@ -182,5 +185,15 @@ The only concern about this kind of consensus is that whether you can remain int
 |NA|1 ~ 3|chain|PBFT|△|
 
 Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. This means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce the communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
+
+## Zilliqa
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|[Zilliqa](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
+
+Zilliqa is an optimized PBFT. It uses EC-Schnorr multi-signature to aggregate signatures from nodes. This reduces communication cost from <img src="https://latex.codecogs.com/svg.latex?O(n^2)" /> to <img src="https://latex.codecogs.com/svg.latex?O(n)" />. To address limited throughput in a chain-based system, Zilliqa uses sharding technique to process transactions in parallel. A special shard collects micro blocks from normal shards to produce final blocks.
+
+There are several drawbacks in Zilliqa. First of all, multi-signature aggregation is computaionally costly. This is not a problem with ten-second finalization time, but in sub-second finalization time, it is not feasible with large amount of nodes in a shard. Second, Zilliqa uses a special shard running consensus protocol to combine micro blocks from other shards. This doubles the latency. In DEXON, there is no special shard to run another redundant consensus protocol. DEXON sharding mechanism is symmetric. We use consensus timestamp computed by total ordering algorithm to form compaction chain, which each shard can computed by itself when receiving finalized blocks from other shards.
+
 
 
