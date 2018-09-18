@@ -8,7 +8,7 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Definition
 - Node in this document is a validator or a full node in the network.
 - Edge direction in a DAG is defined from later block to previous block in this document.
-- blocklattice(i): a DAG that maximum out degree of every vertex is i, and will not diverge (DAG width remains proportional to number of nodes)
+- blocklattice(i): a DAG that maximum out degree of every vertex is i, and will not diverge (DAG width remains proportional to number of nodes or chains)
 - tangle(i): a DAG that maximum out degree of every vertex is i, and will possibly diverge
 - <img src="https://latex.codecogs.com/svg.latex?T_{network}" />: network delay between nodes
 - <img src="https://latex.codecogs.com/svg.latex?n" />: number of nodes
@@ -25,21 +25,23 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
+|[Conflux(new)](#conflux)|6400|270|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|GHOST|△|
 |[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 |[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
 |[Hashgraph](#hashgraph)|200K|20|blocklattice(2)|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
 |[IOTA](#iota)|500 ~ 800|> 180|tangle(2)|longest chain rule|X|
-|[Kadena](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
+|[Kadena(new)](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
 |[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Phantom](#phantom)|NA|NA|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
-|[Snowflake](#snowflake)|1300|4|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
-|[Spectre](#spectre)|NA|1 ~ 10|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
+|[Phantom](#phantom)|NA|NA|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
+|[Snowflake](#snowflake)|1300|4|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
+|[Spectre](#spectre)|NA|1 ~ 10|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
-|[Zilliqa](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
+|[Thunderella(new)](#tendermint)|NA|1.5|chain|BFT + longest chain|△|
+|[Zilliqa(new)](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
 
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -76,6 +78,15 @@ Bitcoin is the first cryptocurrency that starts the era of blockchain. It is the
 Cardano is the first project that provides a concrete mathematical proof on security of PoS blockchain. Besides PoS, they also proposes other promising ideas such as unbiased randomness with commit-reveal scheme and using Nash Equilibrium to prevent selfish mining attack. However, its chain-based structure naturally limits its throughput, since chain-based structure can only process block linearly, and can be proved that it can not scale.
 
 Another problem in Cardano consensus is that it highly depends on time synchronization. If some honest nodes are desynchronized (for example, NTP service hijack by an attacker), they don't know when is the starting time of a slot and will be treated as fail-stop node. They claimed desynchronized nodes can be corrected by some method introduced in the future, but it is not implemented yet.
+
+## Conflux
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|6400|270|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|GHOST|△|
+
+Conflux is a graph-based PoW consensus based on GHOST protocol that fixed the Phantom blockchain. Conflux uses GHOST protocol to select the main chain in a graph, and produces total ordering of the graph by the main chain. Thus, it is generalized Bitcoin consensus, and they also points out that the bias problem in Phantom blockchain.
+
+However, the latency is bounded by its PoW mechanism. It needs to wait for a period of time to select the correct and consistent main chain with high probability. Even if it switched to PoS mechanism, the latency would still be unacceptably long since the GHOST protocol is a kind of longest chain rule consensus.
 
 ## Dfinity
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -122,6 +133,15 @@ It is much easier to address consensus problem in a permissioned consortium sett
 
 IOTA follows the longest chain rule on a graph: a node randomly chooses and verifies two previous blocks and attaches its block to them. A block is confirmed if enough number of blocks followed it and the length of the connected chain is the longest.
 However, the rule is inefficient because the confirmation time is not guaranteed by a specific bound. Moreover, a block might be invalid if it is attached to a block that contains conflict transaction. That block has to be re-attached to other blocks. This causes a very long confirmation time. Furthermore, IOTA does not support smart contract due to the lack of total ordering among all blocks. 
+
+## Kadena
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|10K|20|blocklattice(n)|Chainweb|O|
+
+Kadena aims to solve scalability issue of blockchain. It uses Chainweb to process transaction in parallel. Each chain includes others' block headers, forming a DAG similar to DEXON blocklattice. To perform cross-chain transaction, one has to provide Merkle proof to smart contract, and assets will be deleted from source chain and re-created on destination chain. Kadena also analyzes peer header relationships and uses specially designed graph that has small diameter and large order to achieved low latency and high throughput.
+
+The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(diameter\ of\ graph)" />. When it scales up and increases the number of chain, the diameter of graph also becomes larger, causing the latency to increase. Another problem is when proposing a block on a chain, the block has to include its peer's block headers. This means block proposing is blocking and not efficient, while in DEXON, a block actively acks any other newly proposed blocks, achieving fast non-blocking block proposing.
 
 ## NANO
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -186,10 +206,13 @@ The only concern about this kind of consensus is that whether you can remain int
 
 Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. This means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce the communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
 
+## Thunderella
+
+
 ## Zilliqa
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|[Zilliqa](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
+|3K|10 ~ 20|chain|PBFT|O|
 
 Zilliqa is an optimized PBFT. It uses EC-Schnorr multi-signature to aggregate signatures from nodes. This reduces communication cost from <img src="https://latex.codecogs.com/svg.latex?O(n^2)" /> to <img src="https://latex.codecogs.com/svg.latex?O(n)" />. To address limited throughput in a chain-based system, Zilliqa uses sharding technique to process transactions in parallel. A special shard collects micro blocks from normal shards to produce final blocks.
 
