@@ -5,7 +5,7 @@ DEXON DKG+TSIG Protocol
 * Signature = [BLS](https://en.wikipedia.org/wiki/Boneh%E2%80%93Lynn%E2%80%93Shacham)
 * Curve = CurveFp382_2
 * n = size of `notary_set`
-* t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\frac{1}{3}n+1" />
+* t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{n}{3}\right\rfloor" />
 
 Phase 1 ID Registration 
 -------
