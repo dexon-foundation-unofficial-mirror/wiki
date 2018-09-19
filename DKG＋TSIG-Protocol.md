@@ -26,14 +26,20 @@ Each validator `i` calculates public key shares (`PK_0,i, PK_1,i, ..., PK_n,i`) 
 
 Each validator `i` verifies if the secret key share `SK_i,j` is associated with the public key share of validator `j`, `PK_i,j`. If the verification fails, `i` broadcast complaint of `j`, `CMP_i,j`.
 
-Phase 4 Rebroadcast Complaint
+
+Phase 4a Nack Complaint
 -------
 ### @ T = (λ, 2λ)
+If validator `i` did not receive `SK_j,i` within T = (0, λ), broadcast complaint of `j`, `CMP_i,j`. 
+
+Phase 4b Rebroadcast Complaint
+-------
+### @ T = (λ, 3λ)
 If `CMP_i,j` is received for first time, broadcast received `CMP_i,j`.
 
 Phase 5 Sign with CSK
 -------
-### @ T = 3λ
+### @ T = 4λ
 If there are more than `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20CMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
@@ -44,7 +50,7 @@ Each validator `i` determines the combined public key of validator `j`, <img src
 
 Phase 6 TSIG
 -------
-### @ T = (3λ, +inf)
+### @ T = (4λ, +inf)
 If validator `i` is not **Disqualified**, verify `PSign_i` with `CPK_i`.
 
 Collect more than `t` valid `PSign_i` and recover TSIG, `TSIG`.
