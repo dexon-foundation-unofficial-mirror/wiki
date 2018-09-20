@@ -1,11 +1,14 @@
 DEXON DKG+TSIG Protocol
 ===========================
 ### Parameter
-* λ = One gossip time
+* λ = MAX(One gossip duraion, transaction confirm latency)
 * Signature = [BLS](https://en.wikipedia.org/wiki/Boneh%E2%80%93Lynn%E2%80%93Shacham)
 * Curve = CurveFp382_2
 * n = size of `notary_set`
 * t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{n}{3}\right\rfloor" />
+
+### Notes
+* Complaints are stored in governance contract; therefore, the broadcast is reliable.
 
 Phase 1 ID Registration 
 -------
