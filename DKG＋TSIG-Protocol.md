@@ -8,7 +8,8 @@ DEXON DKG+TSIG Protocol
 * t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{n}{3}\right\rfloor" />
 
 ### Notes
-* Complaints are stored in governance contract; therefore, the broadcast is reliable.
+* Complaints and nack complaints are stored in governance contract; therefore, the broadcast is reliable.
+* Governance contract will do the sanity check for complaints and nack complaints before adding to its state.
 
 Phase 1 ID Registration 
 -------
