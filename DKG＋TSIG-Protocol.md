@@ -46,6 +46,8 @@ Phase 6 Enforce Complaint
 ### @ T = 3λ
 If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcast complaint of `j`, `CMP_k,j`.
 
+If validator `k` sees `CMP_i,j` for `j` != `k` and did not receive `SK_j,i`, `k` broadcast complaint of `j`, `CMP_k,j`.
+
 Phase 7 Sign with CSK
 -------
 ### @ T = 4λ
