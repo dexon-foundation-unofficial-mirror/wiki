@@ -34,24 +34,24 @@ Each validator `i` verifies if the secret key share `SK_j,i` is associated with 
 Phase 4 Nack Complaint
 -------
 ### @ T = λ
-If validator `i` did not receive `SK_j,i`, broadcast complaint of `j`, `CMP_i,j`. 
+If validator `i` did not receive `SK_j,i`, broadcast nack complaint of `j`, `NCMP_i,j`. 
 
-Phase 5 Anti Complaint
+Phase 5 Anti Nack Complaint
 -------
 ### @ T = 2λ
-If validator `j` sees `CMP_i,j` for any `i`, broadcast secret key share `SK_j,i`.
+If validator `j` sees `NCMP_i,j` for any `i`, broadcast secret key share `SK_j,i`.
 
-Phase 6 Enforce Complaint
+Phase 6 Enforce Nack Complaint
 -------
 ### @ T = 3λ
-If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcast complaint of `j`, `CMP_k,j`.
+If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcast nack complaint of `j`, `NCMP_k,j`.
 
-If validator `k` sees `CMP_i,j` for `j` != `k` and did not receive `SK_j,i`, `k` broadcast complaint of `j`, `CMP_k,j`.
+If validator `k` sees `NCMP_i,j` for `j` != `k` and did not receive `SK_j,i`, `k` broadcast nack complaint of `j`, `NCMP_k,j`.
 
 Phase 7 Sign with CSK
 -------
 ### @ T = 4λ
-If there are more than `t` complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20CMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
+If there are more than `t` complaints and nack complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20CMP_{i,j}%20+\sum_{i}%20NCMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
