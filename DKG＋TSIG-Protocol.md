@@ -41,10 +41,10 @@ Phase 5 Anti Nack Complaint
 ### @ T = 2λ
 If validator `j` sees `NCMP_i,j` for any `i`, broadcast secret key share `SK_j,i`.
 
-Phase 6 Enforce Nack Complaint
+Phase 6 Enforce Complaint
 -------
 ### @ T = 3λ
-If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcast nack complaint of `j`, `NCMP_k,j`.
+If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcas complaint of `j`, `CMP_k,j`.
 
 If validator `k` sees `NCMP_i,j` for `j` != `k` and did not receive `SK_j,i`, `k` broadcast nack complaint of `j`, `NCMP_k,j`.
 
