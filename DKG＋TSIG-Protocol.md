@@ -48,14 +48,14 @@ If validator `k` receive `SK_j,i` for the first time for `i` != `k`, broadcast i
 
 Phase 7 Enforce Complaint
 -------
-### @ T = 3λ
+### @ T = 4λ
 If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcas complaint of `j`, `CMP_k,j`.
 
 If validator `k` sees `NCMP_i,j` for `j` != `k` and did not receive `SK_j,i`, `k` broadcast nack complaint of `j`, `NCMP_k,j`.
 
 Phase 8 Sign with CSK
 -------
-### @ T = 4λ
+### @ T = 5λ
 If there are more than `t` nack complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20NCMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
 If there is a complaint, `CMP_i,j`, to validator `j`, then `j` is marked as **Disqualified**.
@@ -68,7 +68,7 @@ Each validator `i` determines the combined public key of validator `j`, <img src
 
 Phase 9 TSIG
 -------
-### @ T = (4λ, +inf)
+### @ T = (5λ, +inf)
 If validator `i` is not **Disqualified**, verify `PSign_i` with `CPK_i`.
 
 Collect more than `t` valid `PSign_i` and recover TSIG, `TSIG`.
