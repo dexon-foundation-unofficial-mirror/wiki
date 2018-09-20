@@ -58,7 +58,7 @@ Phase 8 Sign with CSK
 ### @ T = 5λ
 If there are more than `t` nack complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20NCMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
-If there is a complaint, `CMP_i,j`, to validator `j`, then `j` is marked as **Disqualified**.
+If there is **one** complaint, `CMP_i,j`, to validator `j`, then `j` is marked as **Disqualified**.
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
