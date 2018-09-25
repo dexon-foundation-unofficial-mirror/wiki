@@ -35,7 +35,7 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Kadena(new)](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
 |[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Orbs Helix](#orbs-helix)|10|NA|chain|PBFT|O|
+|[Orbs Helix(new)](#orbs-helix)|10|NA|chain|PBFT|O|
 |[Phantom](#phantom)|NA|NA|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
 |[Snowflake](#snowflake)|1300|4|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
 |[Spectre](#spectre)|NA|1 ~ 10|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
@@ -171,7 +171,9 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 |-|-|-|-|-|
 |10|NA|chain|PBFT|O|
 
-test
+The top priority of Helix is fairness. It uses VRF (verifiable random function) as an unbiased random source to elect committee and leader. When running its core consensus (PBFT), all transactions are encrypted by user using threshold encryption. This means there is no way a node can cencor or prioritize any transaction. After consensus is reached, content of a block is then decrypted, and transactions are executed. Thus, the order of transactions can not be biased, achieving fairness. Helix also uses VRF to decide which transaction can be put into a block. Because node can not decide which transactions to be put into a block, transaction fee can be set to a constant. 
+
+Unfortunantely, fairness does not come without cost. Threshold encryption not only increases computational cost, but needs an extra phase of decryption. This increase the latency. What's worse, its chain structure is not scalable. To solve the scalability problem, Orbs introduces "intelligent sharding", which we did not find any technical detail. Recent simulation shows that Helix has only 10 TPS. With 100 shard, it can reach 1000 TPS, while DEXON has 1M+ TPS with a hundred nodes in one shard. 
 
 ## Phantom
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
