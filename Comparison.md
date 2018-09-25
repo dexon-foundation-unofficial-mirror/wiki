@@ -35,6 +35,7 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Kadena(new)](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
 |[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
+|[Orbs Helix Consensus](#helix)|10|NA|chain|PBFT|O|
 |[Phantom](#phantom)|NA|NA|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
 |[Snowflake](#snowflake)|1300|4|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
 |[Spectre](#spectre)|NA|1 ~ 10|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
@@ -164,6 +165,15 @@ Omniledger aims to solve scalability problem without sacrificing security and de
 The problem of Omniledger is that its latency could be large in a fully decentralized setting. The reason is that it uses ByzCoinX (which is an optimization of PBFT-like consensus algorithm) for intra-shard consensus and Atomix (DB-like atomic broadcast) for inter-shard transaction. This means the group size in a shard for communication can not be too large, or the communication cost and latency will be large. To increase the number of nodes with limited shard size, number of shards will increase, and the needs for cross-shard transaction will also increase. With atomic broadcast, a cross-shard transaction has to wait for every involved shard to be confirmed, and even a single shard failed will cause the transaction to fail. In DEXON, transaction only needs to enter one shard and will be output immediately. 
 
 Omniledger also sacrifice some of the security. According to hypergeometric distribution, if the sampled Byzantine nodes in a shard must be less than one third, one can only tolerate Byzantine nodes much less than one third in the whole network, or sampling can not be success with high probability. This is why the number of Byzantine nodes Omniledger can tolerate is one fourth, not one third of total nodes. 
+
+<a name="helix" />
+
+## Orbs Helix Consensus
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|10|NA|chain|PBFT|O|
+
+test
 
 ## Phantom
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
