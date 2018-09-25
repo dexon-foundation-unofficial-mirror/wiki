@@ -207,7 +207,13 @@ The only concern about this kind of consensus is that whether you can remain int
 Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency in permissioned settings, it can not be permissionless, because PBFT has a heavy communication cost of <img src="https://latex.codecogs.com/svg.latex?O(b*n^2)" /> due to its two phase commit. This means when the number of nodes increases, the required bandwidth of network will also increase quadratically, limiting the number nodes. DEXON uses cryptographic sortition sharding technique and configurable ack frequency to reduce the communication cost to <img src="https://latex.codecogs.com/svg.latex?O(f*n*log(n))" />.
 
 ## Thunderella
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|NA|1.5|chain|BFT + longest chain|△|
 
+Thunderella combines two different consensus algorithms and tries to achieve high security with good performance. With less than one forth of committee is Byzantine node, it can achieve low latency with BFT algorithm. With more than one forth, it can fall back to any blockchain system that can tolerate less than <img src="https://latex.codecogs.com/svg.latex?\frac{1}{2}n" /> Byzantine nodes.
+
+If more than one forth of the committee is Byzantine node, Thunderella becomes as slow as a blockchain, while DEXON remains its low latency. Also, Thunderella is a chain-based system and it can not scale.
 
 ## Zilliqa
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
