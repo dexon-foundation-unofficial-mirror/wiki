@@ -35,7 +35,7 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Kadena(new)](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
 |[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Orbs Helix Consensus](#helix)|10|NA|chain|PBFT|O|
+|[Orbs Helix](#orbs-helix)|10|NA|chain|PBFT|O|
 |[Phantom](#phantom)|NA|NA|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
 |[Snowflake](#snowflake)|1300|4|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
 |[Spectre](#spectre)|NA|1 ~ 10|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
@@ -166,9 +166,7 @@ The problem of Omniledger is that its latency could be large in a fully decentra
 
 Omniledger also sacrifice some of the security. According to hypergeometric distribution, if the sampled Byzantine nodes in a shard must be less than one third, one can only tolerate Byzantine nodes much less than one third in the whole network, or sampling can not be success with high probability. This is why the number of Byzantine nodes Omniledger can tolerate is one fourth, not one third of total nodes. 
 
-<a name="helix" />
-
-## Orbs Helix Consensus
+## Orbs Helix
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |10|NA|chain|PBFT|O|
