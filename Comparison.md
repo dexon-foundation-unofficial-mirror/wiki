@@ -42,6 +42,7 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
 |[Thunderella(new)](#tendermint)|NA|1.5|chain|BFT + longest chain|△|
+|[Vite(new)](#vite)|NA|10|blocklattice(2) + chain|longest chain|O|
 |[Zilliqa(new)](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
 
 ## DEXON
@@ -147,7 +148,7 @@ The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(diam
 ## NANO
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|7000|1|blocklattice(2)|DPoS|X|
+|7000|1|blocklattice(2)|DPoS voting|X|
 
 NANO is the first project that introduces blocklattice as their data structure. Each account has its own blockchain, and a transaction it proposed is recorded on its blockchain. When a blockchain fork happens, NANO starts a DPoS voting to resolve it.
 
@@ -173,7 +174,7 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 
 The top priority of Helix is fairness. It uses VRF (verifiable random function) as an unbiased random source to elect committee and leader. When running its core consensus (PBFT), all transactions are encrypted by user using threshold encryption. This means there is no way a node can cencor or prioritize any transaction. After consensus is reached, content of a block is then decrypted, and transactions are executed. Thus, the order of transactions can not be biased, achieving fairness. Helix also uses VRF to decide which transaction can be put into a block. Because node can not decide which transactions to be put into a block, transaction fee can be set to a constant. 
 
-Unfortunantely, fairness does not come without cost. Threshold encryption not only increases computational cost, but needs an extra phase of decryption. This increase the latency. What's worse, its chain structure is not scalable. To solve the scalability problem, Orbs introduces "intelligent sharding", which we did not find any technical detail. Recent simulation shows that Helix has only 10 TPS. With 100 shard, it can reach 1000 TPS, while DEXON has 1M+ TPS with a hundred nodes in one shard. 
+Unfortunantely, fairness does not come without cost. Threshold encryption not only increases computational cost, but needs an extra phase of decryption. This increase the latency. What's worse, its chain structure is not scalable. To solve the scalability problem, Orbs introduces "intelligent sharding" (which we did not find any technical detail). Recent simulation shows that Helix has only 10 TPS (with unknown latency). With 100 shard, it can reach 1000 TPS, while DEXON has 1M+ TPS with a hundred nodes in one shard. 
 
 ## Phantom
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -224,6 +225,15 @@ Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency
 Thunderella combines two different consensus algorithms and tries to achieve high security with good performance. With less than one forth of committee is Byzantine node, it can achieve low latency with BFT algorithm. With more than one forth, it can fall back to any blockchain system that can tolerate less than <img src="https://latex.codecogs.com/svg.latex?\frac{1}{2}n" /> Byzantine nodes.
 
 If more than one forth of the committee is Byzantine node, Thunderella becomes as slow as a blockchain, while DEXON remains its low latency. Also, Thunderella is a chain-based system and it can not scale.
+
+## Vite
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|NA|10|blocklattice(2) + chain|longest chain|O|
+
+Vite basically fixes NANO's problem we mentioned in our [comparison to NANO](#nano). It uses the same blocklattice with NANO, but additionally adds a new consensus mechanism (HDPoS) to construct a snapshot chain. This not only solves security issues in NANO, but also orders transactions, making it capible to run smart contract. What's more, Vite inherits NANO's advantages, including nearly instant transaction with high TPS.
+
+One of the difficult challenges to use a DAG structure is to decide the ordering of transactions. Vite has a global consensus group to run a consensus algorithm to create snapshot chain. This algorithm is important because it is the key to improve NANO's disadvantages on security and lack of total ordering. Unfortunately, we can not find any detail about the algorithm in their paper and do not know how transactions on blocklattice are picked and put into snapshot chain. Is this critical process secure and fair? To address this challenges, DEXON develops total ordering algorithm to compact blocklattice into compaction chain. This algorithm is provably secure and reasonably fair.
 
 ## Zilliqa
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
