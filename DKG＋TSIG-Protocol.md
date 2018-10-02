@@ -15,7 +15,7 @@ Phase 1 ID Registration
 -------
 ### @ T < 0
 
-Each validator registers its ID with stack.
+Each validator registers its ID with stake.
 
 Phase 2 Secret Key Share Exchange
 -------
@@ -50,7 +50,7 @@ If validator `k` receive `SK_j,i` for the first time for `i` != `k`, broadcast i
 Phase 7 Enforce Complaint
 -------
 ### @ T = 4λ
-If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcas complaint of `j`, `CMP_k,j`.
+If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share `SK_j,i` is associated with the public key share of validator `j`, `PK_j,i`. If the verification fails, `k` broadcast complaint of `j`, `CMP_k,j`.
 
 If validator `k` sees `NCMP_i,j` for `j` != `k` and did not receive `SK_j,i`, `k` broadcast nack complaint of `j`, `NCMP_k,j`.
 
