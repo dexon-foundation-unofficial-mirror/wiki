@@ -35,8 +35,10 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Kadena(new)](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
 |[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
+|[Ontology(new)](#ontology)|5K|20|chain group|Ontorand|O|
 |[Orbs Helix(new)](#orbs-helix)|10|NA|chain|PBFT|O|
 |[Phantom](#phantom)|NA|NA|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
+|[Radix(new)](#radix)|3.5|5|chain|logical clock|O|
 |[Snowflake](#snowflake)|1300|4|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
 |[Spectre](#spectre)|NA|1 ~ 10|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
@@ -167,6 +169,13 @@ The problem of Omniledger is that its latency could be large in a fully decentra
 
 Omniledger also sacrifice some of the security. According to hypergeometric distribution, if the sampled Byzantine nodes in a shard must be less than one third, one can only tolerate Byzantine nodes much less than one third in the whole network, or sampling can not be success with high probability. This is why the number of Byzantine nodes Omniledger can tolerate is one fourth, not one third of total nodes. 
 
+## Ontology
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|5K|20|chain group|Ontorand|O|
+
+Ontology consensus algorithm Ontorand uses randomness from the last block to generate new block proposer and validators. Its Byzantine agreement voting process (although not detailed enough) looks extremely similar to Algorand. Its verifiable random function which generates randomness in a block is the same as Algorand. Even the variable name of randomness "Q" and voting process name "Graded consensus" in its technical paper are from Algorand. Without any citation or reference to Algorand paper, Ontorand is nothing but a copycat. For the comparison to Algorand please reference [here](#algorand).
+
 ## Orbs Helix
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
@@ -184,6 +193,17 @@ Unfortunantely, fairness does not come without cost. Threshold encryption not o
 Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by the work from Li et al. and the work from Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
 On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover, the correctness and liveness of DEXON consensus are both proved.
+
+## Radix
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|3.5|5|chain|logical clock|O|
+
+Radix uses sharding technique to increase throughput. To reach consensus among different shards, a transcation needs to be gossipped and be validated by many nodes. Each node provides its local logical clock and appends its value to the transaction. Nodes can then use this logical clock vector to decide partial ordering between two conflict transactions. In case of a concurrent set, a node find other transactions from its local storage or from its peer trying to decide partial ordering of transactions. 
+
+There is a foundamental problem in Radix: a partial ordering can never become total ordering without consensus algorithm. Some partial ordering of transactions in Radix can be decided by vector timestamps, but no matter how many transactions are involved, there always exists some cases that concurrent set can never be resolved. In other words, orders of some transactions may never be decided and will not be output by the system. What's worse, when a network is shortly partitioned, or has a long delay, nodes can have different local views. Since a node decides ordering from other transactions from its local view, this will cause different ordering among nodes, resulting a fork, and there is no consensus algorithm in Radix to address this issue. 
+
+To sum up, Radix does not have consensus. It can be used in private / permissioned settings but will not work in real network environment.
 
 ## Snowflake
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
