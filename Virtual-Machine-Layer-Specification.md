@@ -1,5 +1,3 @@
-# Virtual Machine Layer Specification
-
 The Design Principle of DEXON is to allow multi virtual machine running in the system. The current ethereum codebase already allow this by adding multiple interpreters and identify which interpreter can run given a contract code. There will be 3 major VMs in DEXON:
 
 1. EVM: to provide backward compatibility, but adding some custom opCodes and improve concurrency.
