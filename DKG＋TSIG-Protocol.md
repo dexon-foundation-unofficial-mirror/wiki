@@ -10,6 +10,7 @@ DEXON DKG+TSIG Protocol
 ### Notes
 * Complaints and nack complaints are stored in governance contract; therefore, the broadcast is reliable.
 * Governance contract will do the sanity check for complaints and nack complaints before adding to its state.
+* Once a validator proposed `DKGFinal_i`, it can no longer propose any complaint.
 
 Phase 1 ID Registration 
 -------
@@ -67,9 +68,16 @@ Each validator `i` sign the message with `CSK_i` and broadcast the partial signa
 
 Each validator `i` determines the combined public key of validator `j`, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK_{j}%20=%20\sum_{k}%20PK_{k,j}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
+Phase 8 DKG Finalize
+-------
+### @ T = (5λ, 6λ)
+Each validator `i` broadcast a `DKGFinal_i` message.
+
 Phase 9 TSIG
 -------
-### @ T = (5λ, +inf)
+### @ T = (6λ, +inf)
+Validator `i` wait until seeing more than `2t+1` final message.
+
 If validator `i` is not **Disqualified**, verify `PSign_i` with `CPK_i`.
 
 Collect more than `t` valid `PSign_i` and recover TSIG, `TSIG`.
