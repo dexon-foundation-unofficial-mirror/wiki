@@ -55,9 +55,19 @@ If validator `k` sees `SK_j,i` for `i` != `k`, verifies if the secret key share 
 
 If validator `k` sees `NCMP_i,j` for `j` != `k` and did not receive `SK_j,i`, `k` broadcast nack complaint of `j`, `NCMP_k,j`.
 
-Phase 8 Sign with CSK
+
+Phase 8 DKG Finalize
 -------
 ### @ T = 5λ
+Each validator `i` broadcast a `DKGFinal_i` message.
+
+
+Phase 9 Sign with CSK
+-------
+### @ T = 6λ
+
+Validator waits until seeing more than `2t+1` final message.
+
 If there are more than `t` nack complaints to validator `j` (<img src="https://latex.codecogs.com/svg.latex?\inline%20\sum_{i}%20NCMP_{i,j}%20>%20t" /> (`i` : for all validator `i`)), then `j` is marked as **Disqualified**.
 
 If there is **one** complaint, `CMP_i,j`, to validator `j`, then `j` is marked as **Disqualified**.
@@ -68,21 +78,14 @@ Each validator `i` sign the message with `CSK_i` and broadcast the partial signa
 
 Each validator `i` determines the combined public key of validator `j`, <img src="https://latex.codecogs.com/svg.latex?\inline%20CPK_{j}%20=%20\sum_{k}%20PK_{k,j}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
-Phase 8 DKG Finalize
--------
-### @ T = (5λ, 6λ)
-Each validator `i` broadcast a `DKGFinal_i` message.
-
-Phase 9 TSIG
+Phase 10 TSIG
 -------
 ### @ T = (6λ, +inf)
-Validator `i` wait until seeing more than `2t+1` final message.
-
 If validator `i` is not **Disqualified**, verify `PSign_i` with `CPK_i`.
 
 Collect more than `t` valid `PSign_i` and recover TSIG, `TSIG`.
 
-Phase 10 Verify TSIG
+Phase 11 Verify TSIG
 -------
 Determines the group public key, <img src="https://latex.codecogs.com/svg.latex?\inline%20GPK%20=%20\sum_{k}%20MPK_{k,0}" /> (`k`: validator `k` is not marked as **Disqualified**)
 
