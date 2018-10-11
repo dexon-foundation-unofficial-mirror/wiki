@@ -145,7 +145,7 @@ However, the rule is inefficient because the confirmation time is not guaranteed
 
 Kadena aims to solve scalability issue of blockchain. It uses Chainweb to process transaction in parallel. Each chain includes others' block headers, forming a DAG similar to DEXON blocklattice. To perform cross-chain transaction, one has to provide Merkle proof to smart contract, and assets will be deleted from source chain and re-created on destination chain. Kadena also analyzes peer header relationships and uses specially designed graph that has small diameter and large order to achieved low latency and high throughput.
 
-The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(diameter\ of\ graph)" alt="something"/>. When it scales up and increases the number of chain, the diameter of graph also becomes larger, causing the latency to increase. Another problem is when proposing a block on a chain, the block has to include its peer's block headers. This means block proposing is blocking and not efficient, while in DEXON, a block actively acks any other newly proposed blocks, achieving fast non-blocking block proposing.
+The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(diameter\ of\ graph)" alt="O(diameter of graph)"/>. When it scales up and increases the number of chain, the diameter of graph also becomes larger, causing the latency to increase. Another problem is when proposing a block on a chain, the block has to include its peer's block headers. This means block proposing is blocking and not efficient, while in DEXON, a block actively acks any other newly proposed blocks, achieving fast non-blocking block proposing.
 
 ## NANO
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
