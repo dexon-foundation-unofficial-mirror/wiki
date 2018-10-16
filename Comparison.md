@@ -25,27 +25,27 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
-|[Conflux(new)](#conflux)|6400|270|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|GHOST|△|
+|[Conflux](#conflux)|6400|270|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|GHOST|△|
 |[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
 |[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
 |[Hashgraph](#hashgraph)|200K|20|blocklattice(2)|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
 |[IOTA](#iota)|500 ~ 800|> 180|tangle(2)|longest chain rule|X|
-|[Kadena(new)](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
+|[Kadena](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
 |[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Ontology(new)](#ontology)|5K|20|chain group|Ontorand|O|
-|[Orbs Helix(new)](#orbs-helix)|10|NA|chain|PBFT|O|
+|[Ontology](#ontology)|5K|20|chain group|Ontorand|O|
+|[Orbs Helix](#orbs-helix)|10|NA|chain|PBFT|O|
 |[Phantom](#phantom)|NA|NA|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
-|[Radix(new)](#radix)|3.5|5|chain|logical clock|O|
+|[Radix](#radix)|3.5|5|chain|logical clock|O|
 |[Snowflake](#snowflake)|1300|4|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
 |[Spectre](#spectre)|NA|1 ~ 10|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
-|[Thunderella(new)](#tendermint)|NA|1.5|chain|BFT + longest chain|△|
-|[Vite(new)](#vite)|NA|10|blocklattice(2) + chain|longest chain|O|
-|[Zilliqa(new)](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
+|[Thunderella](#tendermint)|NA|1.5|chain|BFT + longest chain|△|
+|[Vite](#vite)|NA|10|blocklattice(2) + chain|longest chain|O|
+|[Zilliqa](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
 
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
