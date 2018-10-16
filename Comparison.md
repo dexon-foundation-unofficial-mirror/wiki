@@ -145,7 +145,7 @@ However, the rule is inefficient because the confirmation time is not guaranteed
 
 Kadena aims to solve scalability issue of blockchain. It uses Chainweb to process transaction in parallel. Each chain includes others' block headers, forming a DAG similar to DEXON blocklattice. To perform cross-chain transaction, one has to provide Merkle proof to smart contract, and assets will be deleted from source chain and re-created on destination chain. Kadena also analyzes peer header relationships and uses specially designed graph that has small diameter and large order to achieved low latency and high throughput.
 
-The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(diameter\ of\ graph)" />. When it scales up and increases the number of chain, the diameter of graph also becomes larger, causing the latency to increase. Another problem is when proposing a block on a chain, the block has to include its peer's block headers. This means block proposing is blocking and not efficient, while in DEXON, a block actively acks any other newly proposed blocks, achieving fast non-blocking block proposing.
+The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(r)"/>, where <img src="https://latex.codecogs.com/svg.latex?r"/> is the diameter of a graph. When it scales up and increases the number of chain, the diameter of graph also becomes larger, causing the latency to increase. Another problem is when proposing a block on a chain, the block has to include its peer's block headers. This means block proposing is blocking and not efficient, while in DEXON, a block actively acks any other newly proposed blocks, achieving fast non-blocking block proposing.
 
 ## NANO
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -174,7 +174,7 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 |-|-|-|-|-|
 |5K|20|chain group|Ontorand|O|
 
-Ontology consensus algorithm Ontorand uses randomness from the last block to generate new block proposer and validators. Its Byzantine agreement voting process (although not detailed enough) looks extremely similar to Algorand. Its verifiable random function which generates randomness in a block is the same as Algorand. Even the variable name of randomness "Q" and voting process name "Graded consensus" in its technical paper are from Algorand. Without any citation or reference to Algorand paper, Ontorand is nothing but a copycat. For the comparison to Algorand please reference [here](#algorand).
+Ontology consensus algorithm Ontorand uses randomness from the last block to generate new block proposer and validators. Its Byzantine agreement voting process (although not detailed enough) looks extremely similar to Algorand. Its verifiable random function which generates randomness in a block is the same as Algorand. Even the variable name of randomness "Q" and voting process name "Graded consensus" in its technical paper are from Algorand. Without any citation and improvement from Algorand, Ontorand is nothing but a copycat. For the comparison to Algorand please reference [here](#algorand).
 
 ## Orbs Helix
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
