@@ -174,7 +174,7 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 |-|-|-|-|-|
 |5K|20|chain group|Ontorand|O|
 
-Ontology consensus algorithm Ontorand uses randomness from the last block to generate new block proposer and validators. Its Byzantine agreement voting process (although not detailed enough) looks extremely similar to Algorand. Its verifiable random function which generates randomness in a block is the same as Algorand. Even the variable name of randomness "Q" and voting process name "Graded consensus" in its technical paper are from Algorand. Without any citation and improvement from Algorand, Ontorand is nothing but a copycat. For the comparison to Algorand please reference [here](#algorand).
+Ontology consensus algorithm Ontorand uses randomness from the last block to generate new block proposer and validators. Its Byzantine agreement voting process (although not detailed enough) looks extremely similar to Algorand. Its verifiable random function which generates randomness in a block is exactly the same as Algorand. Without any citation and improvement from Algorand, Ontorand is nothing but a copycat. For the comparison to Algorand please reference [here](#algorand).
 
 ## Orbs Helix
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
