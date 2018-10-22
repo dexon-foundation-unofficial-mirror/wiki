@@ -7,9 +7,6 @@ This document explains how DEXON is different compared to other blockchain infra
 
 ### Definition
 - Node in this document is a validator or a full node in the network.
-- Edge direction in a DAG is defined from later block to previous block in this document.
-- blocklattice(i): a DAG that maximum out degree of every vertex is i, and will not diverge (DAG width remains proportional to number of nodes or chains)
-- tangle(i): a DAG that maximum out degree of every vertex is i, and will possibly diverge
 - <img src="https://latex.codecogs.com/svg.latex?T_{network}" />: network delay between nodes
 - <img src="https://latex.codecogs.com/svg.latex?n" />: number of nodes
 - <img src="https://latex.codecogs.com/svg.latex?b" />: number of blocks to be confirmed
@@ -21,36 +18,36 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Table of Contents
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-|[DEXON](#dexon)|1M+|2|blocklattice(n)|total ordering|O|
+|[DEXON](#dexon)|1M+|2|DAG|total ordering|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
-|[Conflux](#conflux)|6400|270|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|GHOST|△|
-|[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
-|[EOS](#eos)|100K|165|chain|longest chain & Byzantine fault tolerance|O|
+|[Conflux](#conflux)|6400|270|DAG|GHOST|△|
+|[Dfinity](#dfinity)|500 ~ 1000|5 ~ 10|chain|Dfinity|△|
+|[EOS](#eos)|3K|165|chain|longest chain & Byzantine fault tolerance|O|
 |[Ethereum](#ethereum)|20|360|chain|longest chain|O|
-|[Hashgraph](#hashgraph)|200K|20|blocklattice(2)|Hedera|O|
+|[Hashgraph](#hashgraph)|200K|20|DAG|Hedera|O|
 |[Hyperledger](#hyperledger)|4K|< 1|chain|pluggable|O|
-|[IOTA](#iota)|500 ~ 800|> 180|tangle(2)|longest chain rule|X|
-|[Kadena](#kadena)|10K|20|blocklattice(n)|Chainweb|O|
-|[NANO](#nano)|7000|1|blocklattice(2)|DPoS voting|X|
+|[IOTA](#iota)|500 ~ 800|> 180|DAG|longest chain rule|X|
+|[Kadena](#kadena)|10K|20|DAG|Chainweb|O|
+|[NANO](#nano)|7000|1|DAG|DPoS voting|X|
 |[Omniledger](#omniledger)|6K|10|chain|ByzCoinX|△|
-|[Ontology](#ontology)|5K|20|chain group|Ontorand|O|
-|[Orbs Helix](#orbs-helix)|10|NA|chain|PBFT|O|
-|[Phantom](#phantom)|NA|NA|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
-|[Radix](#radix)|3.5|5|chain|logical clock|O|
-|[Snowflake](#snowflake)|1300|4|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
-|[Spectre](#spectre)|NA|1 ~ 10|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
+|[Ontology](#ontology)|5K|20|DAG|Ontorand|O|
+|[Orbs Helix](#orbs-helix)|10|NA|chain|PBFT|O|
+|[Phantom](#phantom)|NA|NA|DAG|greedy selection algorithm|△|
+|[Radix](#radix)|3.5|5|chain|logical clock|O|
+|[Snowflake](#snowflake)|1300|4|DAG|Avalanche|△|
+|[Spectre](#spectre)|NA|1 ~ 10|DAG|block voting algorithm|X|
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
 |[Thunderella](#tendermint)|NA|1.5|chain|BFT + longest chain|△|
-|[Vite](#vite)|NA|10|blocklattice(2) + chain|longest chain|O|
+|[Vite](#vite)|NA|10|DAG|longest chain|O|
 |[Zilliqa](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
 
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1M+|2|blocklattice(n)|total ordering|O|
+|1M+|2|DAG|total ordering|O|
 
 DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp ecosystem. DEXON uses total ordering as its main consensus algorithm, of which throughput can scale linearly with the number of nodes while latency remains nearly constant. Instead of processing blocks sequentially like traditional blockchain, DEXON blocklattice data structure processes blocks in parallel. With such high throughput and low latency, practical DApp can finally be developed and widely-used. 
 
@@ -86,7 +83,7 @@ Another problem in Cardano consensus is that it highly depends on time synchroni
 ## Conflux
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|6400|270|tangle(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|GHOST|△|
+|6400|270|DAG|GHOST|△|
 
 Conflux is a graph-based PoW consensus based on GHOST protocol that fixed the Phantom blockchain. Conflux uses GHOST protocol to select the main chain in a graph, and produces total ordering of the graph by the main chain. Thus, it is generalized Bitcoin consensus, and they also points out that the bias problem in Phantom blockchain.
 
@@ -95,7 +92,7 @@ However, the latency is bounded by its PoW mechanism. It needs to wait for a per
 ## Dfinity
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|500 ~ 1000|5 ~ 10|dual-chain|Dfinity|△|
+|500 ~ 1000|5 ~ 10|chain|Dfinity|△|
 
 Dfinity is a permissioned blockchain and is designed for large population (around 10K of nodes). Dfinity contains a randomness beacon which generates new randomness by a VRF (verifiable random function) with information from new confirmed block. They use the randomness to select a leader and electors for a round. By hypergeometric distribution, Dfinity only samples hundred of nodes to notary a block instead of using all nodes, and this is correct with high probability. But this reduces the tolerance ability to Byzantine nodes. For example, to achieve the majority of nodes is non-Byzantine with probability less than <img src="https://latex.codecogs.com/svg.latex?2^{-40}">, it needs to sample at least 423 nodes from 10K nodes with maximum 1/3 Byzantine nodes.
 However, Dfinity is chain-based, so its throughput is limited.
@@ -103,7 +100,7 @@ However, Dfinity is chain-based, so its throughput is limited.
 ## EOS
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|100K|165|chain|longest chain & Byzantine fault tolerance|O|
+|3K|165|chain|longest chain & Byzantine fault tolerance|O|
 
 EOS reaches high throughput and low latency. They have 21 so-called "supernodes", which are considered not decentralized. Also, at the time of writing, its Byzantine fault tolerance consensus is not implemented yet, so the confirmation time is about 165 seconds, not 1 or 2 seconds as they claimed.
 
@@ -117,7 +114,7 @@ Ethereum is the first blockchain system that has a complete DApp ecosystem. It h
 ## Hashgraph
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|200K|20|blocklattice(2)|Hedera|O|
+|200K|20|DAG|Hedera|O|
 
 The consensus of Hashgraph is adapted Byzantine agreement on graph, on the other hand, the core of DEXON consensus is based on total ordering algorithm. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed in Hashgraph. Only correctness proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
 
@@ -133,7 +130,7 @@ It is much easier to address consensus problem in a permissioned consortium sett
 ## IOTA
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|500 ~ 800|> 180|tangle(2)|longest chain rule|X|
+|500 ~ 800|> 180|DAG|longest chain rule|X|
 
 IOTA follows the longest chain rule on a graph: a node randomly chooses and verifies two previous blocks and attaches its block to them. A block is confirmed if enough number of blocks followed it and the length of the connected chain is the longest.
 However, the rule is inefficient because the confirmation time is not guaranteed by a specific bound. Moreover, a block might be invalid if it is attached to a block that contains conflict transaction. That block has to be re-attached to other blocks. This causes a very long confirmation time. Furthermore, IOTA does not support smart contract due to the lack of total ordering among all blocks. 
@@ -141,7 +138,7 @@ However, the rule is inefficient because the confirmation time is not guaranteed
 ## Kadena
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|10K|20|blocklattice(n)|Chainweb|O|
+|10K|20|DAG|Chainweb|O|
 
 Kadena aims to solve scalability issue of blockchain. It uses Chainweb to process transaction in parallel. Each chain includes others' block headers, forming a DAG similar to DEXON blocklattice. To perform cross-chain transaction, one has to provide Merkle proof to smart contract, and assets will be deleted from source chain and re-created on destination chain. Kadena also analyzes peer header relationships and uses specially designed graph that has small diameter and large order to achieved low latency and high throughput.
 
@@ -150,7 +147,7 @@ The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(r)"/
 ## NANO
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|7000|1|blocklattice(2)|DPoS voting|X|
+|7000|1|DAG|DPoS voting|X|
 
 NANO is the first project that introduces blocklattice as their data structure. Each account has its own blockchain, and a transaction it proposed is recorded on its blockchain. When a blockchain fork happens, NANO starts a DPoS voting to resolve it.
 
@@ -172,7 +169,7 @@ Omniledger also sacrifice some of the security. According to hypergeometric dist
 ## Ontology
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|5K|20|chain group|Ontorand|O|
+|5K|20|DAG|Ontorand|O|
 
 Ontology consensus algorithm Ontorand uses randomness from the last block to generate new block proposer and validators. Its Byzantine agreement voting process (although not detailed enough) looks extremely similar to Algorand. Its verifiable random function which generates randomness in a block is exactly the same as Algorand. Without any citation and improvement from Algorand, Ontorand is nothing but a copycat. For the comparison to Algorand please reference [here](#algorand).
 
@@ -188,7 +185,7 @@ Unfortunantely, fairness does not come without cost. Threshold encryption not o
 ## Phantom
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|NA|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|greedy selection algorithm|△|
+|NA|NA|DAG|greedy selection algorithm|△|
 
 Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they didn't proof the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. A liveness attack on Phantom was individually proposed by the work from Li et al. and the work from Kiayias and Panagiotakos. They also claimed they will try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
@@ -208,7 +205,7 @@ To sum up, Radix does not have consensus. It can be used in private / permission
 ## Snowflake
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1300|4|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|Avalanche|△|
+|1300|4|DAG|Avalanche|△|
 
 Snowflake consensus starts from a simple coloring method, adds additional counters and rules, and finally ends up a provably probabilistic secure consensus algorithm, Avalanche. All nodes converge to the same color, which means that they will agree on the same transaction set when conflict happens.
 
@@ -217,7 +214,7 @@ To resolve conflict transactions, nodes need to execute Avalanche algorithm on e
 ## Spectre
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|1 ~ 10|blocklattice(<img src="https://latex.codecogs.com/svg.latex?\infty" />)|block voting algorithm|X|
+|NA|1 ~ 10|DAG|block voting algorithm|X|
 
 Spectre is a DAG-based digital ledger system that uses recursive block voting to decide which conflict block should be finalized. This consensus algorithm allows participants to propose block arbitrarily fast, which means its scalability and latency is bounded by the network. However, its lack of total ordering of blocks makes it impossible to execute smart contract. That is the reason why they propose "Phantom", a consensus that is also DAG-based but with total ordering properties. We also compare DEXON to [Phantom](#phantom).
 
@@ -249,7 +246,7 @@ If more than one forth of the committee is Byzantine node, Thunderella becomes a
 ## Vite
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|NA|10|blocklattice(2) + chain|longest chain|O|
+|NA|10|DAG|longest chain|O|
 
 Vite basically fixes NANO's problem we mentioned in our [comparison to NANO](#nano). It uses the same blocklattice with NANO, but additionally adds a new consensus mechanism (HDPoS) to construct a snapshot chain. This not only solves security issues in NANO, but also orders transactions, making it capible to run smart contract. What's more, Vite inherits NANO's advantages, including nearly instant transaction with high TPS.
 
