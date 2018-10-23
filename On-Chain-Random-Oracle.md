@@ -33,9 +33,10 @@ If you look at the block result using the RPC:
 }
 ```
 
-You can see there is a `randomness` field which standard ethereum RPC does not have. This `randomness` field is actually the threshold signature of the block signed by the DKG set.
+You can see there is a `randomness` field which standard Ethereum RPC does not have. This `randomness` field is actually the threshold signature of the block signed by the DKG set.
 
-The DEXON blockchain expose this randomness source in Solidity with the `rand` variable, which when accessed, generates deterministic random number. 'detereministic' means that all nodes will generate the same random number  when running the EVM using the block randomness source. We add a new opcode `RAND (0x2f)` in EVM to return this random number. The random number is calculated with the following formula:
+The DEXON blockchain exposes this randomness source in Solidity with the `rand` variable, which when accessed, generates a deterministic random number. 'deterministic' means that all nodes will generate the same random number when running the EVM using the block randomness source. The `rand` variable compiles to a new opcode `RAND (0x2f)` 
+we added into EVM. The random number is calculated with the following formula:
 
 ```
 rand = Keccak( Randomness . Caller . Nonce . Gas )
