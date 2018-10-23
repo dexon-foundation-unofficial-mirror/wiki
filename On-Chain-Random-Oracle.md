@@ -42,7 +42,7 @@ we added into EVM. The random number is calculated with the following formula:
 rand = Keccak( Randomness . Caller . Nonce . Gas )
 ```
 
-`Randomness` is the block randomness signed by DKG set, unique for each block.
-`Caller` is the address of the contract caller.
-`Nonce` is the account nonce of the caller.
-`Gas` current gas level. This ensures the random number is different each time when called.
+* `Randomness` is the block randomness signed by DKG set, unique for each block.
+* `Caller` is the address of the contract caller.
+* `Nonce` is the account nonce of the caller.
+* `Gas` current gas level. This ensures the random number is different each time when called.
