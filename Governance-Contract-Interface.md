@@ -163,6 +163,20 @@ The DEXON governance contract is implemented in Go, but it's ABI compatible with
   {
     "constant": true,
     "inputs": [],
+    "name": "blockGasLimit",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "roundInterval",
     "outputs": [
       {
@@ -384,6 +398,10 @@ The DEXON governance contract is implemented in Go, but it's ABI compatible with
     "inputs": [
       {
         "name": "BlockReward",
+        "type": "uint256"
+      },
+      {
+        "name": "BlockGasLimit",
         "type": "uint256"
       },
       {
