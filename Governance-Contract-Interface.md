@@ -551,7 +551,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "type": "function"
   },
   {
-    "constant": false,
+    "constant": true,
     "inputs": [],
     "name": "nodesLength",
     "outputs": [
@@ -561,7 +561,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       }
     ],
     "payable": false,
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   }
 ]
