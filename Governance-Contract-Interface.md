@@ -550,7 +550,12 @@ The DEXON governance contract is implemented in Go, but it's ABI compatible with
     "constant": false,
     "inputs": [],
     "name": "nodesLength",
-    "outputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
