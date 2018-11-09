@@ -10,3 +10,10 @@
 # Development Guide
 
 * [Dapp development](https://github.com/dexon-foundation/wiki/wiki/Dapp-Development)
+
+# Technical Documentations
+
+* [Blockchain Comparision](https://github.com/dexon-foundation/wiki/wiki/Blockchain-Comparison)
+* [Governance Contract Interface](https://github.com/dexon-foundation/wiki/wiki/Governance-Contract-Interface)
+* [DKG + Tsig Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG%EF%BC%8BTSIG-Protocol)
+* [On-chain Random Oracle](https://github.com/dexon-foundation/wiki/wiki/On-Chain-Random-Oracle)
