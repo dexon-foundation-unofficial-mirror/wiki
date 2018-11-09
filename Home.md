@@ -17,3 +17,4 @@
 * [Governance Contract Interface](https://github.com/dexon-foundation/wiki/wiki/Governance-Contract-Interface)
 * [DKG + Tsig Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG%EF%BC%8BTSIG-Protocol)
 * [On-chain Random Oracle](https://github.com/dexon-foundation/wiki/wiki/On-Chain-Random-Oracle)
+* [Consensus V2 Specification](https://github.com/dexon-foundation/wiki/wiki/Consensus-Algo-v2-Spec)
