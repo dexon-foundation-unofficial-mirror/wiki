@@ -6,3 +6,7 @@
 * [dekusan](https://github.com/dexon-foundation/dekusan): Chrome wallet extension based on MetaMask.
 * [dsolidity](https://github.com/dexon-foundation/dsolidity): DEXON fork of the solidity compiler, includes extra features supported by DEXON's modification of EVM.
 * [DIPs](https://github.com/dexon-foundation/DIPs): a place for DEXON Improvement Proposals
+
+# Development Guide
+
+* [Dapp development](https://github.com/dexon-foundation/wiki/wiki/Dapp-Development)
