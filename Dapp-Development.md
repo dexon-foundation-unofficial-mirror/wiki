@@ -20,9 +20,8 @@ This very simple contract demonastrate how to use the `rand` variable. When `upd
 
 To compile the contract, you will need to use [dsolidity](https://github.com/dexon-foundation/dsolidity). The nodejs version can also be found [here](https://github.com/dexon-foundation/dsolc-js).
 
-Plan is on-going to allow truffle to support `dsolc-js`. For now, you can simply
+An on-going plan is to allow truffle to support `dsolc-js`. For now, you can simply unbox [hello-dexon](https://github.com/dexon-foundation/hello-dexon).
 
-1. Use truffle to develop your app
-2. Replace the random variable with `rand`
-3. Use `dsol-js` to compile the final byte-code
-4. Deploy onto the DEXON network with myetherwallet or any other tools.
+1. `truffle unbox dexon-foundation/hello-dexon`
+2. Use `npm run compile` to compile the final byte-code
+3. Deploy onto the DEXON network with myetherwallet or any other tools.
