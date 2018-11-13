@@ -1,0 +1,22 @@
+DKGSet will run several tasks during a round (or `epoch` described in DEXON Consensus Algorithm).
+
+Suppose the interval `[0, T)` and `[T, 2T)` are round `r` and `r+1`, respectively. (`T` is the round interval defined in Governance Contract)
+
+The time `t` is the Consensus Timestamp of the delivered block.
+
+## @ t = T/2
+* DKGSet_r starts the TSIG protocol to generate `CRS_r+1 = TSIG(CRS_r)`. DKGSet_r+1 is then decided.
+* After DKGSet_r+1 is decided, DKGSet_r+1 register their DKG ID. ([Phase 1 of DKG + TSIG Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG%EF%BC%8BTSIG-Protocol#phase-1-id-registration))  
+
+## @ t = T * 2 / 3
+* DKGSet_r+1 starts the DKG protocol ([Phase 2 of DKG + TSIG Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG%EF%BC%8BTSIG-Protocol#phase-2-secret-key-share-exchange))
+
+## @ t = [T, 2T)
+* DKGSet_r+1 calculate the `Block.Randomness = TSIG(Block.Hash)` using TSIG protocol for each block confirmed in the round `r+1`. ([On Chain Random Oracle](https://github.com/dexon-foundation/wiki/wiki/On-Chain-Random-Oracle))
+
+
+# Special Case for Round 0
+* `CRS_0` is defined in Genesis state.
+* DKGSet_0 register their DKG ID when the node starts.
+* DKGSet_0 starts the DKG protocol at `t = T / 4`
+* DKGSet_0 will NOT calculate the `Block.Randomness`.

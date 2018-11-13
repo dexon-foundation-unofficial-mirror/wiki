@@ -92,6 +92,22 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "staked",
         "type": "uint256"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "name": "url",
+        "type": "string"
       }
     ],
     "payable": false,
@@ -533,6 +549,22 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "PublicKey",
         "type": "bytes"
+      },
+      {
+        "name": "Name",
+        "type": "string"
+      },
+      {
+        "name": "Email",
+        "type": "string"
+      },
+      {
+        "name": "Location",
+        "type": "string"
+      },
+      {
+        "name": "Url",
+        "type": "string"
       }
     ],
     "name": "stake",

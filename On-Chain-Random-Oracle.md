@@ -43,6 +43,7 @@ rand = Keccak( Randomness . Caller . Nonce . Gas )
 ```
 
 * `Randomness` is the block randomness signed by DKG set, unique for each block.
+    *  Note: `Randomness` field is not available in the initial round.
 * `Caller` is the address of the contract caller.
 * `Nonce` is the account nonce of the caller.
 * `Gas` current gas level. This ensures the random number is different each time when called.
