@@ -248,6 +248,7 @@ If more than one forth of the committee is Byzantine node, Thunderella becomes a
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
 |M+|5|DAG|BFT|O|
+
 TON (Telegram Open Network) is a blockchain system featuring high throughput with short confirmation time. To achieve this, they propose a new point of view called "Infinite Sharding Paradigm", which tries to push sharding to its extreme. In TON, there is a masterchain for general state finalization. Under masterchain, there are several workchains to perform specific tasks for different cryptocurrencies and services. If a workchain is overloaded, under that it can have several shardchain to increase throupghput. In each chain, validators run a BFT-based consensus algorithm with DPoS mechanism to propose blocks. With this sharding design, TON claims it can reach several millions TPS with 5 seconds latency.
 
 One major difference between TON and DEXON is that TON needs to run BFT consensus algorithm on different level of chain. For masterchain, it requires all validators to participate in BFT algorithm. Since BFT algorithm is typically not scalable, we can only have limited number of nodes to participate in masterchain. This can be considered a bit centralized. In DEXON, we do not require all nodes to run a single BFT algorithm, thus we can have hundreds of thousands of nodes participating in our system.
