@@ -41,6 +41,7 @@ This document explains how DEXON is different compared to other blockchain infra
 |[Stellar](#stellar)|1K ~ 10K|2 ~ 5|chain|Stellar Consensus|O|
 |[Tendermint](#tendermint)|NA|1 ~ 3|chain|PBFT|△|
 |[Thunderella](#tendermint)|NA|1.5|chain|BFT + longest chain|△|
+|[TON](#ton)|M+|5|DAG|BFT|O|
 |[Vite](#vite)|NA|10|DAG|longest chain|O|
 |[Zilliqa](#zilliqa)|3K|10 ~ 20|chain|PBFT|O|
 
@@ -242,6 +243,16 @@ Tendermint uses PBFT as their consensus algorithm. Although PBFT has low latency
 Thunderella combines two different consensus algorithms and tries to achieve high security with good performance. With less than one forth of committee is Byzantine node, it can achieve low latency with BFT algorithm. With more than one forth, it can fall back to any blockchain system that can tolerate less than <img src="https://latex.codecogs.com/svg.latex?\frac{1}{2}n" /> Byzantine nodes.
 
 If more than one forth of the committee is Byzantine node, Thunderella becomes as slow as a blockchain, while DEXON remains its low latency. Also, Thunderella is a chain-based system and it can not scale.
+
+## TON
+|Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
+|-|-|-|-|-|
+|M+|5|DAG|BFT|O|
+TON (Telegram Open Network) is a blockchain system featuring high throughput with short confirmation time. To achieve this, they propose a new point of view called "Infinite Sharding Paradigm", which tries to push sharding to its extreme. In TON, there is a masterchain for general state finalization. Under masterchain, there are several workchains to perform specific tasks for different cryptocurrencies and services. If a workchain is overloaded, under that it can have several shardchain to increase throupghput. In each chain, validators run a BFT-based consensus algorithm with DPoS mechanism to propose blocks. With this sharding design, TON claims it can reach several millions TPS with 5 seconds latency.
+
+One major difference between TON and DEXON is that TON needs to run BFT consensus algorithm on different level of chain. For masterchain, it requires all validators to participate in BFT algorithm. Since BFT algorithm is typically not scalable, we can only have limited number of nodes to participate in masterchain. This can be considered a bit centralized. In DEXON, we do not require all nodes to run a single BFT algorithm, thus we can have hundreds of thousands of nodes participating in our system.
+
+TON also has a finalization problem. It allows validators to modify invalid blocks without forking, since it is more efficient and will only effect some history blocks. However, this design also allows attacker to modify arbitrary history blocks if they can compromise the validator set. Normally in a system with BFT finalization, it should be impossible to modify history even if current validator set is compromised. Even in traditional PoW scheme, launching a 51% attack and modifying history blocks has a much higher cost with low probability to success. This design may cause security issue in TON.
 
 ## Vite
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
