@@ -1,11 +1,11 @@
 ## Installation Instructions
 
-**All platforms except Mac OS X are still work in progress**
+**All platforms except macOS and Ubuntu are still work in progress**
 
 Follow the appropriate link below to find installation instructions for
 your platform.
 
-* [Installation Instructions for Mac OS X](https://github.com/dexon-foundation/wiki/wiki/Installation-Instructions-for-Mac)
+* [Installation Instructions for macOS](https://github.com/dexon-foundation/wiki/wiki/Installation-Instructions-for-Mac)
 * [Installation Instructions for Windows](https://github.com/dexon-foundation/wiki/wiki/Installation-instructions-for-Windows)
 * Installation Instructions for Linux/Unix
   * [Ubuntu](https://github.com/dexon-foundation/wiki/wiki/Installation-Instructions-for-Ubuntu)
