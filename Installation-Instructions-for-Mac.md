@@ -44,6 +44,12 @@ Building `gdex` requires the Go compiler:
 brew install go
 ```
 
+Install libraries required by `gdex`
+
+```shell
+brew install gmp libssl
+```
+
 Finally, build the `gdex` program using the following command.
 ```shell
 cd dexon
