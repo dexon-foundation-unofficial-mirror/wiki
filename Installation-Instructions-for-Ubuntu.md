@@ -29,7 +29,7 @@ git clone https://github.com/dexon-foundation/dexon
 ```
 Install latest distribution of Go (v1.10) if you don't have it already:
 
-[See instructions](https://github.com/dexon-foundation/dexon/wiki/Installing-Go#ubuntu)
+[See instructions](https://github.com/dexon-foundation/wiki/wiki/Installing-Go#ubuntu)
 
 Building `gdex` requires Go and C compilers to be installed:
 
