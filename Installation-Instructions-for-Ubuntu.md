@@ -37,6 +37,11 @@ Building `gdex` requires Go and C compilers to be installed:
 sudo apt-get install -y build-essential golang
 ```
 
+Install libraries required by `gdex`
+```shell
+sudo apt-get install -y libssl-dev libgmp-dev
+```
+
 Finally, build the `gdex` program using the following command.
 ```shell
 cd dexon
