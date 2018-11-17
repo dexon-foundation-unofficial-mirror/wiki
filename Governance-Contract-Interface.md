@@ -130,6 +130,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
+    "inputs": [],
+    "name": "minStake",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "name": "",
@@ -167,12 +181,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "",
         "type": "address"
-      }
-    ],
-    "name": "offset",
-    "outputs": [
+      },
       {
         "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "delegators",
+    "outputs": [
+      {
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "name": "value",
         "type": "uint256"
       }
     ],
@@ -403,6 +425,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "constant": false,
     "inputs": [
       {
+        "name": "MinStake",
+        "type": "uint256"
+      },
+      {
         "name": "BlockReward",
         "type": "uint256"
       },
@@ -451,6 +477,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "nodesLength",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -583,17 +623,31 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "type": "function"
   },
   {
-    "constant": true,
-    "inputs": [],
-    "name": "nodesLength",
-    "outputs": [
+    "constant": false,
+    "inputs": [
       {
-        "name": "",
-        "type": "uint256"
+        "name": "NodeAddress",
+        "type": "address"
       }
     ],
+    "name": "delegate",
+    "outputs": [],
     "payable": false,
-    "stateMutability": "view",
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "NodeAddress",
+        "type": "address"
+      }
+    ],
+    "name": "undelegate",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]
