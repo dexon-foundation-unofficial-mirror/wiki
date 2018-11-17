@@ -2,7 +2,7 @@ The DEXON governance contract is implemented in Go, but it's ABI compatible with
 
 The governance contract address is located at `0x5765692d4e696e6720536f6e696320426f6a6965`
 
-The equivalent solidity interface can be found in the [dexon-foundation/governance](https://github.com/dexon-foundation/governance/blob/master/contracts/Governance.sol) repo. The governance contract ABI is as follows:
+The equivalent solidity interface can be found in the [dexon-foundation/governance-abi](https://github.com/dexon-foundation/governance-abi/blob/master/contracts/Governance.sol) repo. The governance contract ABI is as follows:
 
 ```
 [
