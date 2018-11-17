@@ -700,8 +700,8 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     ],
     "name": "delegate",
     "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
+    "payable": true,
+    "stateMutability": "payable",
     "type": "function"
   },
   {
