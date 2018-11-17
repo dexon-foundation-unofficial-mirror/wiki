@@ -395,16 +395,84 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "inputs": [
       {
         "indexed": true,
-        "name": "round",
+        "name": "Round",
         "type": "uint256"
       },
       {
         "indexed": false,
-        "name": "crs",
+        "name": "CRS",
         "type": "bytes32"
       }
     ],
     "name": "CRSProposed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "NodeAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "Amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Staked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "NodeAddress",
+        "type": "address"
+      }
+    ],
+    "name": "Unstaked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "NodeAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "DelegatorAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "Amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "Delegated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "NodeAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "DelegatorAddress",
+        "type": "address"
+      }
+    ],
+    "name": "Undelegated",
     "type": "event"
   },
   {
