@@ -456,11 +456,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "indexed": true,
         "name": "NodeAddress",
         "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "Amount",
-        "type": "uint256"
       }
     ],
     "name": "Staked",
