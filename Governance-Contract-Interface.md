@@ -22,7 +22,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "outputs": [
       {
         "name": "",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "payable": false,
@@ -279,7 +279,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "outputs": [
       {
         "name": "",
-        "type": "uint256"
+        "type": "int256"
       }
     ],
     "payable": false,
