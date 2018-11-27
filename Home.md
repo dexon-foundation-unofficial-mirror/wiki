@@ -9,7 +9,6 @@
 
 # Development Guide
 
-* [Create account](https://github.com/dexon-foundation/wiki/wiki/Create-Account-on-DEXON)
 * [DApp development](https://github.com/dexon-foundation/wiki/wiki/Dapp-Development)
 
 # Technical Documentations
