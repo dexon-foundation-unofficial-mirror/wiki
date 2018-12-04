@@ -8,12 +8,14 @@ Just point your DEXON/Ethereum client to this endpoint, and you should be able t
  
 ## Syncing Fullnode
 
-The testnet could be synchronised with the following command:
+The testnet could be synchronized with the following command:
 
 ```
 gdex --testnet
 ```
 
+If you don't know how to build the `gdex` binary, please follow the wiki page [here](https://github.com/dexon-foundation/wiki/wiki/Building-DEXON).
+
 It may take a few hours before your fullnode is fully-synchronised.  When it does, you can now point your DEXON/Ethereum client to http://localhost:8545
 
-Note: DEXON's current testnet is still unstable, it might be reset at some point. If it does, you might have to remove the data directory (`$HOME/.dexon` on Linux, and `Library/Dexon` on MacOS) and re-sync the node.
+Note: DEXON's current testnet is still unstable, it might be reset at some point. If it does, you might have to remove the data directory (`$HOME/.dexon` on Linux, and `$HOME/Library/Dexon` on MacOS) and re-sync the node.
