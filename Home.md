@@ -1,5 +1,8 @@
 DEXON's fullnode implementation is based on the [go-ethereum](https://github.com/ethereum/go-ethereum) project. These means we are API-compatible with Ethereum.
 
+The JSON-RPC specification is the same as Ethereum, the readers could refer to the [Ethereum Wiki on the fullnode JSON-PRC](https://github.com/ethereum/wiki/wiki/JSON-RPC).
+
+
 # List of Repositories
 
 * [dexon-consensus](https://github.com/dexon-foundation/dexon-consensus): the consensus SDK and simulation.
