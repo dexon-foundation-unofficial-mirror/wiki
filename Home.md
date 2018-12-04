@@ -16,10 +16,10 @@ To access the testnet, please follow the steps [here](https://github.com/dexon-f
 # Development Guide
 
 * [DApp development](https://github.com/dexon-foundation/wiki/wiki/Dapp-Development)
+* [Access to Testnet](https://github.com/dexon-foundation/wiki/wiki/Access-to-Testnet)
 
 # Technical Documentations
 
-* [Access to Testnet](https://github.com/dexon-foundation/wiki/wiki/Access-to-Testnet)
 * [Blockchain Comparision](https://github.com/dexon-foundation/wiki/wiki/Blockchain-Comparison)
 * [Governance Contract Interface](https://github.com/dexon-foundation/wiki/wiki/Governance-Contract-Interface)
 * [DKG + Tsig Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG%EF%BC%8BTSIG-Protocol)
