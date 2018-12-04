@@ -1,3 +1,5 @@
+DEXON's fullnode implementation is based on the [go-ethereum](https://github.com/ethereum/go-ethereum) project. These means we are API-compatible with Ethereum.
+
 # List of Repositories
 
 * [dexon-consensus](https://github.com/dexon-foundation/dexon-consensus): the consensus SDK and simulation.
