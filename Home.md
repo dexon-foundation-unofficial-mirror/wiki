@@ -2,6 +2,7 @@ DEXON's fullnode implementation is based on the [go-ethereum](https://github.com
 
 The JSON-RPC specification is the same as Ethereum, the readers could refer to the [Ethereum Wiki on the fullnode JSON-PRC](https://github.com/ethereum/wiki/wiki/JSON-RPC).
 
+To access the testnet, please follow the steps [here](https://github.com/dexon-foundation/wiki/wiki/Access-to-Testnet).
 
 # List of Repositories
 
@@ -18,6 +19,7 @@ The JSON-RPC specification is the same as Ethereum, the readers could refer to t
 
 # Technical Documentations
 
+* [Access to Testnet](https://github.com/dexon-foundation/wiki/wiki/Access-to-Testnet)
 * [Blockchain Comparision](https://github.com/dexon-foundation/wiki/wiki/Blockchain-Comparison)
 * [Governance Contract Interface](https://github.com/dexon-foundation/wiki/wiki/Governance-Contract-Interface)
 * [DKG + Tsig Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG%EF%BC%8BTSIG-Protocol)
