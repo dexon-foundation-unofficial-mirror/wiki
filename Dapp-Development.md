@@ -22,8 +22,10 @@ The most simple way to develop Dapps on DEXON is to use the DEXON version of the
 
 If you are developing apps with truffle, you will need to use [dsolidity](https://github.com/dexon-foundation/dsolidity). The nodejs version can also be found [here](https://github.com/dexon-foundation/dsolc-js).
 
-An on-going plan is to allow truffle to support `dsolc-js`. For now, you can simply unbox [hello-dexon](https://github.com/dexon-foundation/hello-dexon).
+Get the DEXON-port of truffle suite from `npm install -g @dexon-foundation/truffle`  
+You can check out our demo DApp [hello-dexon](https://github.com/dexon-foundation/hello-dexon) and learn how to compile, test and deploy your smart contracts.
 
-1. `truffle unbox dexon-foundation/hello-dexon`
-2. Use `npm run compile` to compile the final byte-code
-3. Deploy onto the DEXON network with myetherwallet or any other tools.
+1. `mkdir hello-dexon && cd hello-dexon`
+2. `dexon-truffle unbox dexon-foundation/hello-dexon`
+3. Use `npm run compile` to compile the final byte-code
+4. Deploy onto the DEXON network by `dexon-truffle migrate --network=testnet`
