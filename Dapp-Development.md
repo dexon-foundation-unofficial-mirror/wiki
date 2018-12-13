@@ -37,8 +37,6 @@ You can check out our demo DApp [hello-dexon](https://github.com/dexon-foundatio
 
 ### Ganache
 
-Ganache 
-
 [Ganache](https://github.com/trufflesuite/ganache) is a JavaScript mock of Ethereum blockchain.  
 The [DEXON version of Ganache](https://github.com/dexon-foundation/ganache-cli) adds additional op-codes that DEXON blocklattice introduced.
 
