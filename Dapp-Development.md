@@ -24,6 +24,9 @@ If you are developing apps with truffle, you will need to use [dsolidity](https:
 
 ### Truffle
 
+[Truffle](https://github.com/trufflesuite/truffle) is a set of tools for developing solidity apps, originally developed by ConsenSys.  
+The [DEXON-port of Truffle](https://github.com/dexon-foundation/truffle) uses dsolidity, which supports on-chain unbiased randomness.
+
 Get the DEXON-port of truffle suite from `npm install -g @dexon-foundation/truffle`  
 You can check out our demo DApp [hello-dexon](https://github.com/dexon-foundation/hello-dexon) and learn how to compile, test and deploy your smart contracts.
 
@@ -33,6 +36,11 @@ You can check out our demo DApp [hello-dexon](https://github.com/dexon-foundatio
 4. Deploy onto the DEXON network by `dexon-truffle migrate --network=testnet`
 
 ### Ganache
+
+Ganache 
+
+[Ganache](https://github.com/trufflesuite/ganache) is a JavaScript mock of Ethereum blockchain.  
+The [DEXON version of Ganache](https://github.com/dexon-foundation/ganache-cli) adds additional op-codes that DEXON blocklattice introduced.
 
 ```
 > npm i -g @dexon-foundation/ganache-cli
