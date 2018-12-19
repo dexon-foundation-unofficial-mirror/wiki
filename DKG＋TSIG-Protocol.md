@@ -18,6 +18,16 @@ Phase 1 ID Registration
 
 Each validator registers its ID with stake.
 
+### @ T = (0, λ)
+
+Each validator broadcast a `DKGGroupPublicKeyReady_i` message.
+
+### @ T = (λ, +inf)
+
+Validator waits until seeing more than `2t+1` `DKGGroupPublicKeyReady` message.
+
+###
+
 Phase 2 Secret Key Share Exchange
 -------
 ### @ T = 0
