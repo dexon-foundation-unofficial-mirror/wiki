@@ -131,6 +131,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "url",
         "type": "string"
+      },
+      {
+        "name": "unstaked",
+        "type": "bool"
       }
     ],
     "payable": false,
@@ -218,6 +222,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       },
       {
         "name": "value",
+        "type": "uint256"
+      },
+      {
+        "name": "undelegated_at",
         "type": "uint256"
       }
     ],
@@ -409,6 +417,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
+    "inputs": [],
+    "name": "lockupPeriod",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "name": "",
@@ -531,6 +553,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "inputs": [
       {
         "name": "MinStake",
+        "type": "uint256"
+      },
+      {
+        "name": "LockupPeriod",
         "type": "uint256"
       },
       {
@@ -769,6 +795,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       }
     ],
     "name": "undelegate",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "NodeAddress",
+        "type": "address"
+      }
+    ],
+    "name": "withdraw",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
