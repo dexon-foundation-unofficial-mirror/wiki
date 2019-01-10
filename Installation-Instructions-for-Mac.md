@@ -47,7 +47,8 @@ brew install go
 Install libraries required by `gdex`
 
 ```shell
-brew install gmp libssl
+brew install gmp openssl
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 ```
 
 Finally, build the `gdex` program using the following command.
