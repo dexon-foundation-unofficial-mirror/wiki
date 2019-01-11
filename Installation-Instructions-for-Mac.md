@@ -61,6 +61,7 @@ If you see some errors related to header files of Mac OS system library, install
 
 ```shell
 xcode-select --install
+/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 ```
 
 You can now run `build/bin/gdex` to start your node.
