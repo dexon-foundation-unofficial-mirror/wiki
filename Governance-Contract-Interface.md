@@ -4,6 +4,8 @@ The governance contract address is located at `0x5765692d4e696e6720536f6e6963204
 
 The equivalent solidity interface can be found in the [dexon-foundation/governance-abi](https://github.com/dexon-foundation/governance-abi/blob/master/contracts/Governance.sol) repo. The governance contract ABI is as follows:
 
+<!-- DO NOT EDIT BELOW THIS LINE!! The below part is automatically generated from the governance-abi ci flow and any modification below will be lost. -->
+<!-- [[ABI AUTOGEN START]] -->
 ```
 [
   {
@@ -1055,3 +1057,4 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
