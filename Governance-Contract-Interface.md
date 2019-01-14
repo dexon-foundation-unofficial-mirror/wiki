@@ -33,20 +33,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "blockReward",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [
       {
         "name": "",
@@ -98,6 +84,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "name": "",
@@ -137,10 +137,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "url",
         "type": "string"
-      },
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "miningVelocity",
+    "outputs": [
       {
-        "name": "unstaked",
-        "type": "bool"
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -317,6 +327,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": true,
     "inputs": [],
+    "name": "totalStaked",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "roundInterval",
     "outputs": [
       {
@@ -350,11 +374,39 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": true,
     "inputs": [],
+    "name": "nextHalvingSupply",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "owner",
     "outputs": [
       {
         "name": "",
         "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "lastHalvedAmount",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -743,7 +795,15 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "type": "uint256"
       },
       {
-        "name": "BlockReward",
+        "name": "MiningVelocity",
+        "type": "uint256"
+      },
+      {
+        "name": "NextHalvingSupply",
+        "type": "uint256"
+      },
+      {
+        "name": "LastHalvingAmount",
         "type": "uint256"
       },
       {
