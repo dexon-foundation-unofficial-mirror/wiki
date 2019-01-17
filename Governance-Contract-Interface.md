@@ -1000,15 +1000,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": false,
-    "inputs": [],
-    "name": "resetDKG",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": false,
     "inputs": [
       {
         "name": "PublicKey",
@@ -1126,6 +1117,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
