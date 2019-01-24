@@ -39,11 +39,11 @@ The DEXON blockchain exposes this randomness source in Solidity with the `rand` 
 we added into EVM. The random number is calculated with the following formula:
 
 ```
-rand = Keccak( Randomness . Caller . Nonce . Gas )
+rand = Keccak( Randomness . Caller . Nonce . RandCallIndex )
 ```
 
 * `Randomness` is the block randomness signed by DKG set, unique for each block.
     *  Note: `Randomness` field is not available in the initial round.
 * `Caller` is the address of the contract caller.
 * `Nonce` is the account nonce of the caller.
-* `Gas` current gas level. This ensures the random number is different each time when called.
+* `RandCallIndex` number of times OP_RAND is called in the current transaction.
