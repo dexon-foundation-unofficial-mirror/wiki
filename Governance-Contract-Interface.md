@@ -686,6 +686,11 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "indexed": true,
         "name": "DelegatorAddress",
         "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "Amount",
+        "type": "uint256"
       }
     ],
     "name": "Undelegated",
@@ -1099,6 +1104,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
