@@ -659,6 +659,18 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "indexed": true,
         "name": "NodeAddress",
         "type": "address"
+      }
+    ],
+    "name": "NodeRemoved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "NodeAddress",
+        "type": "address"
       },
       {
         "indexed": true,
@@ -702,6 +714,11 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "indexed": true,
         "name": "NodeAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "DelegatorAddress",
         "type": "address"
       },
       {
@@ -1104,6 +1121,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
