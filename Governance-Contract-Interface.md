@@ -84,6 +84,25 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "DKGResetCount",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [],
     "name": "totalSupply",
     "outputs": [
@@ -792,6 +811,23 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "type": "event"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "Round",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "BlockHeight",
+        "type": "uint256"
+      }
+    ],
+    "name": "DKGReset",
+    "type": "event"
+  },
+  {
     "constant": false,
     "inputs": [
       {
@@ -1118,9 +1154,19 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
+    "name": "resetDKG",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
