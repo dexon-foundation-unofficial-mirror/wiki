@@ -1157,7 +1157,12 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": false,
-    "inputs": [],
+    "inputs": [
+      {
+        "name": "NewSignedCRS",
+        "type": "bytes"
+      }
+    ],
     "name": "resetDKG",
     "outputs": [],
     "payable": false,
@@ -1166,6 +1171,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
