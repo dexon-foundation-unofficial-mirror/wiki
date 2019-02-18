@@ -45,5 +45,5 @@ rand = Keccak( Randomness . Caller . Nonce . RandCallIndex )
 * `Randomness` is the block randomness signed by DKG set, unique for each block.
     *  Note: `Randomness` field is not available in the initial round.
 * `Caller` is the address of the contract caller.
-* `Nonce` is the account nonce of the caller.
+* `Nonce` is the account nonce of the original caller.
 * `RandCallIndex` number of times OP_RAND is called in the current transaction.
