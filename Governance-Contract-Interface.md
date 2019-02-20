@@ -552,6 +552,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": true,
     "inputs": [],
+    "name": "minGasPrice",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "lockupPeriod",
     "outputs": [
       {
@@ -853,6 +867,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "FineValues",
         "type": "uint256[]"
+      },
+      {
+        "name": "MinGasPrice",
+        "type": "uint256"
       }
     ],
     "name": "updateConfiguration",
@@ -1117,6 +1135,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
