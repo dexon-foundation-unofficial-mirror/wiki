@@ -18,7 +18,7 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Table of Contents
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-|[DEXON](#dexon)|1M+|2|DAG|total ordering|O|
+|[DEXON](#dexon)|1M+|1|DAG|total ordering|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
@@ -48,9 +48,9 @@ This document explains how DEXON is different compared to other blockchain infra
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1M+|2|DAG|total ordering|O|
+|1M+|1|DAG|DEXON Byzantine agreement|O|
 
-DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp ecosystem. DEXON uses total ordering as its main consensus algorithm, of which throughput can scale linearly with the number of nodes while latency remains nearly constant. Instead of processing blocks sequentially like traditional blockchain, DEXON blocklattice data structure processes blocks in parallel. With such high throughput and low latency, practical DApp can finally be developed and widely used. 
+DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp ecosystem. DEXON uses an efficient Byzantine agreement as its main consensus algorithm, of which throughput can scale linearly with the number of nodes while latency remains nearly constant. With the adoption of verifiable random function, DEXON can provide high performance while keeping the network decentralized (~ 100K nodes). With such high throughput and low latency, practical DApp can finally be developed and widely used. 
 
 ## Algorand
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
