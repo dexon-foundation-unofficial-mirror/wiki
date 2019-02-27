@@ -17,6 +17,5 @@ The time `t` is the Consensus Timestamp of the delivered block.
 
 # Special Case for Round 0
 * `CRS_0` is defined in Genesis state.
-* DKGSet_0 register their DKG ID when the node starts.
-* DKGSet_0 starts the DKG protocol at `t = T / 4`
-* DKGSet_0 will NOT calculate the `Block.Randomness`.
+* No DKGSet and `Block.Randomness`.
+* `CRS_1` = `HASH(CRS_0)`
