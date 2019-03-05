@@ -33,29 +33,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "dkgComplaints",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
     "inputs": [],
     "name": "notarySetSize",
     "outputs": [
@@ -209,67 +186,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "inputs": [
       {
         "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "crs",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "name": "dkgMPKReadysCount",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "dkgMPKReadys",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
         "type": "address"
       },
       {
@@ -298,12 +214,17 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
-    "inputs": [],
-    "name": "blockGasLimit",
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "dkgFinalizeds",
     "outputs": [
       {
         "name": "",
-        "type": "uint256"
+        "type": "bool"
       }
     ],
     "payable": false,
@@ -312,17 +233,12 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
-    "name": "nodesOffsetByID",
+    "inputs": [],
+    "name": "blockGasLimit",
     "outputs": [
       {
         "name": "",
-        "type": "int256"
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -365,6 +281,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": true,
     "inputs": [],
+    "name": "crs",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "roundLength",
     "outputs": [
       {
@@ -392,12 +322,50 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   },
   {
     "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "dkgComplaints",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bytes"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [],
     "name": "owner",
     "outputs": [
       {
         "name": "",
         "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "dkgMPKReadys",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
       }
     ],
     "payable": false,
@@ -492,6 +460,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": true,
     "inputs": [],
+    "name": "dkgMPKReadysCount",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "minBlockInterval",
     "outputs": [
       {
@@ -509,10 +491,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "",
         "type": "uint256"
-      },
-      {
-        "name": "",
-        "type": "uint256"
       }
     ],
     "name": "dkgMasterPublicKeys",
@@ -520,29 +498,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "",
         "type": "bytes"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      },
-      {
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "dkgFinalizeds",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
       }
     ],
     "payable": false,
@@ -566,7 +521,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": true,
     "inputs": [],
-    "name": "lockupPeriod",
+    "name": "dkgFinalizedsCount",
     "outputs": [
       {
         "name": "",
@@ -582,10 +537,24 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "inputs": [
       {
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
-    "name": "dkgFinalizedsCount",
+    "name": "nodesOffsetByNodeKeyAddress",
+    "outputs": [
+      {
+        "name": "",
+        "type": "int256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "lockupPeriod",
     "outputs": [
       {
         "name": "",
@@ -1135,6 +1104,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
