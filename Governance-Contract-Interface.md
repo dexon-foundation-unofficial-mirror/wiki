@@ -794,18 +794,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "type": "uint256"
       },
       {
-        "name": "MiningVelocity",
-        "type": "uint256"
-      },
-      {
-        "name": "NextHalvingSupply",
-        "type": "uint256"
-      },
-      {
-        "name": "LastHalvingAmount",
-        "type": "uint256"
-      },
-      {
         "name": "BlockGasLimit",
         "type": "uint256"
       },
@@ -1104,6 +1092,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
