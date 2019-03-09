@@ -188,7 +188,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "outputs": [
       {
         "name": "",
-        "type": "uint64"
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -266,7 +266,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "outputs": [
       {
         "name": "",
-        "type": "uint64"
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -1120,6 +1120,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
