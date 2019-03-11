@@ -2,18 +2,29 @@
 
 DEXON Foundation  Last Modified 2019/3/4    v6.0
 
+<p align="center">
+  <img src="https://imgur.com/Odmv6d6.png" width="400">
+</p>
+
 *This document describes the current plan and vision for the DEXON Network platform. While we intend to attempt to realize this vision, please recognize that it is dependent on a number of factors and subject to a wide range of risks. We do not guarantee, represent or warrant any of the statements in this document, because they are based on our current beliefs, expectations and assumptions, about which there can be no assurance due to various anticipated and unanticipated events that may occur. Please know that we seek to achieve the vision laid out in our whitepaper and website, but that you cannot rely on any of it coming true. Blockchain, cryptocurrencies, other aspects of our technology and these markets are in their infancy and will be subject to many challenges, competition and a changing environment.
 
 
 ## Token Allocation
-The total supply of DXN tokens is fixed at 4 billion. The genesis token supply is 1 billion DXN and the other 3 billion DXN will be minted as mining rewards after DEXON mainnet launches. The token allocation is shown below:
+The total supply of DXN tokens is fixed at **4 billion**. The genesis token supply is **1 billion** DXN and the other **3 billion** DXN will be minted as mining rewards after DEXON mainnet launches. The token allocation is shown below:
 
+<p align="center">
+  <img src="https://imgur.com/758a1nE.png" width="500">
+  <br></br>
+  <b> Figure 1. Token Allocation </b>
+</p>
 
-Figure 1. Token Allocation
 * 75% for Miner’s Reward
+
 	For rewarding miners that actively participate in network consensus and smart contract 
              executions on DEXON Network.
+
 * 25% for Genesis Supply 
+
 	The genesis supply will be distributed to 4 parties, including DEXON Foundation / Team and  
 private sale token purchasers under different vesting schedules. 
 
@@ -23,10 +34,15 @@ Nodes that actively participate in validating transactions will get DXN tokens a
 
 ### Proof-of-Participation Model
 * Validator Eligibility
+
 A node is eligible to join as a validator if its DXN token deposit reaches the threshold of 1 million DXN. The deposit can come from the node itself or from any other accounts that support the node. It takes 24 hours for the deposit to become effective, and another 24 hours for deposit withdrawals to become effective.
+
 * Symmetric Validator Power
+
 The validating power and the probability to be selected as a block producer among all validators are both fair and symmetric, meaning that the expected mining rewards of each validator will be the same as well. 
+
 * Mining Rewards
+
 A validator earns transaction processing fees, gas fees, and mining rewards when it actively produces blocks and acks to other blocks.
 
 
@@ -35,31 +51,53 @@ DEXON adopts a novel adaptive mining mechanism that can self-adjust the token mi
 
 
 The formula of minting velocity is stated below:
-
-_r_ is total supply growth rate (the annual growth rate of total supply), vis node mining velocity (the annual mining rate of each node), and  is mining participation rate (the percentage of deposited tokens in validators relative to current total token circulation). 
+<p align="center">
+  <img src="https://imgur.com/4gMwxZo.png" width="400">
+</p>
+r is total supply growth rate (the annual growth rate of total supply), vis node mining velocity (the annual mining rate of each node), and  is mining participation rate (the percentage of deposited tokens in validators relative to current total token circulation). 
 Initially, v is 18.75% and will alter based on the total minted tokens under a half-life condition. 
 The relation between node mining velocity and minted tokens is shown below:
+
 * v= 18.75% when mainnet launches. 
+
 * v= 9.375% after 1.5 billion DXN tokens are minted. 
+
 * v= 4.6875% after another 750 million DXN tokens are minted,  and so on.
-As an example, inniitialy each node can mine 1M * 18.75% = 187.5K DXN tokens per year. As total minted tokens hit 1.5B DXN, the annual mining rate per node will decrease from 18.75% to 9.375%, and as total minted tokens hit 2.25B DXN, the annual per node mining rate will decrease further from 9.375% to 4.6875%, and so on.
 
+As an example, inniitialy each node can mine 1M * 18.75% = 187.5K DXN tokens per year. As total minted tokens hit 1. 5B DXN, the annual mining rate per node will decrease from 18.75% to 9.375%, and as total minted tokens hit 2. 25B DXN, the annual per node mining rate will decrease further from 9.375% to 4.6875%, and so on.
 
-Figure 2. Node Mining Velocity Half-Life Threshold
+<p align="center">
+  <img src="https://imgur.com/Yu1Lanm.png" width="400">
+  <br></br>
+  <b> Figure 2. Node Mining Velocity Half-Life Threshold </b>
+</p>
+
 
 ## Mining Rewards in Circulation 
 Now, let’s consider the influence of mining participation rate. For example, the genesis supply of DXN token is 1 billion, if 500 millions tokens are deposited in validating nodes, the mining participation rate will be 50%. So the total supply growth rate will be 18.75% * 50% = 9.375%.
 The total mining rewards in circulation based on different participation rates (30%, 50%, 70%) is shown in the figure below:
-
+<p align="center">
+  <img src="https://imgur.com/q9lCPOK.png" width="600">
+  <br></br>
+  <b> Figure 3. Total Mining Rewards in Circulation </b>
+</p>
 
 Assuming the mining participation rate is fixed at 50%, r(total supply growth rate) per year is shown below:
+<p align="center">
+  <img src="https://imgur.com/Y8lqtzp.png" width="600">
+  <br></br>
+  <b> Figure 4. Total Mining Rewards in Circulation </b>
+</p>
 
-Figure 4. Total Mining Rewards in Circulation
 
 ## Genesis Allocation
 As stated above, the genesis supply is 1 billion DXN and the allocation is shown below:
+<p align="center">
+  <img src="https://imgur.com/XhtJBjk.png" width="600">
+  <br></br>
+  <b> Figure 5. Genesis Supply Allocation </b>
+</p>
 
-Figure 5. Genesis Supply Allocation
 
 * 38.5% to Private Sale Purchasers (Genesis allocation, under 1-year vesting)
              For building strategic partnerships with influential industry entities and growing the 
@@ -74,7 +112,13 @@ For incentivising the founding team members and core developers.
 ### Private Sale (38.5%)
 DEXON Foundation only allows world-famous VC firms, crypto funds, and DEXON DApps ecosystem partners to participate in the private sale. The goal of the private sale is to build up partnership relationships and grow the DEXON DApps ecosystem.
 According to the purchased amount, a private sale purchaser will be granted an additional bonus of DXN tokens as shown in the figure below. Note that the bonus structure is tier-based and cumulative.
-Figure 6. Private Sale Purchaser Additional Bonus
+
+<p align="center">
+  <img src="https://imgur.com/wK3gFAe.png" width="600">
+  <br></br>
+  <b> Figure 6. Private Sale Purchaser Additional Bonus </b>
+</p>
+
 DXN tokens sold in private sale will be under a 1-year lock-up condition. 3 months after mainnet launches, 10% of DXN tokens will be vested, while each month thereafter, an additional 10% of DEX tokens will be vested in the following 10 months. The bonus portion will be vested 12 months after mainnet launch.
 
 
@@ -89,8 +133,12 @@ For example, if one purchases 10M USD for 100M DXN tokens, his bonus will be as 
 * 4-5M tier: 20% bonus, 2M DXN tokens
 * 5M+ tier: 25% bonus, 12.5M DXN tokens
 In total, the purchaser will get additional 17.5M DXN tokens as bonus. The vesting schedule would be as shown below:
+<p align="center">
+  <img src="https://imgur.com/i9G8paO.png" width="600">
+  <br></br>
+  <b> Figure 7. Private Sale Purchaser Token Vesting Chart </b>
+</p>
 
-Figure 7. Private Sale Purchaser Token Vesting Chart
 
 ### Public Sale (1.5%)
 DEXON Foundation will sell DXN tokens to the public. The goal of public sale is to distribute tokens to early developers and users. The price of each DXN token in the public sale will be 0.2 USD. 
@@ -118,14 +166,22 @@ The total DXN tokens in circulation will gradually increase as mining rewards ar
 - 40% to DEXON Foundation (Genesis allocation, 4-year vesting)
 - 20% to Founding team (Genesis allocation, under 4-year vesting)
 Assuming the mining participation rate is fixed at 50%, 30 years after mainnet launch, about 98.8% (3,953,284,807 / 4,000,000,000) of DXN tokens will be in  public circulation. The long-term total token circulation chart is shown below:
+<p align="center">
+  <img src="https://imgur.com/Mp3ABWU.png" width="600">
+  <br></br>
+  <b> Figure 8. Long-Term DXN Tokens in Circulation  </b>
+</p>
 
-Figure 8. Long-Term DXN Tokens in Circulation 
 
 
 For the first 16 quarters after mainnet launch, the composition of DXN token circulation is shown below:
 
+<p align="center">
+  <img src="https://imgur.com/Fj1sCHG.png" width="600">
+  <br></br>
+  <b> Figure 9. Short-Term DXN Tokens in Circulation  </b>
+</p>
 
-Figure 9. Short-Term DXN Tokens in Circulation 
 
 
 
@@ -140,8 +196,12 @@ For DEXON developers / researchers and partnerships with academic research insti
 For community building, corporate partnerships, developer conferences, DApps hackathons, business development, branding, etc.
 ### Operational Costs 20%
 For daily operations / network governance / legal / accounting costs of DEXON Foundation.
+<p align="center">
+  <img src="https://imgur.com/VUjeXNw.png" width="600">
+  <br></br>
+  <b> Figure 10. Use of Funds </b>
+</p>
 
-Figure 10. Use of Funds
 
 
 ## DISCLAIMER
@@ -197,6 +257,3 @@ DEXON Foundation does not make any representation or warranty, explicit or impli
 11.  Compliance by Users.
 You acknowledge and agree that DEXON Foundation is not responsible for determining whether or which laws, rules, or regulations apply or may apply to your transactions (including, without limitation, any anti-money laundering laws, securities laws and tax laws). You acknowledge and agree that you are in compliance with all such laws, rules, or regulations as may be applicable to your transactions. Without limiting the foregoing, you acknowledge and agree that you are solely responsible for all tax obligations arising from your purchase of the DXN Tokens. You further acknowledge and agree that DEXON Foundation shall not be liable, whether directly or indirectly, for any of your tax obligations.
 Applicable law, regulation, and executive orders may require DEXON Foundation to, upon request by government agencies, disclose information regarding your account(s). In the event such disclosure is compelled, you agree that DEXON Foundation may disclose information regarding your accounts. While DEXON Foundation will endeavor to, where commercially reasonable, give you prior notice of such disclosure, DEXON Foundation makes no guarantees that such prior notice will be made. 
-
-
-
