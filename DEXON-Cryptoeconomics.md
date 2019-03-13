@@ -89,7 +89,7 @@ Assuming the mining participation rate is fixed at 50%, r(total supply growth ra
   <b> Figure 4. Total Mining Rewards in Circulation </b>
 </p>
 
-
+<!---
 ## Genesis Allocation
 As stated above, the genesis supply is 1 billion DXN and the allocation is shown below:
 <p align="center">
@@ -184,7 +184,7 @@ For the first 16 quarters after mainnet launch, the composition of DXN token cir
 
 
 
-
+-->
 
 
 
