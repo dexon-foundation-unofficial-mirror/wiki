@@ -727,7 +727,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "constant": false,
     "inputs": [
       {
-        "name": "newOwner",
+        "name": "NewOwner",
         "type": "address"
       }
     ],
@@ -786,6 +786,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       }
     ],
     "name": "updateConfiguration",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "NewOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferNodeOwnership",
     "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
@@ -1009,6 +1023,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
