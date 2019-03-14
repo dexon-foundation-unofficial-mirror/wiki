@@ -1048,3 +1048,4 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
+<!-- [[ABI AUTOGEN END]] -->
