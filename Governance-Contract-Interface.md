@@ -749,6 +749,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "type": "uint256"
       },
       {
+        "name": "MinGasPrice",
+        "type": "uint256"
+      },
+      {
         "name": "BlockGasLimit",
         "type": "uint256"
       },
@@ -779,10 +783,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "FineValues",
         "type": "uint256[]"
-      },
-      {
-        "name": "MinGasPrice",
-        "type": "uint256"
       }
     ],
     "name": "updateConfiguration",
@@ -1023,6 +1023,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
