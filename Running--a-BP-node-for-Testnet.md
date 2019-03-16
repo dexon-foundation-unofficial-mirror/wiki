@@ -43,7 +43,7 @@ Use the following command to start the BP node:
         --bp \
         --nodekey=/mnt/node.key \
         --datadir=/mnt/datadir \
-        --syncmode=full \
+        --syncmode=fast \
         --cache=1024 \
         --gcmode=archive
 
