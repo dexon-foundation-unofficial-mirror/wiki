@@ -22,9 +22,9 @@ securely.
 
 1. Goto the [Governance contract page on DEXSCAN](https://testnet.dexscan.org/address/0x63751838D6485578B23e8b051d40861eCC416794).
 2. Navigate to the write tab and select `register` from the dropdown menu.
-3. Fill in the information like below:
+3. Fill in the information like below, currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
 
-![Register in Governance Contract Page](https://i.imgur.com/ZRCwrdn.png)
+![Register in Governance Contract Page](https://i.imgur.com/bc2vDgA.png)
 
 4. Hit send to reigster your node.
 
