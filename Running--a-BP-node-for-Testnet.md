@@ -37,7 +37,7 @@ rounds (2400 blocks).
 
 Use the following command to start the BP node:
 
-    docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+    docker run -v $PWD:/mnt -it dexonfoundation/dexon:testnet \
         --testnet \
         --bp \
         --nodekey=/mnt/node.key \
