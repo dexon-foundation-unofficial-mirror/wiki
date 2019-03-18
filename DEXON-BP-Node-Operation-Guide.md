@@ -75,14 +75,14 @@ A file node.key can be found under the current working directory. node.key is ve
 #### Register your node in DEXON public network
 1. Send some DXN to your node key address, 100 DXN should suffice. These DXN are required for the node to send transaction and interact with the consensus protocol. You need to replenish them if it ran out.
 2. Goto the [Governance contract page on DEXSCAN](https://testnet.dexscan.org/address/0x63751838D6485578B23e8b051d40861eCC416794).
-3. Navigate to the `Write` tab, select `register` from the dropdown menu and fill all the following information:
+3. Navigate to the `Write` tab and select `register` from the dropdown menu.
+
+4. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
  - Node Public Key (the public key generated above)
  - Name of the node
  - Contact email
  - Node Location
  - Website URL
-4. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
-
 ![Register in Governance Contract Page](https://i.imgur.com/bc2vDgA.png)
 
 5. Hit send to register your node.
