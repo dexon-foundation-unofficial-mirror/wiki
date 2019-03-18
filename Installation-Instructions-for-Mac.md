@@ -47,7 +47,7 @@ brew install go
 Install libraries required by `gdex`
 
 ```shell
-brew pkg-config install gmp openssl
+brew install gmp openssl pkg-config
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 ```
 
@@ -65,3 +65,9 @@ xcode-select --install
 ```
 
 You can now run `build/bin/gdex` to start your node.
+
+Installing docker if you want to run image:
+
+    brew cask installl docker
+
+Remember to execute `docker` (there should be a whale in the top status bar which indicates that Docker is running).
