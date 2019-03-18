@@ -8,13 +8,13 @@ Given a node set of size N, the ratio R of Byzantine nodes, and the notary set o
   <img src="https://imgur.com/wszheq8.png" width="250">
 </p>
 
-We set the probability to be 10^-8; that is, there is less than one fault during 10000 years in expectation.
-Assume R=1/5 and applying this equation, we can derive the size of notary set which is shown in the following figure.
+We set the probability to be 10^-8; that is, there is less than one fault during 10000 years in expectation (notary set is re-selected every hour).
+Assume R=1/5. We can derive the proper size of the notary set according to the equation and the result is shown in the following figure.
 
 ![Alt text](https://docs.google.com/spreadsheets/d/e/2PACX-1vREyLJEd7CpHNUG3O-uDWQFbiNidL7j5QtoQtvAKw4cNA3KC9Vs7Za0DfkKcU9L_kafIYBWkO7adouO/pubchart?oid=1623853170&format=image)
 
 
-We give two curves to approximate the data point.
+For convenience, we give two curves to approximate the data points.
 The first one is y = 70.5 ln(x) - 264, which is the purple dash line and the second one is y = 74 ln(x) - 264, which is the green dash line.
 The following table is the resilience ratio to the Byzantine given the size of notary set and probability 10^-8.
 
@@ -32,4 +32,4 @@ The following table is the resilience ratio to the Byzantine given the size of n
 | 4000 | 321 | 0.207 | 342 | 0.209 |
 
 
-DEXON mainnet will use y = 70.5 ln(x) - 264 to decide the notary set size from the node set size.
+DEXON mainnet will use y = 70.5 ln(x) - 264 to decide the size of the notary set under different sizes of the node set.
