@@ -68,6 +68,6 @@ You can now run `build/bin/gdex` to start your node.
 
 Installing docker if you want to run image:
 
-    brew cask installl docker
+    brew cask install docker
 
 Remember to execute `docker` (there should be a whale in the top status bar which indicates that Docker is running).
