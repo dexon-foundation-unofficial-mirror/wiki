@@ -73,11 +73,17 @@ Please store the address and public key which will be used to register a fullnod
 A file node.key can be found under the current working directory. node.key is very important as it contains the node private key. Please save this file securely.
 
 #### Register your node in DEXON public network
-1. Send some DXN to your node key address, 100 DXN should suffice. These DXN are required for the node to send transaction and interact with the consensus protocol. You need to replenish them if it ran out.
-2. Goto the [Governance contract page on DEXSCAN](https://testnet.dexscan.org/address/0x63751838D6485578B23e8b051d40861eCC416794).
-3. Navigate to the `Write` tab and select `register` from the dropdown menu.
+1. Sync DEXON blockchain. Use the following command to download all the blocks in DEXON blockchain.
 
-4. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
+    `build/bin/gdex --network_type --bp --nodekey=node.key --datadir=Dexon.bp --syncmode=fast --gcmode=archive`
+
+When you see `commit pivot`, press `control + c`.
+
+2. Send some DXN to your node key address, 100 DXN should suffice. These DXN are required for the node to send transaction and interact with the consensus protocol. You need to replenish them if it ran out.
+3. Goto the [Governance contract page on DEXSCAN](https://testnet.dexscan.org/address/0x63751838D6485578B23e8b051d40861eCC416794).
+4. Navigate to the `Write` tab and select `register` from the dropdown menu.
+
+5. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
  - Node Public Key (the public key generated above)
  - Name of the node
  - Contact email
@@ -85,10 +91,9 @@ A file node.key can be found under the current working directory. node.key is ve
  - Website URL
 ![Register in Governance Contract Page](https://i.imgur.com/bc2vDgA.png)
 
-5. Hit send to register your node.
+6. Hit send to register your node.
 
-After this, your node should be staked. After staking, the configuration will start to take effect after 2
-epochs (2400 blocks).
+After this, you are successfully staked and the configuration will start to take effect after 2 epochs (2400 blocks).
 
 Note that, the account of node.key and the account to send DXN coin to governance contract are not necessary to be the same.
 
