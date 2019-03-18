@@ -31,4 +31,7 @@ To access the testnet, please follow the steps [here](https://github.com/dexon-f
 * [Configuration Change](https://github.com/dexon-foundation/wiki/wiki/Configuration-Change)
 * [Consensus Algorithm V2 Specification](https://github.com/dexon-foundation/wiki/wiki/Consensus-Algo-v2-Spec)
 * [DEXON Cryptoeconomics](https://github.com/dexon-foundation/wiki/wiki/DEXON-Cryptoeconomics)
+* [Secection of notary set size](https://github.com/dexon-foundation/wiki/wiki/Selection-of-the-notary-set-size)
+
+# Guide
 * [Running a testnet BP node](https://github.com/dexon-foundation/wiki/wiki/Running--a-BP-node-for-Testnet)
