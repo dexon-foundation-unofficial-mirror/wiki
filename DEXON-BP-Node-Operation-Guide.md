@@ -90,13 +90,13 @@ A file node.key can be found under the current working directory. node.key is ve
 After this, your node should be staked. After staking, the configuration will start to take effect after 2
 epochs (2400 blocks).
 
-Note that, the account of node.key and the account to send DXN coin to governance are not necessary to be the same.
+Note that, the account of node.key and the account to send DXN coin to governance contract are not necessary to be the same.
 
-Then, you can start BP node
+Then, you can start a BP node
 
     build/bin/gdex --network_type --bp --nodekey=node.key --datadir=Dexon.bp --syncmode=full --gcmode=archive
 
-, or, you can run through container as explaining in next section.
+, or, you can run through container as explaining in the next section.
 For more detail instruction about `gdex`, go to https://github.com/dexon-foundation/dexon or use 
 
     ./gdex --help
@@ -112,7 +112,7 @@ Use the following command to start the BP node:
     --cache=1024 \
     --gcmode=archive
 
-Please make sure you have enough diskspace in the current working directory
+Please make sure you have enough disk space in the current working directory
 
 
 
