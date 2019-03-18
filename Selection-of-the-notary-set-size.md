@@ -1,14 +1,14 @@
 # Selection of the notary set size
 
-As mention in our consensus algorithm, we follow the hypergeometry distribution to decide the size of notary set.
+As mention in our consensus algorithm, we follow the hypergeometric distribution to decide the size of notary set.
 
-Given a node set of size N, the ratio of Byzantine nodes is R, and the notary set size n, then, the probability of more than 1/3 of notary set be Byzantine nodes is
+Given a node set of size N, the ratio R of Byzantine nodes, and the notary set of size n, then, the probability that more than 1/3 of notary set is Byzantine nodes is
 
 <p align="center">
   <img src="https://imgur.com/wszheq8.png" width="250">
 </p>
 
-We set the probability to be 10^-8; that is, there is one fault in more than 10000 years in expectation.
+We set the probability to be 10^-8; that is, there is less than one fault during 10000 years in expectation.
 Assume R=1/5 and applying this equation, we can derive the size of notary set which is shown in the following figure.
 
 ![Alt text](https://docs.google.com/spreadsheets/d/e/2PACX-1vREyLJEd7CpHNUG3O-uDWQFbiNidL7j5QtoQtvAKw4cNA3KC9Vs7Za0DfkKcU9L_kafIYBWkO7adouO/pubchart?oid=1623853170&format=image)
@@ -16,7 +16,7 @@ Assume R=1/5 and applying this equation, we can derive the size of notary set wh
 
 We give two curves to approximate the data point.
 The first one is y = 70.5 ln(x) - 264, which is the purple dash line and the second one is y = 74 ln(x) - 264, which is the green dash line.
-Then, the following table is the resilience ratio to the Byzantine by giving the number of the size of notary set and probability 10^-8.
+The following table is the resilience ratio to the Byzantine given the size of notary set and probability 10^-8.
 
 
 
