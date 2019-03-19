@@ -645,6 +645,23 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "type": "address"
       },
       {
+        "indexed": true,
+        "name": "NewOwnerAddress",
+        "type": "address"
+      }
+    ],
+    "name": "NodeOwnershipTransfered",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "NodeAddress",
+        "type": "address"
+      },
+      {
         "indexed": false,
         "name": "Amount",
         "type": "uint256"
@@ -836,10 +853,6 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       },
       {
         "name": "NotaryParamBeta",
-        "type": "uint256"
-      },
-      {
-        "name": "DKGSetSize",
         "type": "uint256"
       },
       {
@@ -1077,6 +1090,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
