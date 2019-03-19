@@ -116,7 +116,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "type": "uint256"
       },
       {
-        "name": "unstaked_at",
+        "name": "unstakedAt",
         "type": "uint256"
       }
     ],
@@ -508,6 +508,25 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
       {
         "name": "",
         "type": "bytes"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "lastProposedHeight",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
       }
     ],
     "payable": false,
@@ -924,6 +943,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "constant": false,
     "inputs": [
       {
+        "name": "Round",
+        "type": "uint256"
+      },
+      {
         "name": "Complaint",
         "type": "bytes"
       }
@@ -937,6 +960,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": false,
     "inputs": [
+      {
+        "name": "Round",
+        "type": "uint256"
+      },
       {
         "name": "PublicKey",
         "type": "bytes"
@@ -952,6 +979,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "constant": false,
     "inputs": [
       {
+        "name": "Round",
+        "type": "uint256"
+      },
+      {
         "name": "MPKReady",
         "type": "bytes"
       }
@@ -965,6 +996,10 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": false,
     "inputs": [
+      {
+        "name": "Round",
+        "type": "uint256"
+      },
       {
         "name": "Finalize",
         "type": "bytes"
@@ -1090,6 +1125,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
