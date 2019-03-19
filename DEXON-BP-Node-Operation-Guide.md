@@ -80,7 +80,7 @@ A file node.key can be found under the current working directory. node.key is ve
 When you see `commit pivot`, press `control + c`.
 
 2. Send some DXN to your node key address, 100 DXN should suffice. These DXN are required for the node to send transaction and interact with the consensus protocol. You need to replenish them if it ran out.
-3. Goto the [Governance contract page on DEXSCAN](https://testnet.dexscan.org/address/0x63751838D6485578B23e8b051d40861eCC416794).
+3. Goto the [Governance contract page on DEXONSCAN](https://testnet.dexscan.org/address/0x63751838D6485578B23e8b051d40861eCC416794).
 4. Navigate to the `Write` tab and select `register` from the dropdown menu.
 
 5. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
