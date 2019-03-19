@@ -127,6 +127,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   {
     "constant": true,
     "inputs": [],
+    "name": "notaryParamBeta",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
     "name": "miningVelocity",
     "outputs": [
       {
@@ -170,6 +184,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "constant": true,
     "inputs": [],
     "name": "crsRound",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "notaryParamAlpha",
     "outputs": [
       {
         "name": "",
@@ -803,7 +831,11 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "type": "uint256"
       },
       {
-        "name": "NotarySetSize",
+        "name": "NotaryParamAlpha",
+        "type": "uint256"
+      },
+      {
+        "name": "NotaryParamBeta",
         "type": "uint256"
       },
       {
@@ -1061,6 +1093,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
