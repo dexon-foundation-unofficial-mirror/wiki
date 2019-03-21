@@ -34,14 +34,14 @@
 In this section, we briefly introduce some functions that DEXON governance provides to write in.
 
 ### Register
-1.Switching into the `owner account in DeKusan` wallet 
+1. Switching into the `owner account in DeKusan` wallet 
 2. Navigate to the 'Write' tab and select 'register' from the dropdown menu.
 3. Fill in the information like below; currently, you need 1M DXN to run a BP node.
-Node Public Key (the public key generated above)
-Name of the node
-Contact email
-Node Location
-Website URL 
+  - Node Public Key (you must hold the corresponding secret key)
+  - Name of the node
+  - Contact email
+  - Node Location
+  - Website URL 
 4. Press `Send` and `confirm` in DekuSan wallet.
 
 ### Stake/Unstake
