@@ -1,8 +1,6 @@
 # Rule for the DEXON node set
   We introduce the rule for node set and give a brief explanation to the functions in DEXON governance contract.
 
-## Being DEXON node
-  You have to register and deposit the stake to the governance contract. See section ...
   
 ## Active condition (permission to be in notary set)
   You must deposit enough stake in the governance contract to get the qualification to be selected in the notary set.
