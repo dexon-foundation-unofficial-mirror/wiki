@@ -21,20 +21,28 @@
 
 ## Penalty
   The following behavior violates the rule and will be fined.
-  1. fork blocks in the same height (propose more than one blocks)
-  2. fork votes (send more than one votes in the same iteration in BA)
-  3. DKG complained by others (send wrong secret shares to others)
-  4. wrong Share-Sig (send wrong share signature to CRS or in commit-vote)
-  5. No block proposing in a whole epoch
+  1. `fork blocks` in the same height (propose more than one blocks)
+  2. `fork votes` (send more than one votes in the same iteration in BA)
+  3. `DKG complained` by others (send wrong secret shares to others)
+  4. `wrong Share-Sig` (send wrong share signature to CRS or in commit-vote)
+  5. `No block proposing` in a whole epoch
   
   If a node violates 1-4, the entire stake will be confiscated.
-  If a node violates 5, 20% of stake will be confiscated.
+  If a node violates 5, the fine is `blockReward*86400/totalNode`.
 
 ## Contract Write function 
 In this section, we briefly introduce some functions that DEXON governance provides to write in.
 
 ### Register
-
+1.Switching into the `owner account in DeKusan` wallet 
+2. Navigate to the 'Write' tab and select 'register' from the dropdown menu.
+3. Fill in the information like below; currently, you need 1M DXN to run a BP node.
+Node Public Key (the public key generated above)
+Name of the node
+Contact email
+Node Location
+Website URL 
+4. Press `Send` and `confirm` in DekuSan wallet.
 
 ### Stake/Unstake
 After register, each node owner can continue depositing more stake into DEXON governance contract.  This is super easy to achieve in DEXON governance contract. 
