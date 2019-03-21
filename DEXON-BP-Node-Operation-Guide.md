@@ -90,12 +90,13 @@ When you see `commit pivot`, press `control + c`.
  - Node Location
  - Website URL
 ![Register in Governance Contract Page](https://i.imgur.com/bc2vDgA.png)
+The user whose stake is locked (bought DXN coin in private-sale), please contact DEXON Foundation and provide the information below.
 
 6. Hit send to register your node.
 
 After this, you are successfully staked and the configuration will start to take effect after 2 epochs (2400 blocks).
 
-Note that, the account of node.key and the account to send DXN coin to governance contract are not necessary to be the same.
+Note that, the account of node.key and the account to send DXN coin to governance contract are not necessary to be the same. We strongly suggest using different keys to manage the risk.
 
 Then, you can start a BP node
 
