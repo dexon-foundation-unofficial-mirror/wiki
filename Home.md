@@ -35,3 +35,5 @@ To access the testnet, please follow the steps [here](https://github.com/dexon-f
 
 # Guide
 * [Running a testnet BP node](https://github.com/dexon-foundation/wiki/wiki/Running--a-BP-node-for-Testnet)
+* [Running a BP node](https://github.com/dexon-foundation/wiki/wiki/DEXON-BP-Node-Operation-Guide)
+* [Rule for the DEXON node set](https://github.com/dexon-foundation/wiki/wiki/Rule-for-the-DEXON-node-set)
