@@ -84,11 +84,11 @@ When you see `commit pivot`, press `control + c`.
 4. Navigate to the `Write` tab and select `register` from the dropdown menu.
 
 5. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
- - Node Public Key (the public key generated above)
- - Name of the node
- - Contact email
- - Node Location
- - Website URL
+ - Node Public Key (the public key generated above and should not duplicate)
+ - Name of the node (maximum length: 32 bytes)
+ - Contact email (maximum length: 32 bytes)
+ - Node Location (maximum length: 32 bytes)
+ - Website URL (maximum length: 128 bytes)
 ![Register in Governance Contract Page](https://i.imgur.com/bc2vDgA.png)
 The user whose stake is locked (bought DXN coin in private-sale), please contact DEXON Foundation and provide the information below.
 
