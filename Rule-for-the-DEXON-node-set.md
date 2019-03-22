@@ -23,15 +23,15 @@
      100 * 1M * 18.75% * 1 / 365 /100 = 513.7 DXN
 
 ## Penalty
-  The following behavior violates the rule and will be fined.
-  1. `fork blocks` in the same height (propose more than one blocks)
-  2. `fork votes` (send more than one votes in the same iteration in BA)
-  3. `DKG complained` by others (send wrong secret shares to others)
-  4. `wrong Share-Sig` (send wrong share signature to CRS or in commit-vote)
-  5. `No block proposing` in a whole epoch
-  
-  If a node violates 1-4, the entire stake will be confiscated.
-  If a node violates 5, the fine is `blockReward*86400/totalNode`, which is exactly the expected reward for each node in 1 day.
+Nodes shall not engage in any of the following conducts:
+
+1. Forking or trying to fork blocks at the same height by proposing multiple blocks
+2. Forking or trying to fork votes by submitting multiple votes in the same iteration in the Byzantine Agreement (BA)
+3. Engaging in malicious behaviors in Distributed Key Generation, including without limitation sending wrong secret shares to other nodes, and such behaviors have been complained by other nodes
+4. Producing wrong Share-Sig by sending wrong share signature to common reference string (CRS) or in commit-vote
+5. Failing to propose any blocks during a whole epoch
+
+For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundation. For 5., a fine of the `Block Reward*86400/total Node` will be imposed and no blocks can be produced until such fine is paid under the governance contract.
 
 ## Contract Write function 
 In this section, we briefly introduce some functions that DEXON governance provides to write in.
