@@ -18,6 +18,9 @@
       100 * 1M * 18.75% * 1 / (365*24*60*60) = 0.5945586 DXN
   You can find the parameter information via [governance statistic](https://testnet.dexscan.app/governance) page.
 
+  From the description above, the expected reward for each node in 1 day is
+
+     100 * 1M * 18.75% * 1 / 365 /100 = 513.7 DXN
 
 ## Penalty
   The following behavior violates the rule and will be fined.
@@ -28,7 +31,7 @@
   5. `No block proposing` in a whole epoch
   
   If a node violates 1-4, the entire stake will be confiscated.
-  If a node violates 5, the fine is `blockReward*86400/totalNode`.
+  If a node violates 5, the fine is `blockReward*86400/totalNode`, which is exactly the expected reward for each node in 1 day.
 
 ## Contract Write function 
 In this section, we briefly introduce some functions that DEXON governance provides to write in.
