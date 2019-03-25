@@ -51,7 +51,7 @@ Follow the appropriate link below to find installation instructions for your pla
 
 go into the dictionary
 
-   cd dexon
+    cd dexon
 
 ### Generate Node Key
 A node key is required to operate a BP node. Run the following command to generate a node key:
