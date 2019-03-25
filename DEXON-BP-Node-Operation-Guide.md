@@ -9,25 +9,23 @@
 - [Mining Mechanism](#Mining-Mechanism)
 
 
-#### Objective
+## Objective
 The document will contain essential instructions and knowledge for a node operator to successfully run a DEXON BP node. 
 
-#### Background
+## Background
 For node operator to easily establish a DEXON BP node and continuously run the node for mining rewards, DEXON foundation provides the well-designed software supporting the mining mechanism on DEXON blockchain.
-
----
 
 ## Overview
 The guide has 3 sections, providing the required knowledge for a node operator to: Set up node, run software, and collect mining rewards.
 
-### Environment Setup
+## Environment Setup
 How to set up AWS/GCP server?
 
 For AWS, please follow https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/welcome.html
 
 For GCP, please follow https://cloud.google.com/compute/docs/quickstart-linux
 
-## System Requirement
+### System Requirement
 Running DEXON BP node has the following requirement:
 
 ### Hardware Requirement
@@ -50,7 +48,7 @@ Follow the appropriate link below to find installation instructions for your pla
  - [Installation Instructions for Ubuntu](https://github.com/dexon-foundation/wiki/wiki/Installation-Instructions-for-Ubuntu)
 
 ## Software Instruction
-#### Download DEXON fullnode implementation
+### Download DEXON fullnode implementation
 
     git clone git@github.com:dexon-foundation/dexon.git
 
@@ -58,7 +56,7 @@ go into the dictionary
 
    cd dexon
 
-#### Generate Node Key
+### Generate Node Key
 A node key is required to operate a BP node. Run the following command to generate a node key:
 
     docker run -v $PWD:/mnt -it dexonfoundation/dexon-tools nodekey generate /mnt/node.key
@@ -71,7 +69,7 @@ This show output content similar to the following
 Please store the address and public key which will be used to register a fullnode.
 A file node.key can be found under the current working directory. node.key is very important as it contains the node private key. Please save this file securely.
 
-#### Register your node in DEXON public network
+### Register your node
 1. Sync DEXON blockchain. Use the following command to download all the blocks in DEXON blockchain.
 
     `build/bin/gdex --bp --nodekey=node.key --datadir=Dexon.bp --syncmode=fast --gcmode=archive`
@@ -106,7 +104,7 @@ For more detail instruction about `gdex`, go to https://github.com/dexon-foundat
 
     ./gdex --help
 
-#### Running a BP node through container
+### Start the BP node
 Use the following command to start the BP node:
 
     docker run -v $PWD:/mnt -it dexonfoundation/dexon \
