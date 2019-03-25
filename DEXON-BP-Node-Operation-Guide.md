@@ -8,7 +8,6 @@
 
 - [Mining Mechanism](#Mining-Mechanism)
 
----
 
 #### Objective
 The document will contain essential instructions and knowledge for a node operator to successfully run a DEXON BP node. 
@@ -111,12 +110,12 @@ For more detail instruction about `gdex`, go to https://github.com/dexon-foundat
 Use the following command to start the BP node:
 
     docker run -v $PWD:/mnt -it dexonfoundation/dexon \
-    --bp \
-    --nodekey=/mnt/node.key \
-    --datadir=/mnt/datadir \
-    --syncmode=full \
-    --cache=1024 \
-    --gcmode=archive
+        --bp \
+        --nodekey=/mnt/node.key \
+        --datadir=/mnt/datadir \
+        --syncmode=full \
+        --cache=1024 \
+        --gcmode=archive
 
 Please make sure you have enough disk space in the current working directory
 
