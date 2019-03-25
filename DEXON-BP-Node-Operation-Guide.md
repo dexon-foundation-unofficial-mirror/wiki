@@ -1,11 +1,8 @@
 ## Content
 
 - [Overview](#Overview)
-
 - [System Requirement](#System-requirement)
-
 - [Software Instruction](#Software-Instruction)
-
 - [Mining Mechanism](#Mining-Mechanism)
 
 
