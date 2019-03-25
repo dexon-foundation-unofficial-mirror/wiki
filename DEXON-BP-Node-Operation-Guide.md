@@ -1,9 +1,9 @@
 ## Content
 
-- [Overview](#Overview)
-- [System Requirement](#System-requirement)
-- [Software Instruction](#Software-Instruction)
-- [Mining Mechanism](#Mining-Mechanism)
+- [Overview](#overview)
+- [System Requirement](#system-requirement)
+- [Software Instruction](#software-instruction)
+- [Mining Mechanism](#mining-mechanism)
 
 
 ## Objective
