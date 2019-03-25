@@ -29,9 +29,10 @@ Nodes shall not engage in any of the following conducts:
 2. Forking or trying to fork votes by submitting multiple votes in the same iteration in the Byzantine Agreement (BA)
 3. Engaging in malicious behaviors in Distributed Key Generation, including without limitation sending wrong secret shares to other nodes, and such behaviors have been complained by other nodes
 4. Producing wrong Share-Sig by sending wrong share signature to common reference string (CRS) or in commit-vote
-5. Failing to propose any blocks during a whole epoch
+5. Failing to finish distributed key generation (DKG)
+6. Failing to propose any blocks during a whole epoch
 
-For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundation. For 5., a fine of the `Block Reward*86400/total Node` will be imposed and no blocks can be produced until such fine is paid under the governance contract.
+For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundation. For 5., a fine of the `1 wei` will be imposed and no blocks can be produced until such fine is paid under the governance contract.  For 6., a fine of the `Block Reward*86400/total Node` will be imposed and no blocks can be produced until such fine is paid under the governance contract.
 
 ## Contract Write function 
 In this section, we briefly introduce some functions that DEXON governance provides to write in.
