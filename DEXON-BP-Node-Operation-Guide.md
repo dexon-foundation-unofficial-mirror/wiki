@@ -56,7 +56,8 @@ go into the dictionary
 ### Generate Node Key
 A node key is required to operate a BP node. Run the following command to generate a node key:
 
-    docker run -v $PWD:/mnt -it dexonfoundation/dexon-tools nodekey generate /mnt/node.key
+    docker run -v $PWD:/mnt -it dexonfoundation/dexon-tools \
+        nodekey generate /mnt/node.key
 
 This show output content similar to the following
 
@@ -113,7 +114,7 @@ Then, you can start a BP node
 , or, you can run through container as explaining in the next section.
 For more detail instruction about `gdex`, go to https://github.com/dexon-foundation/dexon or use 
 
-    ./gdex --help
+    docker run -v $PWD:/mnt -it dexonfoundation/dexon --help
 
 ### Start the BP node
 Use the following command to start the BP node:
