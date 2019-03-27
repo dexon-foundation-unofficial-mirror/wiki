@@ -69,7 +69,13 @@ A file node.key can be found under the current working directory. node.key is ve
 ### Register your node
 1. Sync DEXON blockchain. Use the following command to download all the blocks in DEXON blockchain.
 
-    `build/bin/gdex --bp --nodekey=node.key --datadir=Dexon.bp --syncmode=fast --gcmode=archive`
+    docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+        --bp \
+        --nodekey=/mnt/node.key \
+        --datadir=/mnt/datadir \
+        --syncmode=fast\
+        --cache=1024 \
+        --gcmode=archive
 
 When you see `commit pivot`, press `control + c`.
 
@@ -96,8 +102,14 @@ Note that, the account of node.key and the account to send DXN coin to governanc
 
 Then, you can start a BP node
 
-    build/bin/gdex --bp --nodekey=node.key --datadir=Dexon.bp --syncmode=full --gcmode=archive
-
+    docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+        --bp \
+        --nodekey=/mnt/node.key \
+        --datadir=/mnt/datadir \
+        --syncmode=full \
+        --cache=1024 \
+        --gcmode=archive
+    
 , or, you can run through container as explaining in the next section.
 For more detail instruction about `gdex`, go to https://github.com/dexon-foundation/dexon or use 
 
