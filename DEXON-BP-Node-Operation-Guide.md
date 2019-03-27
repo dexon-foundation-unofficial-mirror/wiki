@@ -69,15 +69,15 @@ A file node.key can be found under the current working directory. node.key is ve
 
 ### Register your node
 1. Sync DEXON blockchain. Use the following command to download all the blocks in DEXON blockchain.
-
-    docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+```
+docker run -v $PWD:/mnt -it dexonfoundation/dexon \
         --bp \
         --nodekey=/mnt/node.key \
         --datadir=/mnt/datadir \
         --syncmode=fast\
         --cache=1024 \
         --gcmode=archive
-
+```
 When you see `commit pivot`, press `control + c`.
 
 2. Send some DXN to your node key address, 100 DXN should suffice. These DXN are required for the node to send transaction and interact with the consensus protocol. You need to replenish them if it ran out.
