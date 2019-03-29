@@ -771,7 +771,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
         "type": "bytes"
       }
     ],
-    "name": "ForkReported",
+    "name": "Reported",
     "type": "event"
   },
   {
@@ -1125,6 +1125,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
