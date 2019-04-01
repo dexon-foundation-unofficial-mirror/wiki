@@ -894,6 +894,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "type": "function"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "NewPublicKey",
+        "type": "bytes"
+      }
+    ],
+    "name": "replaceNodePublicKey",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "constant": true,
     "inputs": [],
     "name": "nodesLength",
@@ -1095,6 +1109,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
