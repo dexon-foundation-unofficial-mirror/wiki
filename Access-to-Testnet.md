@@ -2,7 +2,16 @@ There are a few options on how to access the current testnet. The first is to us
 
 ## Public RPC Endpoint
 
-The public testnet endpoint is available at: https://api-testnet.dexscan.org/v1/network/rpc
+The public testnet endpoints is available at:
+
+    Testnet:
+        http: https://testnet-rpc.dexon.org
+        websocket: wss://testnet-rpc.dexon.org/ws
+
+    Taipei testnet:
+        http: https://taipei-rpc.dexon.org
+        websocket: wss://taipei-rpc.dexon.org/ws
+
 
 Just point your DEXON/Ethereum client to this endpoint, and you should be able to send transactions and query account info.
  
