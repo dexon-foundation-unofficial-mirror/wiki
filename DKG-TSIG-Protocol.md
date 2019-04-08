@@ -1,4 +1,4 @@
-DEXON DKG+TSIG Protocol
+DEXON DKG-TSIG Protocol
 ===========================
 ### Parameter
 * λ = MAX(One gossip duraion, transaction confirm latency)
