@@ -26,7 +26,7 @@ To access the testnet, please follow the steps [here](https://github.com/dexon-f
 
 * [Blockchain Comparision](https://github.com/dexon-foundation/wiki/wiki/Blockchain-Comparison)
 * [Governance Contract Interface](https://github.com/dexon-foundation/wiki/wiki/Governance-Contract-Interface)
-* [DKG-Tsig Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG%EF%BC%8BTSIG-Protocol)
+* [DKG-Tsig Protocol](https://github.com/dexon-foundation/wiki/wiki/DKG-TSIG-Protocol)
 * [On-chain Random Oracle](https://github.com/dexon-foundation/wiki/wiki/On-Chain-Random-Oracle)
 * [Configuration Change](https://github.com/dexon-foundation/wiki/wiki/Configuration-Change)
 * [Consensus Algorithm V2 Specification](https://github.com/dexon-foundation/wiki/wiki/Consensus-Algo-v2-Spec)
