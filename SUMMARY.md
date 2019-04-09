@@ -36,6 +36,4 @@
 ## Resource
 
 * [Blockchain Comparision](Blockchain-Comparison.md)
-* [DEXON whitepaper]
-* [DEXON Byzantine Agreement]
-* [DEXON Consensus]
+* [DEXON papers](DEXON-PAPERS.md)
