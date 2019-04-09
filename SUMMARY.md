@@ -41,9 +41,7 @@
 * [Contribute to DEXON Fullnode](Fullnode-Development.md)
 * [List of Repositories](List-of-Repositories.md)
 
-# For general user
-
-## Technical Documentations
+# Technical Documentations
 
 * [Consensus Algorithm V2 Specification](Consensus-Algo-v2-Spec.md)
 * [Selection of notary set size](Selection-of-the-notary-set-size.md)
