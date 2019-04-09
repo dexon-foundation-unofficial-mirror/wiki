@@ -25,11 +25,17 @@
 
 ## Technical Documentations
 
-* [Blockchain Comparision](Blockchain-Comparison.md)
-* [Governance Contract Interface](Governance-Contract-Interface.md)
+* [Consensus Algorithm V2 Specification](Consensus-Algo-v2-Spec.md)
+* [Selection of notary set size](Selection-of-the-notary-set-size.md)
 * [DKG-Tsig Protocol](DKG-TSIG-Protocol.md)
 * [On-chain Random Oracle](On-Chain-Random-Oracle.md)
-* [Configuration Change](Configuration-Change.md)
-* [Consensus Algorithm V2 Specification](Consensus-Algo-v2-Spec.md)
 * [DEXON Cryptoeconomics](DEXON-Cryptoeconomics.md)
-* [Selection of notary set size](Selection-of-the-notary-set-size.md)
+* [Governance Contract Interface](Governance-Contract-Interface.md)
+* [Configuration Change](Configuration-Change.md)
+
+## Resource
+
+* [Blockchain Comparision](Blockchain-Comparison.md)
+* [DEXON whitepaper]
+* [DEXON Byzantine Agreement]
+* [DEXON Consensus]
