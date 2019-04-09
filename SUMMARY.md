@@ -1,6 +1,10 @@
-## Getting Started
+## Introduction
 
+* [How to use this documentation](how-to-use-this-documentation.md)
 * [Getting Started](README.md)
+* [Overview](overview.md)
+
+# For development
 
 ## Network Access Guide
 
@@ -10,6 +14,20 @@
 
 * [DApp Development](Dapp-Development.md)
 * [Access to Testnet](Access-to-Testnet.md)
+
+## System Spec
+
+* [Accounts](accounts.md)
+* [Transaction](transaction.md)
+* [Block](block.md)
+
+## API
+
+* [RPC API](rpc-api.md)
+* [WebSocket API](websocket-api.md)
+* [DATA API](data-api.md)
+
+# For miner
 
 ## Node Operator Guide
 
@@ -22,6 +40,8 @@
 
 * [Contribute to DEXON Fullnode](Fullnode-Development.md)
 * [List of Repositories](List-of-Repositories.md)
+
+# For general user
 
 ## Technical Documentations
 
