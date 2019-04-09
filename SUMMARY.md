@@ -23,7 +23,7 @@
 
 ## API
 
-* [RPC API](rpc-api.md)
+* [JSON-RPC API](rpc-api.md)
 * [WebSocket API](websocket-api.md)
 * [DATA API](data-api.md)
 
