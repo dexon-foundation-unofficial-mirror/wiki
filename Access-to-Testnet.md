@@ -1,3 +1,5 @@
+Access to Testnet
+
 There are a few options on how to access the current testnet. The first is to use the public DEXON RPC endpoint,  the second one is to sync the fullnode locally.
 
 ## Public RPC Endpoint
