@@ -1,3 +1,5 @@
+# DApp Development
+
 Currently, DEXON uses Ethereum's virtual machine (EVM) as the default VM. So Dapp development on DEXON is exactly the same as on Ethereum. An exception is that if you want to use DEXON's [on-chain random oracle](https://github.com/dexon-foundation/wiki/wiki/On-Chain-Random-Oracle).
 
 DEXON's fork of solidity (called [dsolidity](https://github.com/dexon-foundation/dsolidity)) supports a special built-in variable called `rand`. Here is an example of how to use it:
