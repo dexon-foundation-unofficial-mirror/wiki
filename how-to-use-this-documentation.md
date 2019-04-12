@@ -2,11 +2,9 @@
 
 This documentation is designed for the users who want to understand or participate in DEXON network. 
 
-
-Specifically,  
 we list the following categories:
 
-## For Developer
+## For Developers
 
 - [Network Access Guide](Network-Access-Guide.md)
     - [Create Wallet](Create-Wallet.md)
@@ -26,7 +24,7 @@ we list the following categories:
     - [DATA API](data-api.md)
 
 
-## For miner
+## For Miners
 
 - [Node Operator Guide](Node-OP-Guide.md)
     - [Running a testnet BP node](Running--a-BP-node-for-Testnet.md)
@@ -40,8 +38,8 @@ we list the following categories:
 
 - [Technical Documentations](Tech-Docs.md)
     - [Consensus Algorithm V2 Specification](Consensus-Algo-v2-Spec.md)
-    - [Selection of notary set size](Selection-of-the-notary-set-size.md)
-    - [DKG-Tsig Protocol](DKG-TSIG-Protocol.md)
+    - [Selection of notary set size](Selection-of-the-notary-set-size.md): this doc describes how to decide the size of notary size according to hypergeometry distribution.
+    - [DKG-Tsig Protocol](DKG-TSIG-Protocol.md): this doc describes the distributed key generation protocol which is the key generation of threshold signature in our implementation. 
     - [On-chain Random Oracle](On-Chain-Random-Oracle.md)
     - [DEXON Cryptoeconomics](DEXON-Cryptoeconomics.md)
     - [Governance Contract Interface](Governance-Contract-Interface.md)
@@ -49,4 +47,4 @@ we list the following categories:
 
 - [Resource](Resource.md)
     - [Blockchain Comparision](Blockchain-Comparison.md)
-    - [DEXON papers](DEXON-PAPERS.md): the paper describe the DEXON consensus algorithm in theory.
+    - [DEXON papers](DEXON-PAPERS.md): the papers describe the DEXON consensus algorithm in theory.
