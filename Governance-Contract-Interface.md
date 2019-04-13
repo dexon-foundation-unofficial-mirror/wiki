@@ -10,6 +10,25 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
 [
   {
     "constant": true,
+    "inputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "dkgSuccesses",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [],
     "name": "notarySetSize",
     "outputs": [
@@ -165,6 +184,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "constant": true,
     "inputs": [],
     "name": "notaryParamAlpha",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "dkgSuccessesCount",
     "outputs": [
       {
         "name": "",
@@ -1016,6 +1049,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "constant": false,
     "inputs": [
       {
+        "name": "Success",
+        "type": "bytes"
+      }
+    ],
+    "name": "addDKGSuccess",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
         "name": "PublicKey",
         "type": "bytes"
       },
@@ -1126,6 +1173,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
