@@ -3,14 +3,15 @@ DEXON DKG-TSIG Protocol
 ### Parameter
 * λ = MAX(One gossip duraion, transaction confirm latency)
 * Signature = [BLS](https://en.wikipedia.org/wiki/Boneh%E2%80%93Lynn%E2%80%93Shacham)
-* Curve = CurveFp382_2
+* Curve = BLS12_381
 * n = size of `notary_set`
-* t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{n}{3}\right\rfloor" />
+* t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{2n}{3}\right\rfloor+1" />
 
 ### Notes
 * Complaints and nack complaints are stored in governance contract; therefore, the broadcast is reliable.
 * Governance contract will do the sanity check for complaints and nack complaints before adding to its state.
 * Once a validator proposed `DKGFinal_i`, it can no longer propose any complaint.
+* After DKG finished, if successful qualify nodes size is less than <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{5}{6}\right\rfloor" /> of notary set size, DKG will be rerun with different set of nodes.
 
 Phase 1 ID Registration 
 -------
@@ -79,6 +80,8 @@ If there are more than `t` nack complaints to validator `j` (<img src="https://l
 If there is **one** complaint, `CMP_i,j`, to validator `j`, then `j` is marked as **Disqualified**.
 
 Each validator `i` determines the combined secret key, <img src="https://latex.codecogs.com/svg.latex?\inline%20CSK_{i}%20=%20\sum_{k}%20SK_{k,i}" /> (`k`: validator `k` is not marked as **Disqualified**)
+
+If a validator `i` successfully recovered combined secret key, it will broadcast a `DKGSuccess_i` message.
 
 Each validator `i` sign the message with `CSK_i` and broadcast the partial signature, `PSign_i`.
 
