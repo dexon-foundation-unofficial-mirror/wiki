@@ -5,7 +5,7 @@ DEXON DKG-TSIG Protocol
 * Signature = [BLS](https://en.wikipedia.org/wiki/Boneh%E2%80%93Lynn%E2%80%93Shacham)
 * Curve = BLS12_381
 * n = size of `notary_set`
-* t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{2n}{3}\right\rfloor+1" />
+* t = <img src="https://latex.codecogs.com/svg.latex?\inline%20\left\lfloor\frac{2n}{3}\right\rfloor%2B1" />
 
 ### Notes
 * Complaints and nack complaints are stored in governance contract; therefore, the broadcast is reliable.
