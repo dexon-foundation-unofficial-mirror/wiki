@@ -4,9 +4,7 @@
   
 ## Active condition (permission to be in notary set)
   You must deposit enough stake in the governance contract to get the qualification to be selected in the notary set.
-  Sometimes nodes who violate the rule for notary set will be fined some coin. This leads nodes unqualified to be selected in the notary set. Nodes can be re-qualify if paying the fined such that 
-  
-    stake - fine >= 1M DXN
+  Sometimes nodes who violate the rule for notary set will be fined some coin. This leads nodes unqualified to be selected in the notary set. Nodes can be re-qualify after paying the fine.
 
 ## Reward
   The reward of each block is calculated as
@@ -32,7 +30,7 @@ Nodes shall not engage in any of the following conducts:
 5. Failing to finish distributed key generation (DKG)
 6. Failing to propose any blocks during a whole epoch
 
-For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundation. For 5., a fine of the `1 dei` will be imposed and no blocks can be produced until such fine is paid under the governance contract.  For 6., a fine of the `Block Reward*86400/total Node` will be imposed and no blocks can be produced until such fine is paid under the governance contract.
+For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundation. For 5., a fine of the `1 DXN` will be imposed and no blocks can be produced until such fine is paid under the governance contract.  For 6., a fine of the `Block Reward*86400/total Node` will be imposed and no blocks can be produced until such fine is paid under the governance contract.
 
 ## Contract Write function 
 In this section, we briefly introduce some functions that DEXON governance provides to write in.
