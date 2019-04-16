@@ -20,7 +20,7 @@ The most commonly used language to develop a DEXON/Ethereum DApp is Solidity, wh
 
 DEXON's version of EVM is almost the same as the original EVM, therefore DEXON version of Solidity is almost the same as the original Solidity. If you have built a smart contract on Ethereum, you can usually deploy the exact same contract onto DEXON without any modification.
 
-However, there are still some minor differences between the DEXON's version of Solidity and its Ethereum counterpart, because of the boost in performance and the [On-chain Random Oracle](On-Chain-Random-Oracle.md) that DEXON provides. We will cover these differences in [Migrate from Ethereum](Migrate-DApp-from-Ethereum.md).
+However, there are still some minor differences between the DEXON's version of Solidity and its Ethereum counterpart, because of the boost in performance and the [On-chain Random Oracle](On-Chain-Random-Oracle.md) that DEXON provides. We will cover these differences in [Migrate from Ethereum](Migrate-from-Ethereum.md).
 
 ## DEXON Remix IDE
 
