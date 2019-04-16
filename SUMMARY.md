@@ -1,7 +1,7 @@
 # SUMMARY
 
 - [Getting Started](Getting-Started.md)
-    - [Overview](Overview.md)
+    - [Overview](overview.md)
     - [How to use this documentation](how-to-use-this-documentation.md)
 
 - [Network Access Guide](Network-Access-Guide.md)
@@ -9,6 +9,7 @@
     - [Access to Testnet](Access-to-Testnet.md)
 
 - [DApp Development Guide](DApp-Dev-Guide.md)
+    - [Hello DEXON](Hello-DEXON.md)
     - [Solidity](Solidity.md)
     - [Remix IDE](Remix-IDE.md)
     - [Interact with Contracts](Interact-with-Contracts.md)

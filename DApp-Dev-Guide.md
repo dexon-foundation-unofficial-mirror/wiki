@@ -1,7 +1,7 @@
 # DApp Development Guide
 
 > #### Hands-on: Hello DEXON
-> Prefer to learn by examples? follow the steps in [Hello-DEXON Project](https://github.com/dexon-foundation/hello-dexon) to get a quick grasp of how **smart contract**, **web app** and **wallet extension** all work together as a DApp. 
+> Prefer to learn by examples? follow the steps in [Hello DEXON](Hello-DEXON.md) to get a quick grasp of how **smart contract**, **web app** and **wallet extension** all work together as a DApp. 
 
 > #### Migrate from Ethereum
 > If you have already developed DApps on Ethereum, you can skip to [Migrate from Ethereum](Migrate-DApp-from-Ethereum.md) and learn what the differences between DEXON and Ethereum are. 
