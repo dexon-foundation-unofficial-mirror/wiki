@@ -12,6 +12,7 @@ we list the following categories:
 - [DApp Development Guide](DApp-Dev-Guide.md)
     - [DApp Development](Dapp-Development.md)
     - [Access to Testnet](Access-to-Testnet.md)
+    - [Tools and Libraries](Tools-and-Libraries.md)
 
 - [System Spec](System-Spec.md)
     - [Accounts](accounts.md)
