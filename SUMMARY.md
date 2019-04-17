@@ -27,11 +27,6 @@
         - [web3.js](web3-js.md)
         - [Mobile SDK](Mobile-SDK.md)
 
-- [System Spec](System-Spec.md)
-    - [Accounts](accounts.md)
-    - [Transaction](transaction.md)
-    - [Block](block.md)
-
 - [API](API.md)
     - [JSON-RPC API](rpc-api.md)
     - [WebSocket API](websocket-api.md)
