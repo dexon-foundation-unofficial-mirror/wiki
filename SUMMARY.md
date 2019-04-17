@@ -6,7 +6,7 @@
 
 - [Network Access Guide](Network-Access-Guide.md)
     - [Create Wallet](Create-Wallet.md)
-    - [Access to Testnet](Access-to-Testnet.md)
+    - [Access DEXON Network](Access-to-DEXON.md)
 
 - [DApp Development Guide](DApp-Dev-Guide.md)
     - [Hello DEXON](Hello-DEXON.md)
