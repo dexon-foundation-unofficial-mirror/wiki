@@ -45,13 +45,6 @@ Follow the appropriate link below to find installation instructions for your pla
  - [Installation Instructions for Ubuntu](https://github.com/dexon-foundation/wiki/wiki/Installation-Instructions-for-Ubuntu)
 
 ## Software Instruction
-### Download DEXON fullnode implementation
-
-    git clone git@github.com:dexon-foundation/dexon.git
-
-go into the dictionary
-
-    cd dexon
 
 ### Generate Node Key
 A node key is required to operate a BP node. Run the following command to generate a node key:
@@ -101,21 +94,6 @@ After this, you are successfully staked and the configuration will start to take
 
 Note that, the account of node.key and the account to send DXN coin to governance contract are not necessary to be the same. We strongly suggest using different keys to manage the risk.
 
-Then, you can start a BP node
-
-    docker run -v $PWD:/mnt -it dexonfoundation/dexon \
-        --bp \
-        --nodekey=/mnt/node.key \
-        --datadir=/mnt/datadir \
-        --syncmode=full \
-        --cache=1024 \
-        --gcmode=archive
-    
-, or, you can run through container as explaining in the next section.
-For more detail instruction about `gdex`, go to https://github.com/dexon-foundation/dexon or use 
-
-    docker run -v $PWD:/mnt -it dexonfoundation/dexon --help
-
 ### Start the BP node
 Use the following command to start the BP node:
 
@@ -128,6 +106,10 @@ Use the following command to start the BP node:
         --gcmode=archive
 
 Please make sure you have enough disk space in the current working directory
+
+For more detail instruction about `gdex`, go to https://github.com/dexon-foundation/dexon or use 
+
+    docker run -v $PWD:/mnt -it dexonfoundation/dexon --help
 
 
 
