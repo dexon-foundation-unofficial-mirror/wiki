@@ -1122,6 +1122,20 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
     "type": "function"
   },
   {
+    "constant": true,
+    "inputs": [],
+    "name": "withdrawable",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "constant": false,
     "inputs": [
       {
@@ -1173,6 +1187,7 @@ The equivalent solidity interface can be found in the [dexon-foundation/governan
   }
 ]
 ```
+<!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
 <!-- [[ABI AUTOGEN END]] -->
