@@ -1,6 +1,9 @@
 ## Content
 
+- [Objective](#objective)
+- [Background](#background)
 - [Overview](#overview)
+- [Environment Setup](#environment-setup)
 - [System Requirement](#system-requirement)
 - [Software Instruction](#software-instruction)
 - [Mining Mechanism](#mining-mechanism)
