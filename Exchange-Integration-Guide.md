@@ -17,28 +17,8 @@ DEXON RPC is compatible with Ethereum. In theory, you can use existing Ethereum 
 Since DEXON produce around 1 block per second, it may incur a heavier load on your database infrastructure. Make sure you have enough DB instance to handle the load.
 
 ## Starting a RPC Node
-The command line interface of the fullnode program `gdex` is also similar to `geth` of `go-ethereum`. You can start a mainnet RPC node with the following command:
 
-```
-docker run -v $PWD:/mnt -it dexonfoundation/dexon:latest \
-    --datadir=/mnt/datadir \
-    --syncmode=fast \
-    --cache=1024 \
-    --gcmode=archive
-```
-
-To start a testnet RPC node:
-
-```
-docker run -v $PWD:/mnt -it dexonfoundation/dexon:testnet \
-    --testnet \
-    --datadir=/mnt/datadir \
-    --syncmode=fast \
-    --cache=1024 \
-    --gcmode=archive
-```
-
-Make sure tcp/30303 and udp/30303 is not blocked by the firewall.
+Refer to [Running a RPC node](DEXON-RPC-Node-Operation-Guide.md) for instructions to launch a RPC node by yourself.
 
 ## Deposit Confirmation
 
