@@ -37,6 +37,7 @@
     - [Running a BP node](DEXON-BP-Node-Operation-Guide.md)
     - [Running a RPC node](DEXON-RPC-Node-Operation-Guide.md)
     - [Rule for the DEXON node set](Rule-for-the-DEXON-node-set.md)
+    - [Accessing the Governance Contract](Governance-Contract-Access-Guide.md)
 
 - [Fullnode Development Guide](Fullnode-Dev-Guide.md)
     - [Contribute to DEXON Fullnode](Fullnode-Development.md)
