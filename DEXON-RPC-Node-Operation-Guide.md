@@ -1,1 +1,58 @@
 # Running a RPC node
+
+## Content
+
+- [Overview](#overview)
+- [System Requirement](#system-requirement)
+- [Software Instruction](#software-instruction)
+
+## System Requirement
+
+Refer to [System requirement](https://dexon-foundation.github.io/wiki/DEXON-BP-Node-Operation-Guide.html#system-requirement) section in BP node operation guide.
+
+## Software Instruction
+
+Different from running a BP node, you don't have to
+- create a node key
+- register your node
+
+The command line to start the node is different.
+```
+docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+        --datadir=/mnt/datadir \
+        --syncmode=fast \
+        --rpc \
+        --rpcapi=eth,net,web3 \
+        --rpcaddr=0.0.0.0 \
+        --rpcvhosts=* \
+        --rpccorsdomain=* \
+        --ws \
+        --wsapi=eth,net,web3 \
+        --wsaddr=0.0.0.0 \
+        --wsorigins=* \
+        --cache=1024 \
+        --gcmode=archive \
+        --metrics \
+        --pprof \
+        --pprofaddr=0.0.0.0
+```
+You should be able to see these logs, which simply means your RPC node tries to sync blocks from other peers and it would take a while.
+```
+...
+INFO [04-18|12:23:33.783] Imported new state entries  ...
+INFO [04-18|12:23:35.647] Imported new state entries  ...
+INFO [04-18|12:23:37.714] Imported new block receipts ...
+INFO [04-18|12:23:38.471] Imported new block receipts ...
+...
+```
+To make sure your RPC node is ready for usage, you can try to get current block number it holds via this command:
+```
+curl -X POST \
+     -H "Content-Type: application/json" \
+     --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' \
+     http://localhost:8545
+```
+You should be able to see something similar in return:
+```
+{"jsonrpc":"2.0","id":1,"result":"0xd482e"}
+```
