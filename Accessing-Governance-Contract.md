@@ -1,3 +1,7 @@
+## Content
+
+- [Contract Write Function](#contract-write-function)
+- [Contract Read Function](#contract-read-function)
 
 ## Contract Write function 
 In this section, we briefly introduce some functions that DEXON governance provides to write in.
@@ -12,6 +16,14 @@ In this section, we briefly introduce some functions that DEXON governance provi
   - Node Location
   - Website URL 
 4. Click `Send` and `confirm` in DekuSan wallet.
+
+### Pay Fine
+1. In DekuSan wallet, switch to the account to pay the fine (it doesn't has to be the owner of that node)
+2. Navigate to the `Write tab of the governance contract and select `payFine` from the dropdown menu.
+3. Fill in the amount of fine to pay, and the address of that node.
+4. Click `Send` and `confirm` in DekuSan wallet.
+
+> NOTE: Don't worry to over pay the fine, the transaction would succeed when the amount you pay matches the fine of that node.
 
 ### Stake/Unstake
 After registering, each node owner can continue depositing more stake into DEXON governance contract.  This is super easy to achieve in DEXON governance contract. 
@@ -35,7 +47,6 @@ After unstaking and wait for 24 epochs, the node can withdraw the stake.
  2. Navigate to the `Write` tab and select `withdraw` from the dropdown menu.
  3. Click `Send` and `confirm` in DekuSan wallet.
 
-
 ### Transfer Node Owner 
 A node owner can also transfer the owner right to others. 
  1. Switch to the `owner account` in DekuSan wallet. 
@@ -53,9 +64,11 @@ The latest system parameters can be found in the governance contract. We introdu
 ### nodes
 `nodes` returns the status of a node, where the input is the order of the node. The order of a node can be query by the function `nodesOffsetByAddress`.
 
-
 ### nodeLength
 `nodeLength` returns the current size of the node set.
 
 ### nodesOffsetByAddress
 `nodesOffsetByAddress` returns the order of a node, where the input is the address of the node.
+
+### minStake
+`minStake` returns the minimum stake required to join the node set.
