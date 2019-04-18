@@ -13,12 +13,13 @@
 
   For example, 100 nodes with each staked 1M DXN and mining velocity is 18.75%, the reward of each block is
   
-      100 * 1M * 18.75% * 1 / (365*24*60*60) = 0.5945586 DXN
+    100 * 1M * 18.75% * 1 / (365*24*60*60) = 0.5945586 DXN
+
   You can find the parameter information via [governance statistic](https://testnet.dexscan.app/governance) page.
 
   From the description above, the expected reward for each node in 1 day is
 
-     100 * 1M * 18.75% * 1 / 365 /100 = 513.7 DXN
+    100 * 1M * 18.75% * 1 / 365 /100 = 513.7 DXN
 
 ## Penalty
 Nodes shall not engage in any of the following conducts:
