@@ -6,6 +6,12 @@
 - [System Requirement](#system-requirement)
 - [Software Instruction](#software-instruction)
 
+## Overview
+
+A RPC node is the data access layer of blockchains. It usually won't join the mining process but only try to sync the latest confirmed state from other nodes. With those datum in hands, a RPC node can provide these functionalities:
+- Pack and send transactions
+- Allow other services (like **wallet** or **explorer**) to access states on blockchains in standard way, like **jsonrpc**.
+
 ## System Requirement
 
 Refer to [System requirement](https://dexon-foundation.github.io/wiki/DEXON-BP-Node-Operation-Guide.html#system-requirement) section in BP node operation guide.
@@ -16,7 +22,7 @@ Different from running a BP node, you don't have to
 - create a node key
 - register your node
 
-The command line to start the node is different.
+The command line to start a RPC node is different, too:
 ```
 docker run -v $PWD:/mnt -it dexonfoundation/dexon \
         --datadir=/mnt/datadir \
@@ -45,14 +51,14 @@ INFO [04-18|12:23:37.714] Imported new block receipts ...
 INFO [04-18|12:23:38.471] Imported new block receipts ...
 ...
 ```
-To make sure your RPC node is ready for usage, you can try to get current block number it holds via this command:
+To make sure your RPC node is ready for usage, you can try to get the count of blocks it received via this command:
 ```
 curl -X POST \
      -H "Content-Type: application/json" \
      --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' \
      http://localhost:8545
 ```
-You should be able to see something similar in return:
+You should be able to see something similar in return (**0xd482e** is the hex form of **870062**):
 ```
 {"jsonrpc":"2.0","id":1,"result":"0xd482e"}
 ```
