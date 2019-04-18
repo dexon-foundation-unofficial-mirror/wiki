@@ -42,7 +42,7 @@ docker run -v $PWD:/mnt -it dexonfoundation/dexon \
         --pprof \
         --pprofaddr=0.0.0.0
 ```
-You should be able to see these logs, which simply means your RPC node tries to sync blocks from other peers and it would take a while.
+You should be able to see these logs, which simply means your RPC node tries to sync blocks from other peers and it would take a while. If not, make sure tcp/30303 and udp/30303 is not blocked by the firewall.
 ```
 ...
 INFO [04-18|12:23:33.783] Imported new state entries  ...
