@@ -20,7 +20,7 @@ To access the network, please follow the steps [here](Access-to-DEXON).
 # Development Guide
 
 * [DApp development](https://github.com/dexon-foundation/wiki/wiki/Dapp-Development)
-* [Access to Testnet](https://github.com/dexon-foundation/wiki/wiki/Access-to-Testnet)
+* [Access to DEXON](https://github.com/dexon-foundation/wiki/wiki/Access-to-DEXON)
 
 # Technical Documentations
 
