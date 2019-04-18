@@ -62,3 +62,27 @@ You should be able to see something similar in return (**0xd482e** is the hex fo
 ```
 {"jsonrpc":"2.0","id":1,"result":"0xd482e"}
 ```
+
+### RPC Node for Testnet
+
+It simply to launch a RPC node for testnet by adding network flag `--testnet`:
+```
+docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+        --testnet \
+        --datadir=/mnt/datadir \
+        --syncmode=fast \
+        --rpc \
+        --rpcapi=eth,net,web3 \
+        --rpcaddr=0.0.0.0 \
+        --rpcvhosts=* \
+        --rpccorsdomain=* \
+        --ws \
+        --wsapi=eth,net,web3 \
+        --wsaddr=0.0.0.0 \
+        --wsorigins=* \
+        --cache=1024 \
+        --gcmode=archive \
+        --metrics \
+        --pprof \
+        --pprofaddr=0.0.0.0
+```
