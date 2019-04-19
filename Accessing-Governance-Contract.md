@@ -50,7 +50,7 @@ After unstaking and wait for 24 epochs, the node can withdraw the stake.
 ### Transfer Node Owner 
 A node owner can also transfer the owner right to others. 
  1. Switch to the `owner account` in DekuSan wallet. 
- 2. Navigate to the `Write` tab and select `register` from the dropdown menu.
+ 2. Navigate to the `Write` tab and select `TransferNodeOwnership` from the dropdown menu.
  3. Fill the `address` of the new owner.
  4. Click `Send` and `confirm` in DekuSan wallet.
 
