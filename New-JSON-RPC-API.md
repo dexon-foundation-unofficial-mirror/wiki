@@ -290,7 +290,7 @@ Geth 1.4 has experimental pub/sub support. See [this](https://github.com/ethereu
 
 ## JavaScript API
 
-To talk to an ethereum node from inside a JavaScript application use the [web3.js](https://github.com/ethereum/web3.js) library, which gives a convenient interface for the RPC methods.
+To talk to an dexon node from inside a JavaScript application use the [web3.js](https://github.com/ethereum/web3.js) library, which gives a convenient interface for the RPC methods.
 See the [JavaScript API](https://github.com/ethereum/wiki/wiki/JavaScript-API) for more.
 Extend API will support in the future.
 
@@ -351,7 +351,7 @@ The following methods have an extra default block parameter:
 - [eth_getStorageAt](#eth_getstorageat)
 - [eth_call](#eth_call)
 
-When requests are made that act on the state of ethereum, the last default block parameter determines the height of the block.
+When requests are made that act on the state of dexon, the last default block parameter determines the height of the block.
 
 The following options are possible for the defaultBlock parameter:
 
@@ -566,7 +566,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"net_peerCount","params":[],"id":
 
 #### eth_protocolVersion
 
-Returns the current ethereum protocol version.
+Returns the current dexon protocol version.
 
 ##### Parameters
 none
@@ -956,7 +956,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getCode","params":["0xa94f53
 
 #### eth_sign
 
-The sign method calculates an Dexon specific signature with: `sign(keccak256("\x19Ethereum Signed Message:\n" + len(message) + message)))`.
+The sign method calculates an Dexon specific signature with: `sign(keccak256("\x19Dexon Signed Message:\n" + len(message) + message)))`.
 
 By adding a prefix to the message makes the calculated signature recognisable as an Dexon specific signature. This prevents misuse where a malicious DApp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.
 
@@ -1000,7 +1000,7 @@ Creates new message call transaction or a contract creation, if the data field c
   - `gas`: `QUANTITY`  - (optional, default: 90000) Integer of the gas provided for the transaction execution. It will return unused gas.
   - `gasPrice`: `QUANTITY`  - (optional, default: To-Be-Determined) Integer of the gasPrice used for each paid gas
   - `value`: `QUANTITY`  - (optional) Integer of the value sent with this transaction
-  - `data`: `DATA`  - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see [Ethereum Contract ABI](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI)
+  - `data`: `DATA`  - The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. For details see [Dexon Contract ABI](https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI)
   - `nonce`: `QUANTITY`  - (optional) Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce.
 
 ##### Example Parameters
