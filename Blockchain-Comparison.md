@@ -18,7 +18,7 @@ This document explains how DEXON is different compared to other blockchain infra
 ### Table of Contents
 | Project | Throughput (TPS) | Latency (seconds) | Data Structure | Consensus | Smart Contract |
 | --- | --- | --- | ------------- | --- | --- |
-|[DEXON](#dexon)|1M+|1|DAG|Byzantine agreement + Total ordering|O|
+|[DEXON](#dexon)|10K|1|DAG|Byzantine agreement|O|
 |[Algorand](#algorand)|875|< 60|chain|Byzantine agreement|△|
 |[Bitcoin](#bitcoin)|7|3600|chain|longest chain rule|X|
 |[Cardano](#cardano)|250|300|chain|Ouroboros|O|
@@ -48,7 +48,7 @@ This document explains how DEXON is different compared to other blockchain infra
 ## DEXON
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
 |-|-|-|-|-|
-|1M+|1|DAG|DEXON Byzantine agreement + Total ordering|O|
+|1M+|1|DAG|DEXON Byzantine agreement|O|
 
 DEXON is a scalable, low-latency, energy efficient and inter-chain operable DApp ecosystem. DEXON uses an efficient Byzantine agreement as its main consensus algorithm, of which throughput can scale linearly with the number of nodes while latency remains nearly constant. With the adoption of verifiable random function, DEXON can provide high performance while keeping the network decentralized (~ 100K nodes). With such high throughput and low latency, practical DApp can finally be developed and widely used. 
 
@@ -117,7 +117,7 @@ Ethereum is the first blockchain system that has a complete DApp ecosystem. It h
 |-|-|-|-|-|
 |200K|20|DAG|Hedera|O|
 
-The consensus of Hashgraph is adapted Byzantine agreement on a graph, on the other hand, the core of DEXON consensus is based on total ordering algorithm. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed in Hashgraph. Only correctness proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time remain constant when the number of nodes increases.
+The consensus of Hashgraph is adapted Byzantine agreement on a graph, on the other hand, the core of DEXON consensus is a responsive Byzantine agreement algorithm. Their round-based structure costs a latency of <img src="https://latex.codecogs.com/svg.latex?O(log(n))*T_{network}" /> for each round, which means its confirmation time becomes longer when the number of nodes increases. With this limitation, it cannot be fully decentralized, or the confirmation time can be minutes. Also, the liveness is not guaranteed in Hashgraph. Only correctness proof is provided. With Byzantine nodes presented in its network, it is possible that Hashgraph does not output any block. Meanwhile, DEXON's confirmation time does not increase when the number of nodes increases. Since DEXON consensus has responsiveness, the confirmation time only depends on the actual network speed, not some predefined paramters.
 
 ## Hyperledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -141,7 +141,7 @@ However, the rule is inefficient because the confirmation time is not guaranteed
 |-|-|-|-|-|
 |10K|20|DAG|Chainweb|O|
 
-Kadena aims to solve the scalability issue of blockchain. It uses Chainweb to process transactions in parallel. Each chain includes others' block headers, forming a DAG similar to DEXON blocklattice. To perform cross-chain transactions, one has to provide Merkle proof to smart contract, and assets will be deleted from source chain and re-created on destination chain. Kadena also analyzes peer header relationships and uses specifically designed graphs that have a small diameter and large order to achieve low latency and high throughput.
+Kadena aims to solve the scalability issue of blockchain. Each chain in Kadena includes others' block headers, forming a so-called Chainweb. Chainweb processes transactions in parallel. To perform cross-chain transactions, one has to provide Merkle proof to smart contract, and assets will be deleted from source chain and re-created on destination chain. Kadena also analyzes peer header relationships and uses specifically designed graphs that have a small diameter and large order to achieve low latency and high throughput.
 
 The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(r)"/>, where <img src="https://latex.codecogs.com/svg.latex?r"/> is the diameter of a graph. When it scales up and increases the number of chains, the diameter of the graph also becomes larger, causing the latency to increase. Another problem is when proposing a block on a chain. The block has to include its peer's block headers. This means block proposing is blocking and not efficient, while in DEXON, a block actively acks any other newly proposed blocks, achieving fast non-blocking block proposing.
 
@@ -152,9 +152,9 @@ The latency of Chainweb is <img src="https://latex.codecogs.com/svg.latex?O(r)"/
 
 NANO is the first project that introduces blocklattice as their data structure. Each account has its blockchain, and a transaction it proposed is recorded on its blockchain. When a blockchain fork happens, NANO starts DPoS voting to resolve it.
 
-DEXON's blocklattice is entirely different from NANO's. In DEXON, instead of every account having its blockchain, each validator has a blockchain. This could save a lot of memory space. In our blocklattice, each vertex is a block, while in NANO, each vertex is half of a transaction (send tx or recv tx). From our viewpoint, their blocklattice is more like "tx-lattice," not blocklattice, and we consider blocklattice a general term that can be used by other projects, just like blockchain, since it is just a type of DAG. 
+DEXON chain structure is entirely different from NANO's. In DEXON, instead of every account having its blockchain, each validator has a blockchain. This could save a lot of memory space compared to NANO. In DEXON, each vertex is a block, while in NANO, each vertex is half of a transaction (send tx or recv tx). From our viewpoint, their blocklattice is more like "tx-lattice," not blocklattice, and we consider blocklattice a general term that can be used by other projects, just like blockchain, since it is just a type of DAG. 
 
-DEXON's consensus algorithm is also completely different from NANO's. We use total ordering algorithm to decide an order of blocks and transactions, while NANO does not have consensus on order of transactions. Without ordering transactions, it can not support smart contract. Another problem is its DPoS to resolve fork. The voting process NANO used to resolve fork is mysterious. In its whitepaper, there is no detail about the voting process. The only thing we know is a majority voting with 4 rounds. Without further detail and security proof, we find it hard to believe that NANO is secure. Also, NANO needs PoW to prevent spam (penny) attack, increasing the cost of attack but also limiting its throughput and increasing its latency.  
+DEXON's consensus algorithm is also completely different from NANO's. Validators in DEXON rely on DEXON fast Byzantine agreement algorithm to decide sequence of blocks and transactions, while NANO does not have consensus on order of transactions. Without ordering transactions, it can not support smart contract. Another problem is its DPoS to resolve fork. The voting process NANO used to resolve fork is mysterious. In its whitepaper, there is no detail about the voting process. The only thing we know is a majority voting with 4 rounds. Without further detail and security proof, we find it hard to believe that NANO is secure. Also, NANO needs PoW to prevent spam (penny) attack, increasing the cost of attack but also limiting its throughput and increasing its latency.  
 
 ## Omniledger
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -190,7 +190,7 @@ Unfortunately, fairness does not come without cost. Threshold encryption not on
 
 Phantom is a DAG-based blockchain which is generalized from Bitcoin's longest chain rule on a chain to a DAG. Phantom is a proposal for Spectre, and they proposed a greedy algorithm called ghostDAG protocol to achieve total ordering. However, they did not prove the correctness and liveness of their algorithm or provide the simulation results about Phantom in the distributed setting. Another liveness attack on Phantom was individually proposed by the work from Li et al. and the work from Kiayias and Panagiotakos. They also claimed they would try to combine Phantom and Spectre in the future. We will update the information if they provide new and correct results. 
 
-On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover, the correctness and liveness of DEXON consensus are both proved.
+In DEXON, the correctness and liveness of DEXON Byzantine agreement are both strictly proved.
 
 ## Radix
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -199,7 +199,7 @@ On the other hand, the total ordering in DEXON consensus is guaranteed. Moreover
 
 Radix uses sharding technique to increase throughput. In order to reach consensus among different shards, a transaction needs to be gossipped and be validated by many nodes. Each node provides its local logical clock and appends its value to the transaction. Nodes can then use this logical clock vector to decide partial ordering between two conflict transactions. In case of a concurrent set, a node finds other transactions from its local storage or from its peer trying to decide partial ordering of transactions. 
 
-There is a fundamental problem in Radix: a partial ordering can never become total ordering without consensus algorithm. Some partial ordering of transactions in Radix can be decided by vector timestamps, but no matter how many transactions are involved, there always exists some cases that concurrent set can never be resolved. In other words, orders of some transactions may never be decided and will not be output by the system. What's worse, when a network is shortly partitioned or has a long delay, nodes can have different local views. Since a node decides an ordering from other transactions from its local view, this will cause different ordering among nodes, resulting in a fork, and there is no consensus algorithm in Radix to address this issue. 
+There is a fundamental problem in Radix: a partial ordering can never become total ordering without consensus algorithm. Some partial ordering of transactions in Radix can be decided by vector timestamps, but no matter how many transactions are involved, there always exists some cases that concurrent set can never be resolved. In other words, orders of some transactions may never be decided and will not be output by the system. What's worse, when a network is shortly partitioned or has a long network delay, nodes can have different local views. Since a node decides an ordering from other transactions from its local view, this will cause different ordering among nodes, resulting in a fork, and there is no consensus algorithm in Radix to address this issue. 
 
 To sum up, Radix does not have consensus. It can be used in private / permissioned settings but will not work in a real network environment.
 
@@ -210,7 +210,7 @@ To sum up, Radix does not have consensus. It can be used in private / permission
 
 Snowflake consensus starts from a simple coloring method, adds additional counters and rules, and finally ends up a provably probabilistic secure consensus algorithm, Avalanche. All nodes converge to the same color, which means that they will agree on the same transaction set when conflict happens.
 
-In order to resolve conflict transactions, nodes need to execute Avalanche algorithm on every transaction in a conflict set. So an attacker can spam the system with a large number of conflict transactions, resulting in the system to execute Avalanche algorithm hundreds of thousands of times, and the latency will grow significantly. DEXON will not suffer from such an attack. After total order being decided, the first transaction in the conflict set will be executed, while other conflict transactions are ignored.
+In order to resolve conflict transactions, nodes need to execute Avalanche algorithm on every transaction in a conflict set. So an attacker can spam the system with a large number of conflict transactions, resulting in the system to execute Avalanche algorithm hundreds of thousands of times, and the latency will grow significantly. DEXON will not suffer from such an attack. DEXON Byzantine agreement remains fast no matter how many conflict transactions there are.
 
 ## Spectre
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -262,7 +262,7 @@ TON also has a finalization problem. It allows validators to modify invalid bloc
 
 Vite mainly fixes NANO's problem we mentioned in our [comparison to NANO](#nano). It uses the same blocklattice with NANO, but additionally adds a new consensus mechanism (HDPoS) to construct a snapshot chain. This not only solves security issues in NANO but also orders transactions, making it capable to run smart contract. What's more, Vite inherits NANO's advantages, including nearly instant transactions with high TPS.
 
-One of the difficult challenges to use a DAG structure is to decide the ordering of transactions. Vite has a global consensus group to run a consensus algorithm to create snapshot chain. This algorithm is important because it is the key to improve NANO's disadvantages on security and lack of total ordering. Unfortunately, we can not find any detail about the algorithm in their paper and do not know how transactions on blocklattice are picked and put into snapshot chain. Is this critical process secure and fair? To address this challenges, DEXON develops total ordering algorithm to compact blocklattice into compaction chain. This algorithm is provably secure and reasonably fair.
+One of the difficult challenges to use a DAG structure is to decide the ordering of transactions. Vite has a global consensus group to run a consensus algorithm to create snapshot chain. This algorithm is important because it is the key to improve NANO's disadvantages on security and lack of total ordering. Unfortunately, we can not find any detail about the algorithm in their paper and do not know how transactions on blocklattice are picked and put into snapshot chain. Is this critical process secure and fair? To address this challenges, DEXON develops our own fast Byzantine agreement algorithm, and it is provably secure and reasonably fair.
 
 ## Zilliqa
 |Throughput (TPS)|Latency (seconds)|Data Structure|Consensus|Smart Contract|
@@ -271,4 +271,4 @@ One of the difficult challenges to use a DAG structure is to decide the ordering
 
 Zilliqa is an optimized PBFT. It uses EC-Schnorr multi-signature to aggregate signatures from nodes. This reduces communication cost from <img src="https://latex.codecogs.com/svg.latex?O(n^2)" /> to <img src="https://latex.codecogs.com/svg.latex?O(n)" />. To address limited throughput in a chain-based system, Zilliqa uses sharding technique to process transactions in parallel. A specific shard collects micro blocks from normal shards to produce final blocks.
 
-There are several drawbacks in Zilliqa. First of all, multi-signature aggregation is computationally costly. This is not a problem with ten-second finalization time, but in sub-second finalization time, it is not feasible with a large number of nodes in a shard. Second, Zilliqa uses a specific shard running consensus protocol to combine micro blocks from other shards. This doubles the latency. In DEXON, there is no specific shard to run another redundant consensus protocol. DEXON sharding mechanism is symmetric. We use consensus timestamp computed by total ordering algorithm to form compaction chain, which nodes in each shard can compute by themselves when receiving finalized blocks from other shards.
+There are several drawbacks in Zilliqa. First of all, multi-signature aggregation is computationally costly. This is not a problem with ten-second finalization time, but in sub-second finalization time, it is not feasible with a large number of nodes in a shard. Second, Zilliqa uses a specific shard running consensus protocol to combine micro blocks from other shards. This doubles the latency. In DEXON, there is no specific shard to run another redundant consensus protocol. DEXON uses state sharding, which means each shard only stores state related to itself. This sharding mechanism is symmetric, which means every shard has the same contribution in terms of consensus, and this is considered more fair. 
