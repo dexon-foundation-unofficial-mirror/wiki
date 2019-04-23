@@ -18,7 +18,7 @@ web3
   .then((count) => {
     const rawTx = {
       nonce: web3.utils.numberToHex(count),
-      gasPrice: web3.utils.numberToHex(web3.utils.toWei('10', 'Gwei')),
+      gasPrice: web3.utils.numberToHex(web3.utils.toWei('24', 'Gwei')),
       gasLimit: web3.utils.numberToHex('210000'),
       to: myAddress,
       value: web3.utils.numberToHex('0'),
