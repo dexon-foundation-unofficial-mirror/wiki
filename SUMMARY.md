@@ -51,6 +51,7 @@
     - [DEXON Cryptoeconomics](DEXON-Cryptoeconomics.md)
     - [Governance Contract Interface](Governance-Contract-Interface.md)
     - [Configuration Change](Configuration-Change.md)
+    - [Recovery Mechanism](Recovery-Mechanism.md)
 
 - [Resource](Resource.md)
     - [Blockchain Comparision](Blockchain-Comparison.md)
