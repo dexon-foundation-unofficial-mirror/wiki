@@ -36,4 +36,4 @@ For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundati
 Nodes can pay the fine in the governance contract, see [payFine](https://dexon-foundation.github.io/wiki/Accessing-Governance-Contract.html#pay-fine).
 
 ## Recovery
-Currently, DEXON's [recovery](Recovery-Mechanism.md) is built on top of the Ethereum mainnet. All nodes are required to deposit at least *5 Ether* to the same node address. Ether used for recovery will be returned after DEXON successfully recovered. However, if DEXON failed to recover and result in a hard fork, the stakes of nodes that did not deposit enough amount of Ether will be confiscated.
+Currently, DEXON's [recovery](Recovery-Mechanism.md) is built on top of the Ethereum mainnet. All nodes are required to deposit at least **5 Ether** to the same node address. Ether used for recovery will be returned after DEXON successfully recovered. However, if DEXON failed to recover and result in a hard fork, the stakes of nodes that did not deposit enough amount of Ether will be confiscated.
