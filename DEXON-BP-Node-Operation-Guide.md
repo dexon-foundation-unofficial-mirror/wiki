@@ -66,7 +66,7 @@ A file node.key can be found under the current working directory. node.key is ve
 ### Register your node
 1. Sync DEXON blockchain. Use the following command to download all the blocks in DEXON blockchain.
 ```
-docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+docker run --restart always -v $PWD:/mnt -it dexonfoundation/dexon:latest \
         --bp \
         --nodekey=/mnt/node.key \
         --datadir=/mnt/datadir \
@@ -100,7 +100,7 @@ Note that, the account of node.key and the account to send DXN coin to governanc
 ### Start the BP node
 Use the following command to start the BP node:
 
-    docker run -v $PWD:/mnt -it dexonfoundation/dexon \
+    docker run --restart always -v $PWD:/mnt -it dexonfoundation/dexon:latest \
         --bp \
         --nodekey=/mnt/node.key \
         --datadir=/mnt/datadir \
