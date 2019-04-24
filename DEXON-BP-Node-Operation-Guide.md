@@ -76,11 +76,12 @@ docker run --restart always -v $PWD:/mnt -it dexonfoundation/dexon:latest \
 ```
 When you see `commit pivot`, press `control + c`.
 
-2. Send some DXN to your node key address, 100 DXN should suffice. These DXN are required for the node to send transaction and interact with the consensus protocol. You need to replenish them if it ran out.
-3. Goto the [Governance contract page on DEXONSCAN](https://testnet.dexscan.app/address/0x63751838D6485578B23e8b051d40861eCC416794).
-4. Navigate to the `Write` tab and select `register` from the dropdown menu.
+2. Send some DXN to your node key address, 500 DXN should suffice. These DXN are required for the node to send transaction and interact with the consensus protocol. You need to replenish them if it ran out.
+3. Send 5 ETH (Ethereum mainnet Ether) to your node key address. This is a very **important** step. Since DEXON relies on Ethereum mainnet to recover itself in case there is a catastrophic network failure. There are penalties if a BP node failed to propose recovery vote due to insufficient Ether in their node key address, see [Rules for node set](Rule-for-the-DEXON-node-set.md) for more details.
+4. Goto the [Governance contract page on DEXONSCAN](https://testnet.dexscan.app/address/0x63751838D6485578B23e8b051d40861eCC416794).
+5. Navigate to the `Write` tab and select `register` from the dropdown menu.
 
-5. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
+6. Fill in the information like below; currently, you need 1M DXN to run a BP node. If you don't have enough testnet DXN, ask @wnhuang (telegram) for it.
 
   - Node Public Key (the public key generated above and should not duplicate)
   - Name of the node (maximum length: 32 bytes)
@@ -91,7 +92,7 @@ When you see `commit pivot`, press `control + c`.
 ![Register in Governance Contract Page](https://i.imgur.com/bc2vDgA.png)
 The user whose stake is locked (bought DXN coin in private-sale), please contact DEXON Foundation and provide the information below.
 
-6. Hit send to register your node.
+7. Hit send to register your node.
 
 After this, you are successfully staked and the configuration will start to take effect after 2 epochs (2400 blocks).
 
