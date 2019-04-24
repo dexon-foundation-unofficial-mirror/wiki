@@ -22,7 +22,7 @@ contract Time {
 ```
 calling `getNow()` of the contract returns a time in `milliseconds` in DEXON, while in Ethereum, a time in `seconds` is returned.
 
-Also, the time constants in DEXON's Solidity is also change accordingly.
+Also, the time constants in DEXON's Solidity is also change accordingly (**dsolidity >0.5.3**).
 - `1 second` yields `1000`
 - `1 minute` yields `60000`
 - `1 hour` yields `3600000`
