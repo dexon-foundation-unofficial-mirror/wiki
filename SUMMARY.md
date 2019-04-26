@@ -28,7 +28,7 @@
         - [Mobile SDK](Mobile-SDK.md)
 
 - [API](API.md)
-    - [JSON-RPC API](rpc-api.md)
+    - [JSON-RPC API](JSON-RPC-API.md)
     - [WebSocket API](websocket-api.md)
     - [DATA API](data-api.md)
 
