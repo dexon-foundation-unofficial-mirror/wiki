@@ -29,8 +29,7 @@
 
 - [API](API.md)
     - [JSON-RPC API](JSON-RPC-API.md)
-    - [WebSocket API](websocket-api.md)
-    - [DATA API](data-api.md)
+    - [RPC PUB-SUB API](RPC-PUB-SUB.md)
 
 - [Node Operator Guide](Node-OP-Guide.md)
     - [Running a testnet BP node](Running--a-BP-node-for-Testnet.md)
