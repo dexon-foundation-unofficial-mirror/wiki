@@ -7,4 +7,4 @@
 
 
 ### Reference
-- [NetworkID EIP](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md)
+- [NetworkID SLIP](https://github.com/satoshilabs/slips/blob/master/slip-0044.md)
