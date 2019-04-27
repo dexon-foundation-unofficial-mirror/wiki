@@ -3,7 +3,7 @@
 DEXON Foundation  Last Modified 2019/3/4    v6.0
 
 <p align="center">
-  <img src="https://imgur.com/0p5xQsi" width="400">
+  <img src="https://imgur.com/0p5xQsi.png" width="400">
 </p>
 
 *This document describes the current plan and vision for the DEXON Network platform. While we intend to attempt to realize this vision, please recognize that it is dependent on a number of factors and subject to a wide range of risks. We do not guarantee, represent or warrant any of the statements in this document, because they are based on our current beliefs, expectations and assumptions, about which there can be no assurance due to various anticipated and unanticipated events that may occur. Please know that we seek to achieve the vision laid out in our whitepaper and website, but that you cannot rely on any of it coming true. Blockchain, cryptocurrencies, other aspects of our technology and these markets are in their infancy and will be subject to many challenges, competition and a changing environment.
