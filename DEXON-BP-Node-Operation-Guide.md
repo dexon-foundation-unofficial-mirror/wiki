@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://imgur.com/0p5xQsi.png" width="400">
+</p>
+
 ## Content
 
 - [Objective](#objective)
