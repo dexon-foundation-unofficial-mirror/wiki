@@ -31,7 +31,8 @@ Nodes shall not engage in any of the following conducts:
 5. Failing to finish distributed key generation (DKG)
 6. Failing to propose any blocks during a whole epoch
 
-For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundation. For 5., a fine of the `1 DXN` will be imposed and no blocks can be produced until such fine is paid under the governance contract.  For 6., a fine of the `Block Reward*86400/total Node` will be imposed and no blocks can be produced until such fine is paid under the governance contract.
+For 1. to 4., the entire stake will be confiscated immediately by DEXON Foundation. For 5., a fine of the `1 DXN` will be imposed and no blocks can be produced until such fine is paid under the governance contract.  For 6., a fine of the `100 DXN` will be imposed and no blocks can be produced until such fine is paid under the governance contract.
+<!--- Block Reward*86400/total Node --->
 
 Nodes can pay the fine in the governance contract, see [payFine](https://dexon-foundation.github.io/wiki/Accessing-Governance-Contract.html#pay-fine).
 
